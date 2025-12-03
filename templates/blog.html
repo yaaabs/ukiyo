@@ -1,284 +1,356 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>QR Code Blog & Tutorials | Ukiyo QR - Learn About QR Codes</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Learn everything about QR codes with our comprehensive guides and tutorials. Discover business applications, security best practices, and advanced QR code techniques.">
-  <meta name="keywords" content="QR code blog, QR code tutorials, QR code business guide, QR code security, QR code types, QR code best practices">
-  <meta name="author" content="YabuTech">
-  <meta name="robots" content="index, follow">
-  
-  <!-- Open Graph tags -->
-  <meta property="og:title" content="QR Code Blog & Tutorials | Ukiyo QR">
-  <meta property="og:description" content="Comprehensive guides and tutorials about QR codes, business applications, and security best practices.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ukiyo.onrender.com/blog">
-  
-  <!-- Twitter Card tags -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="QR Code Blog & Tutorials | Ukiyo QR">
-  <meta name="twitter:description" content="Learn everything about QR codes with our comprehensive guides and tutorials.">
-  
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Blog",
-    "name": "Ukiyo QR Blog",
-    "description": "Comprehensive guides and tutorials about QR codes, business applications, and security best practices",
-    "url": "https://ukiyo.onrender.com/blog",
-    "publisher": {
-      "@type": "Organization",
-      "name": "YabuTech",
-      "url": "https://ukiyo.onrender.com"
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://ukiyo.onrender.com/blog"
-    }
-  }
-  </script>
-  
-  <!-- Resource hints -->
-  <link rel="dns-prefetch" href="//fonts.googleapis.com">
-  <link rel="dns-prefetch" href="//fonts.gstatic.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
-  <!-- Optimized font loading -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"></noscript>
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon.png') }}">
-  
-  <!-- Load CSS -->
-  <link rel="preload" href="{{ url_for('static', filename='css/styles.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"></noscript>
-  
-  <!-- Critical CSS for blog -->
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: #1e222c;
-      color: #ffffff;
-      line-height: 1.6;
-    }
-    
-    .blog-container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
-      background: rgba(30,34,44,0.95);
-      border-radius: 1rem;
-      backdrop-filter: blur(10px);
-      min-height: 90vh;
-    }
-    
-    .blog-header {
-      text-align: center;
-      margin-bottom: 3rem;
-      padding-bottom: 2rem;
-      border-bottom: 2px solid #38bdf8;
-    }
-    
-    .blog-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 1rem;
-    }
-    
-    .blog-subtitle {
-      font-size: 1.2rem;
-      color: #94a3b8;
-      margin-bottom: 2rem;
-    }
-    
-    .breadcrumb {
-      margin-bottom: 2rem;
-    }
-    
-    .breadcrumb a {
-      color: #38bdf8;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    
-    .breadcrumb a:hover {
-      text-decoration: underline;
-    }
-    
-    .blog-posts {
-      display: grid;
-      gap: 2rem;
-      margin-bottom: 3rem;
-    }
-    
-    .blog-post-card {
-      background: rgba(255,255,255,0.05);
-      border-radius: 12px;
-      padding: 2rem;
-      border: 1px solid rgba(56, 189, 248, 0.2);
-      transition: all 0.3s ease;
-    }
-    
-    .blog-post-card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(56, 189, 248, 0.4);
-      box-shadow: 0 8px 32px rgba(56, 189, 248, 0.1);
-    }
-    
-    .post-title {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      color: #ffffff;
-    }
-    
-    .post-title a {
-      color: inherit;
-      text-decoration: none;
-    }
-    
-    .post-title a:hover {
-      color: #38bdf8;
-    }
-    
-    .post-excerpt {
-      color: #94a3b8;
-      margin-bottom: 1.5rem;
-      line-height: 1.7;
-    }
-    
-    .post-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.9rem;
-      color: #64748b;
-      margin-bottom: 1rem;
-    }
-    
-    .read-more {
-      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-      color: white;
-      text-decoration: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      font-weight: 500;
-      display: inline-block;
-      transition: all 0.3s ease;
-    }
-    
-    .read-more:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 16px rgba(56, 189, 248, 0.3);
-    }
-    
-    .back-to-home {
-      text-align: center;
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(56, 189, 248, 0.2);
-    }
-    
-    .back-to-home a {
-      background: linear-gradient(135deg, #10b981, #059669);
-      color: white;
-      text-decoration: none;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      font-weight: 600;
-      display: inline-block;
-      transition: all 0.3s ease;
-    }
-    
-    .back-to-home a:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
-    }
-    
-    @media (max-width: 768px) {
-      .blog-title {
-        font-size: 2rem;
+  <head>
+    <meta charset="UTF-8" />
+    <title>QR Code Blog & Tutorials | Ukiyo QR - Learn About QR Codes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Learn everything about QR codes with our comprehensive guides and tutorials. Discover business applications, security best practices, and advanced QR code techniques."
+    />
+    <meta
+      name="keywords"
+      content="QR code blog, QR code tutorials, QR code business guide, QR code security, QR code types, QR code best practices"
+    />
+    <meta name="author" content="YabuTech" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph tags -->
+    <meta property="og:title" content="QR Code Blog & Tutorials | Ukiyo QR" />
+    <meta
+      property="og:description"
+      content="Comprehensive guides and tutorials about QR codes, business applications, and security best practices."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ukiyo.onrender.com/blog" />
+
+    <!-- Twitter Card tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="QR Code Blog & Tutorials | Ukiyo QR" />
+    <meta
+      name="twitter:description"
+      content="Learn everything about QR codes with our comprehensive guides and tutorials."
+    />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Ukiyo QR Blog",
+        "description": "Comprehensive guides and tutorials about QR codes, business applications, and security best practices",
+        "url": "https://ukiyo.onrender.com/blog",
+        "publisher": {
+          "@type": "Organization",
+          "name": "YabuTech",
+          "url": "https://ukiyo.onrender.com"
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://ukiyo.onrender.com/blog"
+        }
       }
-      
+    </script>
+
+    <!-- Resource hints -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Optimized font loading -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    /></noscript>
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{{ url_for('static', filename='img/favicon.png') }}"
+    />
+
+    <!-- Load CSS -->
+    <link
+      rel="preload"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/styles.css') }}"
+    /></noscript>
+
+    <!-- Critical CSS for blog -->
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        background-color: #1e222c;
+        color: #ffffff;
+        line-height: 1.6;
+      }
+
       .blog-container {
-        padding: 1rem;
-        margin: 1rem;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+        background: rgba(30, 34, 44, 0.95);
+        border-radius: 1rem;
+        backdrop-filter: blur(10px);
+        min-height: 90vh;
       }
-      
+
+      .blog-header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
+        border-bottom: 2px solid #38bdf8;
+      }
+
+      .blog-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+      }
+
+      .blog-subtitle {
+        font-size: 1.2rem;
+        color: #94a3b8;
+        margin-bottom: 2rem;
+      }
+
+      .breadcrumb {
+        margin-bottom: 2rem;
+      }
+
+      .breadcrumb a {
+        color: #38bdf8;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .breadcrumb a:hover {
+        text-decoration: underline;
+      }
+
+      .blog-posts {
+        display: grid;
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
       .blog-post-card {
-        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 2rem;
+        border: 1px solid rgba(56, 189, 248, 0.2);
+        transition: all 0.3s ease;
       }
-    }
-  </style>
-</head>
-<body>
-  <div class="blog-container">
-    <nav class="breadcrumb">
-      <a href="/">← Back to QR Generator</a>
-    </nav>
-    
-    <header class="blog-header">
-      <h1 class="blog-title">QR Code Blog & Tutorials</h1>
-      <p class="blog-subtitle">Learn everything about QR codes, from basic usage to advanced business applications</p>
-    </header>
-    
-    <main class="blog-posts">
-      <article class="blog-post-card">
-        <div class="post-meta">
-          <span>📈 Business Guide</span>
-          <span>5 min read</span>
-        </div>
-        <h2 class="post-title">
-          <a href="/blog/qr-codes-business-guide">Complete Guide to Using QR Codes for Business Growth</a>
-        </h2>
-        <p class="post-excerpt">
-          Discover how businesses are leveraging QR codes to enhance customer experience, streamline operations, and drive growth. Learn practical implementation strategies, real-world case studies, and ROI optimization techniques for your business.
+
+      .blog-post-card:hover {
+        transform: translateY(-2px);
+        border-color: rgba(56, 189, 248, 0.4);
+        box-shadow: 0 8px 32px rgba(56, 189, 248, 0.1);
+      }
+
+      .post-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: #ffffff;
+      }
+
+      .post-title a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .post-title a:hover {
+        color: #38bdf8;
+      }
+
+      .post-excerpt {
+        color: #94a3b8;
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
+      }
+
+      .post-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.9rem;
+        color: #64748b;
+        margin-bottom: 1rem;
+      }
+
+      .read-more {
+        background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+        color: white;
+        text-decoration: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 500;
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
+
+      .read-more:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 16px rgba(56, 189, 248, 0.3);
+      }
+
+      .back-to-home {
+        text-align: center;
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(56, 189, 248, 0.2);
+      }
+
+      .back-to-home a {
+        background: linear-gradient(135deg, #10b981, #059669);
+        color: white;
+        text-decoration: none;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
+
+      .back-to-home a:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+      }
+
+      @media (max-width: 768px) {
+        .blog-title {
+          font-size: 2rem;
+        }
+
+        .blog-container {
+          padding: 1rem;
+          margin: 1rem;
+        }
+
+        .blog-post-card {
+          padding: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="blog-container">
+      <nav class="breadcrumb">
+        <a href="/">← Back to QR Generator</a>
+      </nav>
+
+      <header class="blog-header">
+        <h1 class="blog-title">QR Code Blog & Tutorials</h1>
+        <p class="blog-subtitle">
+          Learn everything about QR codes, from basic usage to advanced business
+          applications
         </p>
-        <a href="/blog/qr-codes-business-guide" class="read-more">Read Full Guide →</a>
-      </article>
-      
-      <article class="blog-post-card">
-        <div class="post-meta">
-          <span>🔍 Technical Guide</span>
-          <span>7 min read</span>
-        </div>
-        <h2 class="post-title">
-          <a href="/blog/qr-code-types-explained">QR Code Types Explained: Which Format Should You Use?</a>
-        </h2>
-        <p class="post-excerpt">
-          Understanding different QR code formats is crucial for optimal performance. Explore URL QR codes, vCard contacts, WiFi credentials, SMS messages, email templates, and advanced formats like dynamic QR codes with analytics tracking.
-        </p>
-        <a href="/blog/qr-code-types-explained" class="read-more">Learn More →</a>
-      </article>
-      
-      <article class="blog-post-card">
-        <div class="post-meta">
-          <span>🛡️ Security Guide</span>
-          <span>6 min read</span>
-        </div>
-        <h2 class="post-title">
-          <a href="/blog/qr-code-security-best-practices">QR Code Security: Best Practices and Risk Prevention</a>
-        </h2>
-        <p class="post-excerpt">
-          Protect your users and business from QR code security threats. Learn about malicious QR codes, phishing attacks, data privacy concerns, and implement comprehensive security measures for safe QR code deployment.
-        </p>
-        <a href="/blog/qr-code-security-best-practices" class="read-more">Secure Your QR Codes →</a>
-      </article>
-    </main>
-    
-    <div class="back-to-home">
-      <a href="/">🌊 Generate QR Codes Now</a>
+      </header>
+
+      <main class="blog-posts">
+        <article class="blog-post-card">
+          <div class="post-meta">
+            <span>📈 Business Guide</span>
+            <span>5 min read</span>
+          </div>
+          <h2 class="post-title">
+            <a href="/blog/qr-codes-business-guide"
+              >Complete Guide to Using QR Codes for Business Growth</a
+            >
+          </h2>
+          <p class="post-excerpt">
+            Discover how businesses are leveraging QR codes to enhance customer
+            experience, streamline operations, and drive growth. Learn practical
+            implementation strategies, real-world case studies, and ROI
+            optimization techniques for your business.
+          </p>
+          <a href="/blog/qr-codes-business-guide" class="read-more"
+            >Read Full Guide →</a
+          >
+        </article>
+
+        <article class="blog-post-card">
+          <div class="post-meta">
+            <span>🔍 Technical Guide</span>
+            <span>7 min read</span>
+          </div>
+          <h2 class="post-title">
+            <a href="/blog/qr-code-types-explained"
+              >QR Code Types Explained: Which Format Should You Use?</a
+            >
+          </h2>
+          <p class="post-excerpt">
+            Understanding different QR code formats is crucial for optimal
+            performance. Explore URL QR codes, vCard contacts, WiFi credentials,
+            SMS messages, email templates, and advanced formats like dynamic QR
+            codes with analytics tracking.
+          </p>
+          <a href="/blog/qr-code-types-explained" class="read-more"
+            >Learn More →</a
+          >
+        </article>
+
+        <article class="blog-post-card">
+          <div class="post-meta">
+            <span>🛡️ Security Guide</span>
+            <span>6 min read</span>
+          </div>
+          <h2 class="post-title">
+            <a href="/blog/qr-code-security-best-practices"
+              >QR Code Security: Best Practices and Risk Prevention</a
+            >
+          </h2>
+          <p class="post-excerpt">
+            Protect your users and business from QR code security threats. Learn
+            about malicious QR codes, phishing attacks, data privacy concerns,
+            and implement comprehensive security measures for safe QR code
+            deployment.
+          </p>
+          <a href="/blog/qr-code-security-best-practices" class="read-more"
+            >Secure Your QR Codes →</a
+          >
+        </article>
+      </main>
+
+      <div class="back-to-home">
+        <a href="/">🌊 Generate QR Codes Now</a>
+      </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>

@@ -1,468 +1,644 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Privacy Policy | Ukiyo QR - Your Privacy is Our Priority</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Ukiyo QR Privacy Policy - Learn how we protect your data and privacy. We don't store your QR code data or track your usage. Complete transparency about our privacy practices.">
-  <meta name="keywords" content="privacy policy, data protection, QR code privacy, no tracking, data security, GDPR compliance">
-  <meta name="author" content="YabuTech">
-  <meta name="robots" content="index, follow">
-  
-  <!-- Open Graph tags -->
-  <meta property="og:title" content="Privacy Policy | Ukiyo QR">
-  <meta property="og:description" content="Complete transparency about our privacy practices. We don't store your data or track your usage.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ukiyo.onrender.com/privacy-policy">
-  
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Privacy Policy",
-    "description": "Ukiyo QR Privacy Policy - Complete transparency about our privacy practices",
-    "url": "https://ukiyo.onrender.com/privacy-policy",
-    "publisher": {
-      "@type": "Organization",
-      "name": "YabuTech",
-      "url": "https://ukiyo.onrender.com"
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://ukiyo.onrender.com/privacy-policy"
-    }
-  }
-  </script>
-  
-  <!-- Fonts and styles -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"></noscript>
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon.png') }}">
-  
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: #1e222c;
-      color: #ffffff;
-      line-height: 1.7;
-    }
-    
-    .policy-container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
-      background: rgba(30,34,44,0.95);
-      border-radius: 1rem;
-      backdrop-filter: blur(10px);
-      min-height: 90vh;
-    }
-    
-    .breadcrumb {
-      margin-bottom: 2rem;
-      font-size: 0.9rem;
-    }
-    
-    .breadcrumb a {
-      color: #38bdf8;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    
-    .breadcrumb a:hover {
-      text-decoration: underline;
-    }
-    
-    .policy-header {
-      margin-bottom: 3rem;
-      text-align: center;
-      padding-bottom: 2rem;
-      border-bottom: 2px solid #10b981;
-    }
-    
-    .policy-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #10b981, #059669);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-    
-    .policy-subtitle {
-      color: #94a3b8;
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-    }
-    
-    .last-updated {
-      color: #64748b;
-      font-size: 0.9rem;
-      font-style: italic;
-    }
-    
-    .policy-content {
-      font-size: 1.1rem;
-      line-height: 1.8;
-    }
-    
-    .policy-content h2 {
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: #10b981;
-      margin: 2.5rem 0 1.5rem 0;
-      border-left: 4px solid #10b981;
-      padding-left: 1rem;
-    }
-    
-    .policy-content h3 {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #38bdf8;
-      margin: 2rem 0 1rem 0;
-    }
-    
-    .policy-content p {
-      margin-bottom: 1.5rem;
-      color: #e2e8f0;
-    }
-    
-    .policy-content ul, .policy-content ol {
-      margin-bottom: 1.5rem;
-      padding-left: 2rem;
-    }
-    
-    .policy-content li {
-      margin-bottom: 0.5rem;
-      color: #e2e8f0;
-    }
-    
-    .highlight-section {
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      border-radius: 12px;
-      padding: 2rem;
-      margin: 2rem 0;
-    }
-    
-    .highlight-section h4 {
-      color: #10b981;
-      margin-top: 0;
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
-    
-    .data-table {
-      background: rgba(255,255,255,0.05);
-      border-radius: 12px;
-      padding: 2rem;
-      margin: 2rem 0;
-      overflow-x: auto;
-    }
-    
-    .data-table table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    
-    .data-table th,
-    .data-table td {
-      padding: 1rem;
-      text-align: left;
-      border-bottom: 1px solid rgba(16, 185, 129, 0.2);
-    }
-    
-    .data-table th {
-      background: rgba(16, 185, 129, 0.1);
-      color: #10b981;
-      font-weight: 600;
-    }
-    
-    .data-table td {
-      color: #e2e8f0;
-    }
-    
-    .contact-section {
-      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-      border-radius: 12px;
-      padding: 2rem;
-      text-align: center;
-      margin: 3rem 0;
-    }
-    
-    .contact-section h3 {
-      color: white;
-      margin-bottom: 1rem;
-    }
-    
-    .contact-section p {
-      color: rgba(255,255,255,0.9);
-      margin-bottom: 1.5rem;
-    }
-    
-    .contact-button {
-      background: white;
-      color: #0ea5e9;
-      text-decoration: none;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      font-weight: 600;
-      display: inline-block;
-      transition: all 0.3s ease;
-    }
-    
-    .contact-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-    }
-    
-    .back-to-home {
-      text-align: center;
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(16, 185, 129, 0.2);
-    }
-    
-    .back-to-home a {
-      background: linear-gradient(135deg, #10b981, #059669);
-      color: white;
-      text-decoration: none;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      font-weight: 600;
-      display: inline-block;
-      transition: all 0.3s ease;
-    }
-    
-    .back-to-home a:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
-    }
-    
-    @media (max-width: 768px) {
-      .policy-title {
-        font-size: 2rem;
+  <head>
+    <meta charset="UTF-8" />
+    <title>Privacy Policy | Ukiyo QR - Your Privacy is Our Priority</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Ukiyo QR Privacy Policy - Learn how we protect your data and privacy. We don't store your QR code data or track your usage. Complete transparency about our privacy practices."
+    />
+    <meta
+      name="keywords"
+      content="privacy policy, data protection, QR code privacy, no tracking, data security, GDPR compliance"
+    />
+    <meta name="author" content="YabuTech" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph tags -->
+    <meta property="og:title" content="Privacy Policy | Ukiyo QR" />
+    <meta
+      property="og:description"
+      content="Complete transparency about our privacy practices. We don't store your data or track your usage."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://ukiyo.onrender.com/privacy-policy"
+    />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Privacy Policy",
+        "description": "Ukiyo QR Privacy Policy - Complete transparency about our privacy practices",
+        "url": "https://ukiyo.onrender.com/privacy-policy",
+        "publisher": {
+          "@type": "Organization",
+          "name": "YabuTech",
+          "url": "https://ukiyo.onrender.com"
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://ukiyo.onrender.com/privacy-policy"
+        }
       }
-      
+    </script>
+
+    <!-- Fonts and styles -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    /></noscript>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{{ url_for('static', filename='img/favicon.png') }}"
+    />
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        background-color: #1e222c;
+        color: #ffffff;
+        line-height: 1.7;
+      }
+
       .policy-container {
-        padding: 1rem;
-        margin: 1rem;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+        background: rgba(30, 34, 44, 0.95);
+        border-radius: 1rem;
+        backdrop-filter: blur(10px);
+        min-height: 90vh;
       }
-    }
-  </style>
-</head>
-<body>
-  <div class="policy-container">
-    <nav class="breadcrumb">
-      <a href="/">← Back to QR Generator</a>
-    </nav>
-    
-    <header class="policy-header">
-      <h1 class="policy-title">Privacy Policy</h1>
-      <p class="policy-subtitle">Your privacy is our priority. Complete transparency about our data practices.</p>
-      <p class="last-updated">Last updated: January 15, 2025</p>
-    </header>
-    
-    <main class="policy-content">
-      <div class="highlight-section">
-        <h4>🛡️ Privacy-First Commitment</h4>
-        <p><strong>Ukiyo QR is designed with privacy at its core.</strong> We don't store your QR code data, don't track your usage, and don't require any personal information. Your data stays on your device, and your privacy remains intact.</p>
+
+      .breadcrumb {
+        margin-bottom: 2rem;
+        font-size: 0.9rem;
+      }
+
+      .breadcrumb a {
+        color: #38bdf8;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .breadcrumb a:hover {
+        text-decoration: underline;
+      }
+
+      .policy-header {
+        margin-bottom: 3rem;
+        text-align: center;
+        padding-bottom: 2rem;
+        border-bottom: 2px solid #10b981;
+      }
+
+      .policy-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #10b981, #059669);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .policy-subtitle {
+        color: #94a3b8;
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+      }
+
+      .last-updated {
+        color: #64748b;
+        font-size: 0.9rem;
+        font-style: italic;
+      }
+
+      .policy-content {
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+
+      .policy-content h2 {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #10b981;
+        margin: 2.5rem 0 1.5rem 0;
+        border-left: 4px solid #10b981;
+        padding-left: 1rem;
+      }
+
+      .policy-content h3 {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #38bdf8;
+        margin: 2rem 0 1rem 0;
+      }
+
+      .policy-content p {
+        margin-bottom: 1.5rem;
+        color: #e2e8f0;
+      }
+
+      .policy-content ul,
+      .policy-content ol {
+        margin-bottom: 1.5rem;
+        padding-left: 2rem;
+      }
+
+      .policy-content li {
+        margin-bottom: 0.5rem;
+        color: #e2e8f0;
+      }
+
+      .highlight-section {
+        background: rgba(16, 185, 129, 0.1);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        border-radius: 12px;
+        padding: 2rem;
+        margin: 2rem 0;
+      }
+
+      .highlight-section h4 {
+        color: #10b981;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .data-table {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 2rem;
+        margin: 2rem 0;
+        overflow-x: auto;
+      }
+
+      .data-table table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .data-table th,
+      .data-table td {
+        padding: 1rem;
+        text-align: left;
+        border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+      }
+
+      .data-table th {
+        background: rgba(16, 185, 129, 0.1);
+        color: #10b981;
+        font-weight: 600;
+      }
+
+      .data-table td {
+        color: #e2e8f0;
+      }
+
+      .contact-section {
+        background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+        border-radius: 12px;
+        padding: 2rem;
+        text-align: center;
+        margin: 3rem 0;
+      }
+
+      .contact-section h3 {
+        color: white;
+        margin-bottom: 1rem;
+      }
+
+      .contact-section p {
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-button {
+        background: white;
+        color: #0ea5e9;
+        text-decoration: none;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
+
+      .contact-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      }
+
+      .back-to-home {
+        text-align: center;
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(16, 185, 129, 0.2);
+      }
+
+      .back-to-home a {
+        background: linear-gradient(135deg, #10b981, #059669);
+        color: white;
+        text-decoration: none;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
+
+      .back-to-home a:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+      }
+
+      @media (max-width: 768px) {
+        .policy-title {
+          font-size: 2rem;
+        }
+
+        .policy-container {
+          padding: 1rem;
+          margin: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="policy-container">
+      <nav class="breadcrumb">
+        <a href="/">← Back to QR Generator</a>
+      </nav>
+
+      <header class="policy-header">
+        <h1 class="policy-title">Privacy Policy</h1>
+        <p class="policy-subtitle">
+          Your privacy is our priority. Complete transparency about our data
+          practices.
+        </p>
+        <p class="last-updated">Last updated: January 15, 2025</p>
+      </header>
+
+      <main class="policy-content">
+        <div class="highlight-section">
+          <h4>🛡️ Privacy-First Commitment</h4>
+          <p>
+            <strong>Ukiyo QR is designed with privacy at its core.</strong> We
+            don't store your QR code data, don't track your usage, and don't
+            require any personal information. Your data stays on your device,
+            and your privacy remains intact.
+          </p>
+        </div>
+
+        <h2>1. Information We Collect</h2>
+
+        <h3>Data We DON'T Collect</h3>
+        <ul>
+          <li>
+            <strong>QR Code Content:</strong> We don't store the text, URLs, or
+            data you enter to generate QR codes
+          </li>
+          <li>
+            <strong>Personal Information:</strong> No names, email addresses,
+            phone numbers, or contact details
+          </li>
+          <li>
+            <strong>User Accounts:</strong> No registration, login, or user
+            profiles required
+          </li>
+          <li>
+            <strong>Tracking Data:</strong> No cookies, fingerprinting, or
+            behavioral tracking
+          </li>
+          <li>
+            <strong>Location Data:</strong> No GPS coordinates or location-based
+            information
+          </li>
+        </ul>
+
+        <h3>Technical Data We May Collect</h3>
+        <div class="data-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Data Type</th>
+                <th>Purpose</th>
+                <th>Retention</th>
+                <th>Sharing</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Server Logs</td>
+                <td>Security & Performance</td>
+                <td>30 days</td>
+                <td>Never shared</td>
+              </tr>
+              <tr>
+                <td>Error Reports</td>
+                <td>Bug fixes & improvements</td>
+                <td>90 days</td>
+                <td>Never shared</td>
+              </tr>
+              <tr>
+                <td>Anonymous Analytics</td>
+                <td>Usage statistics</td>
+                <td>12 months</td>
+                <td>Aggregated only</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>2. How We Process Your Data</h2>
+
+        <h3>QR Code Generation Process</h3>
+        <ol>
+          <li>
+            <strong>Input Processing:</strong> Your text/URL is processed
+            locally in your browser when possible
+          </li>
+          <li>
+            <strong>Server Generation:</strong> For complex QR codes, data is
+            temporarily processed on our server
+          </li>
+          <li>
+            <strong>Immediate Deletion:</strong> All input data is deleted
+            immediately after QR code generation
+          </li>
+          <li>
+            <strong>No Storage:</strong> Generated QR codes are not stored on
+            our servers
+          </li>
+          <li>
+            <strong>Secure Transmission:</strong> All data transmission uses
+            HTTPS encryption
+          </li>
+        </ol>
+
+        <h3>Data Processing Principles</h3>
+        <ul>
+          <li>
+            <strong>Minimization:</strong> We collect only what's absolutely
+            necessary for functionality
+          </li>
+          <li>
+            <strong>Purpose Limitation:</strong> Data is used only for its
+            intended purpose
+          </li>
+          <li>
+            <strong>Accuracy:</strong> We ensure data accuracy and prompt
+            correction
+          </li>
+          <li>
+            <strong>Storage Limitation:</strong> Data is kept only as long as
+            necessary
+          </li>
+          <li>
+            <strong>Security:</strong> Appropriate technical and organizational
+            measures protect data
+          </li>
+        </ul>
+
+        <h2>3. Third-Party Services</h2>
+
+        <h3>Google AdSense (When Applicable)</h3>
+        <p>
+          If we implement Google AdSense in the future, the following applies:
+        </p>
+        <ul>
+          <li>Google may use cookies and web beacons to serve relevant ads</li>
+          <li>
+            You can opt out of personalized advertising at
+            <a href="https://www.google.com/settings/ads" style="color: #38bdf8"
+              >Google Ad Settings</a
+            >
+          </li>
+          <li>
+            We don't share your personal data with Google beyond what's
+            automatically collected
+          </li>
+          <li>Ad serving is subject to Google's privacy policy</li>
+        </ul>
+
+        <h3>Content Delivery Network (CDN)</h3>
+        <p>We use CDN services for faster content delivery:</p>
+        <ul>
+          <li>
+            Static assets (CSS, JavaScript, images) may be served through CDNs
+          </li>
+          <li>
+            CDNs may log IP addresses for security and performance purposes
+          </li>
+          <li>No personal data is transmitted to CDN providers</li>
+        </ul>
+
+        <h2>4. Data Security</h2>
+
+        <h3>Security Measures</h3>
+        <ul>
+          <li>
+            <strong>HTTPS Encryption:</strong> All data transmission is
+            encrypted using TLS 1.3
+          </li>
+          <li>
+            <strong>Secure Headers:</strong> Content Security Policy, HSTS, and
+            other security headers
+          </li>
+          <li>
+            <strong>Input Validation:</strong> All user inputs are validated and
+            sanitized
+          </li>
+          <li>
+            <strong>Regular Updates:</strong> Security patches and updates are
+            applied promptly
+          </li>
+          <li>
+            <strong>Access Controls:</strong> Strict access controls for server
+            infrastructure
+          </li>
+        </ul>
+
+        <h3>Data Breach Response</h3>
+        <p>In the unlikely event of a data breach:</p>
+        <ol>
+          <li>We will assess the scope and impact within 24 hours</li>
+          <li>Affected users will be notified within 72 hours</li>
+          <li>Regulatory authorities will be notified as required</li>
+          <li>
+            Immediate steps will be taken to contain and remedy the breach
+          </li>
+        </ol>
+
+        <h2>5. Your Rights</h2>
+
+        <h3>Privacy Rights</h3>
+        <p>
+          Under applicable privacy laws (GDPR, CCPA, etc.), you have the right
+          to:
+        </p>
+        <ul>
+          <li>
+            <strong>Access:</strong> Request information about data we process
+            (minimal in our case)
+          </li>
+          <li>
+            <strong>Rectification:</strong> Correct inaccurate personal data
+          </li>
+          <li>
+            <strong>Erasure:</strong> Request deletion of your personal data
+          </li>
+          <li>
+            <strong>Portability:</strong> Receive your data in a
+            machine-readable format
+          </li>
+          <li>
+            <strong>Objection:</strong> Object to processing of your personal
+            data
+          </li>
+          <li>
+            <strong>Restriction:</strong> Request restriction of processing
+          </li>
+        </ul>
+
+        <h3>Exercising Your Rights</h3>
+        <p>
+          Since we don't collect personal data, most rights requests are
+          automatically fulfilled by our privacy-by-design approach. For any
+          questions or concerns, contact us using the information below.
+        </p>
+
+        <h2>6. International Data Transfers</h2>
+
+        <p>
+          Our service is hosted on secure cloud infrastructure. If data crosses
+          international borders:
+        </p>
+        <ul>
+          <li>Transfers are protected by appropriate safeguards</li>
+          <li>We ensure adequate protection levels in destination countries</li>
+          <li>Standard contractual clauses are used where applicable</li>
+          <li>Data subjects' rights remain protected regardless of location</li>
+        </ul>
+
+        <h2>7. Children's Privacy</h2>
+
+        <p>Ukiyo QR is safe for users of all ages:</p>
+        <ul>
+          <li>
+            We don't knowingly collect personal information from children under
+            13
+          </li>
+          <li>
+            No age verification is required as we don't collect personal data
+          </li>
+          <li>Parents can safely allow children to use our service</li>
+          <li>Educational use is encouraged and supported</li>
+        </ul>
+
+        <h2>8. Changes to This Policy</h2>
+
+        <p>We may update this privacy policy to reflect:</p>
+        <ul>
+          <li>Changes in our data processing practices</li>
+          <li>New legal requirements or regulations</li>
+          <li>Improvements to our privacy protections</li>
+          <li>User feedback and suggestions</li>
+        </ul>
+
+        <p>Material changes will be communicated through:</p>
+        <ul>
+          <li>Updated policy posted on our website</li>
+          <li>Notice on our homepage for 30 days</li>
+          <li>Email notification if we have your contact information</li>
+        </ul>
+
+        <h2>9. Legal Basis for Processing</h2>
+
+        <p>Our legal basis for processing data includes:</p>
+        <ul>
+          <li>
+            <strong>Legitimate Interest:</strong> Providing QR code generation
+            services
+          </li>
+          <li>
+            <strong>Consent:</strong> When you voluntarily use our service
+          </li>
+          <li>
+            <strong>Legal Obligation:</strong> Compliance with applicable laws
+          </li>
+          <li>
+            <strong>Vital Interest:</strong> Protecting security and preventing
+            abuse
+          </li>
+        </ul>
+
+        <div class="contact-section">
+          <h3>Questions About Privacy?</h3>
+          <p>
+            We're committed to transparency and protecting your privacy. Contact
+            us with any questions or concerns.
+          </p>
+          <a href="/contact" class="contact-button">Contact Us</a>
+        </div>
+
+        <h2>10. Contact Information</h2>
+
+        <p>For privacy-related questions, concerns, or requests:</p>
+
+        <ul>
+          <li><strong>Email:</strong> brianyabutech@gmail.com</li>
+          <li><strong>Response Time:</strong> Within 48 hours</li>
+          <li>
+            <strong>Data Protection Officer:</strong> Available upon request
+          </li>
+          <li>
+            <strong>Postal Address:</strong> Available upon request for legal
+            purposes
+          </li>
+        </ul>
+
+        <p>
+          <strong
+            >This privacy policy demonstrates our commitment to protecting your
+            privacy while providing a valuable QR code generation service. Your
+            trust is important to us, and we work continuously to earn and
+            maintain it.</strong
+          >
+        </p>
+      </main>
+
+      <div class="back-to-home">
+        <a href="/">🌊 Generate QR Codes Now</a>
       </div>
-      
-      <h2>1. Information We Collect</h2>
-      
-      <h3>Data We DON'T Collect</h3>
-      <ul>
-        <li><strong>QR Code Content:</strong> We don't store the text, URLs, or data you enter to generate QR codes</li>
-        <li><strong>Personal Information:</strong> No names, email addresses, phone numbers, or contact details</li>
-        <li><strong>User Accounts:</strong> No registration, login, or user profiles required</li>
-        <li><strong>Tracking Data:</strong> No cookies, fingerprinting, or behavioral tracking</li>
-        <li><strong>Location Data:</strong> No GPS coordinates or location-based information</li>
-      </ul>
-      
-      <h3>Technical Data We May Collect</h3>
-      <div class="data-table">
-        <table>
-          <thead>
-            <tr>
-              <th>Data Type</th>
-              <th>Purpose</th>
-              <th>Retention</th>
-              <th>Sharing</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Server Logs</td>
-              <td>Security & Performance</td>
-              <td>30 days</td>
-              <td>Never shared</td>
-            </tr>
-            <tr>
-              <td>Error Reports</td>
-              <td>Bug fixes & improvements</td>
-              <td>90 days</td>
-              <td>Never shared</td>
-            </tr>
-            <tr>
-              <td>Anonymous Analytics</td>
-              <td>Usage statistics</td>
-              <td>12 months</td>
-              <td>Aggregated only</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      
-      <h2>2. How We Process Your Data</h2>
-      
-      <h3>QR Code Generation Process</h3>
-      <ol>
-        <li><strong>Input Processing:</strong> Your text/URL is processed locally in your browser when possible</li>
-        <li><strong>Server Generation:</strong> For complex QR codes, data is temporarily processed on our server</li>
-        <li><strong>Immediate Deletion:</strong> All input data is deleted immediately after QR code generation</li>
-        <li><strong>No Storage:</strong> Generated QR codes are not stored on our servers</li>
-        <li><strong>Secure Transmission:</strong> All data transmission uses HTTPS encryption</li>
-      </ol>
-      
-      <h3>Data Processing Principles</h3>
-      <ul>
-        <li><strong>Minimization:</strong> We collect only what's absolutely necessary for functionality</li>
-        <li><strong>Purpose Limitation:</strong> Data is used only for its intended purpose</li>
-        <li><strong>Accuracy:</strong> We ensure data accuracy and prompt correction</li>
-        <li><strong>Storage Limitation:</strong> Data is kept only as long as necessary</li>
-        <li><strong>Security:</strong> Appropriate technical and organizational measures protect data</li>
-      </ul>
-      
-      <h2>3. Third-Party Services</h2>
-      
-      <h3>Google AdSense (When Applicable)</h3>
-      <p>If we implement Google AdSense in the future, the following applies:</p>
-      <ul>
-        <li>Google may use cookies and web beacons to serve relevant ads</li>
-        <li>You can opt out of personalized advertising at <a href="https://www.google.com/settings/ads" style="color: #38bdf8;">Google Ad Settings</a></li>
-        <li>We don't share your personal data with Google beyond what's automatically collected</li>
-        <li>Ad serving is subject to Google's privacy policy</li>
-      </ul>
-      
-      <h3>Content Delivery Network (CDN)</h3>
-      <p>We use CDN services for faster content delivery:</p>
-      <ul>
-        <li>Static assets (CSS, JavaScript, images) may be served through CDNs</li>
-        <li>CDNs may log IP addresses for security and performance purposes</li>
-        <li>No personal data is transmitted to CDN providers</li>
-      </ul>
-      
-      <h2>4. Data Security</h2>
-      
-      <h3>Security Measures</h3>
-      <ul>
-        <li><strong>HTTPS Encryption:</strong> All data transmission is encrypted using TLS 1.3</li>
-        <li><strong>Secure Headers:</strong> Content Security Policy, HSTS, and other security headers</li>
-        <li><strong>Input Validation:</strong> All user inputs are validated and sanitized</li>
-        <li><strong>Regular Updates:</strong> Security patches and updates are applied promptly</li>
-        <li><strong>Access Controls:</strong> Strict access controls for server infrastructure</li>
-      </ul>
-      
-      <h3>Data Breach Response</h3>
-      <p>In the unlikely event of a data breach:</p>
-      <ol>
-        <li>We will assess the scope and impact within 24 hours</li>
-        <li>Affected users will be notified within 72 hours</li>
-        <li>Regulatory authorities will be notified as required</li>
-        <li>Immediate steps will be taken to contain and remedy the breach</li>
-      </ol>
-      
-      <h2>5. Your Rights</h2>
-      
-      <h3>Privacy Rights</h3>
-      <p>Under applicable privacy laws (GDPR, CCPA, etc.), you have the right to:</p>
-      <ul>
-        <li><strong>Access:</strong> Request information about data we process (minimal in our case)</li>
-        <li><strong>Rectification:</strong> Correct inaccurate personal data</li>
-        <li><strong>Erasure:</strong> Request deletion of your personal data</li>
-        <li><strong>Portability:</strong> Receive your data in a machine-readable format</li>
-        <li><strong>Objection:</strong> Object to processing of your personal data</li>
-        <li><strong>Restriction:</strong> Request restriction of processing</li>
-      </ul>
-      
-      <h3>Exercising Your Rights</h3>
-      <p>Since we don't collect personal data, most rights requests are automatically fulfilled by our privacy-by-design approach. For any questions or concerns, contact us using the information below.</p>
-      
-      <h2>6. International Data Transfers</h2>
-      
-      <p>Our service is hosted on secure cloud infrastructure. If data crosses international borders:</p>
-      <ul>
-        <li>Transfers are protected by appropriate safeguards</li>
-        <li>We ensure adequate protection levels in destination countries</li>
-        <li>Standard contractual clauses are used where applicable</li>
-        <li>Data subjects' rights remain protected regardless of location</li>
-      </ul>
-      
-      <h2>7. Children's Privacy</h2>
-      
-      <p>Ukiyo QR is safe for users of all ages:</p>
-      <ul>
-        <li>We don't knowingly collect personal information from children under 13</li>
-        <li>No age verification is required as we don't collect personal data</li>
-        <li>Parents can safely allow children to use our service</li>
-        <li>Educational use is encouraged and supported</li>
-      </ul>
-      
-      <h2>8. Changes to This Policy</h2>
-      
-      <p>We may update this privacy policy to reflect:</p>
-      <ul>
-        <li>Changes in our data processing practices</li>
-        <li>New legal requirements or regulations</li>
-        <li>Improvements to our privacy protections</li>
-        <li>User feedback and suggestions</li>
-      </ul>
-      
-      <p>Material changes will be communicated through:</p>
-      <ul>
-        <li>Updated policy posted on our website</li>
-        <li>Notice on our homepage for 30 days</li>
-        <li>Email notification if we have your contact information</li>
-      </ul>
-      
-      <h2>9. Legal Basis for Processing</h2>
-      
-      <p>Our legal basis for processing data includes:</p>
-      <ul>
-        <li><strong>Legitimate Interest:</strong> Providing QR code generation services</li>
-        <li><strong>Consent:</strong> When you voluntarily use our service</li>
-        <li><strong>Legal Obligation:</strong> Compliance with applicable laws</li>
-        <li><strong>Vital Interest:</strong> Protecting security and preventing abuse</li>
-      </ul>
-      
-      <div class="contact-section">
-        <h3>Questions About Privacy?</h3>
-        <p>We're committed to transparency and protecting your privacy. Contact us with any questions or concerns.</p>
-        <a href="/contact" class="contact-button">Contact Us</a>
-      </div>
-      
-      <h2>10. Contact Information</h2>
-      
-      <p>For privacy-related questions, concerns, or requests:</p>
-      
-      <ul>
-        <li><strong>Email:</strong> brianyabutech@gmail.com</li>
-        <li><strong>Response Time:</strong> Within 48 hours</li>
-        <li><strong>Data Protection Officer:</strong> Available upon request</li>
-        <li><strong>Postal Address:</strong> Available upon request for legal purposes</li>
-      </ul>
-      
-      <p><strong>This privacy policy demonstrates our commitment to protecting your privacy while providing a valuable QR code generation service. Your trust is important to us, and we work continuously to earn and maintain it.</strong></p>
-    </main>
-    
-    <div class="back-to-home">
-      <a href="/">🌊 Generate QR Codes Now</a>
     </div>
-  </div>
-</body>
+  </body>
 </html>

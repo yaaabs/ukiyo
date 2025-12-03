@@ -1,535 +1,627 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Contact Us | Ukiyo QR - Get Support & Feedback</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Contact Ukiyo QR for support, feedback, or questions. Get help with QR code generation, report issues, or suggest improvements to our service.">
-  <meta name="keywords" content="contact Ukiyo QR, QR code support, customer service, feedback, help, technical support">
-  <meta name="author" content="YabuTech">
-  <meta name="robots" content="index, follow">
-  
-  <!-- Open Graph tags -->
-  <meta property="og:title" content="Contact Us | Ukiyo QR">
-  <meta property="og:description" content="Get support, provide feedback, or ask questions about our QR code generator service.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ukiyo.onrender.com/contact">
-  
-  <!-- Contact structured data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    "name": "Contact Ukiyo QR",
-    "description": "Contact page for Ukiyo QR code generator support and feedback",
-    "url": "https://ukiyo.onrender.com/contact",
-    "mainEntity": {
-      "@type": "Organization",
-      "name": "YabuTech",
-      "email": "brianyabutech@gmail.com",
-      "url": "https://ukiyo.onrender.com",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "customer support",
-        "email": "brianyabutech@gmail.com",
-        "availableLanguage": "English"
-      }
-    }
-  }
-  </script>
-  
-  <!-- Fonts and styles -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"></noscript>
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon.png') }}">
-  
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: #1e222c;
-      color: #ffffff;
-      line-height: 1.7;
-    }
-    
-    .contact-container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
-      background: rgba(30,34,44,0.95);
-      border-radius: 1rem;
-      backdrop-filter: blur(10px);
-      min-height: 90vh;
-    }
-    
-    .breadcrumb {
-      margin-bottom: 2rem;
-      font-size: 0.9rem;
-    }
-    
-    .breadcrumb a {
-      color: #38bdf8;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    
-    .breadcrumb a:hover {
-      text-decoration: underline;
-    }
-    
-    .contact-header {
-      margin-bottom: 3rem;
-      text-align: center;
-      padding-bottom: 2rem;
-      border-bottom: 2px solid #38bdf8;
-    }
-    
-    .contact-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-    
-    .contact-subtitle {
-      color: #94a3b8;
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-    }
-    
-    .contact-methods {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-bottom: 3rem;
-    }
-    
-    .contact-method {
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      border-radius: 12px;
-      padding: 2rem;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-    
-    .contact-method:hover {
-      transform: translateY(-2px);
-      border-color: rgba(56, 189, 248, 0.5);
-      box-shadow: 0 8px 32px rgba(56, 189, 248, 0.1);
-    }
-    
-    .contact-method .icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      display: block;
-    }
-    
-    .contact-method h3 {
-      color: #38bdf8;
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
-    
-    .contact-method p {
-      color: #e2e8f0;
-      margin-bottom: 1.5rem;
-    }
-    
-    .contact-method a {
-      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-      color: white;
-      text-decoration: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      font-weight: 500;
-      display: inline-block;
-      transition: all 0.3s ease;
-    }
-    
-    .contact-method a:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 16px rgba(56, 189, 248, 0.3);
-    }
-    
-    .contact-form {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(56, 189, 248, 0.2);
-      border-radius: 12px;
-      padding: 2rem;
-      margin-bottom: 3rem;
-    }
-    
-    .form-title {
-      color: #38bdf8;
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-      text-align: center;
-    }
-    
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-    
-    .form-group label {
-      display: block;
-      color: #e2e8f0;
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-    }
-    
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 1rem;
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      border-radius: 8px;
-      background: rgba(255,255,255,0.05);
-      color: white;
-      font-size: 1rem;
-      box-sizing: border-box;
-      transition: border-color 0.3s ease;
-    }
-    
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: #38bdf8;
-      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.1);
-    }
-    
-    .form-group textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-    
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: #94a3b8;
-    }
-    
-    .form-submit {
-      text-align: center;
-    }
-    
-    .submit-button {
-      background: linear-gradient(135deg, #10b981, #059669);
-      color: white;
-      border: none;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    
-    .submit-button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
-    }
-    
-    .submit-button:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      transform: none;
-    }
-    
-    .response-time {
-      background: rgba(251, 191, 36, 0.1);
-      border: 1px solid rgba(251, 191, 36, 0.3);
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin: 2rem 0;
-      text-align: center;
-    }
-    
-    .response-time h4 {
-      color: #fbbf24;
-      margin-top: 0;
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
-    
-    .faq-link {
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      border-radius: 12px;
-      padding: 2rem;
-      text-align: center;
-      margin: 2rem 0;
-    }
-    
-    .faq-link h4 {
-      color: #10b981;
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
-    
-    .faq-link p {
-      color: #e2e8f0;
-      margin-bottom: 1.5rem;
-    }
-    
-    .faq-link a {
-      background: linear-gradient(135deg, #10b981, #059669);
-      color: white;
-      text-decoration: none;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      font-weight: 600;
-      display: inline-block;
-      transition: all 0.3s ease;
-    }
-    
-    .faq-link a:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
-    }
-    
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin: 3rem 0;
-      padding: 2rem 0;
-      border-top: 1px solid rgba(56, 189, 248, 0.2);
-    }
-    
-    .social-link {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: #38bdf8;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-    
-    .social-link:hover {
-      color: #0ea5e9;
-      transform: translateY(-1px);
-    }
-    
-    .back-to-home {
-      text-align: center;
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(56, 189, 248, 0.2);
-    }
-    
-    .back-to-home a {
-      background: linear-gradient(135deg, #10b981, #059669);
-      color: white;
-      text-decoration: none;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      font-weight: 600;
-      display: inline-block;
-      transition: all 0.3s ease;
-    }
-    
-    .back-to-home a:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
-    }
-    
-    @media (max-width: 768px) {
-      .contact-title {
-        font-size: 2rem;
-      }
-      
-      .contact-container {
-        padding: 1rem;
-        margin: 1rem;
-      }
-      
-      .contact-methods {
-        grid-template-columns: 1fr;
-      }
-      
-      .social-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="contact-container">
-    <nav class="breadcrumb">
-      <a href="/">← Back to QR Generator</a>
-    </nav>
-    
-    <header class="contact-header">
-      <h1 class="contact-title">Contact Us</h1>
-      <p class="contact-subtitle">Get support, provide feedback, or ask questions about Ukiyo QR</p>
-    </header>
-    
-    <main>
-      <section class="contact-methods">
-        <div class="contact-method">
-          <span class="icon">📧</span>
-          <h3>Email Support</h3>
-          <p>Send us an email for technical support, bug reports, or general inquiries. We respond within 48 hours.</p>
-          <a href="mailto:brianyabutech@gmail.com?subject=Ukiyo QR Support">Send Email</a>
-        </div>
-        
-        <div class="contact-method">
-          <span class="icon">💬</span>
-          <h3>Quick Feedback</h3>
-          <p>Have a suggestion or feature request? Use our contact form below for quick feedback and ideas.</p>
-          <a href="#contact-form">Send Feedback</a>
-        </div>
-      </section>
-      
-      <div class="faq-link">
-        <h4>🤔 Check Our FAQ First</h4>
-        <p>Many common questions are already answered in our comprehensive FAQ section. You might find your answer instantly!</p>
-        <a href="/faq">Browse FAQ</a>
-      </div>
-      
-      <form class="contact-form" id="contact-form">
-        <h3 class="form-title">Send Us a Message</h3>
-        
-        <div class="form-group">
-          <label for="contact-type">Type of Inquiry</label>
-          <select id="contact-type" name="type" required>
-            <option value="">Select inquiry type...</option>
-            <option value="support">Technical Support</option>
-            <option value="bug">Bug Report</option>
-            <option value="feature">Feature Request</option>
-            <option value="feedback">General Feedback</option>
-            <option value="business">Business Inquiry</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-        
-        <div class="form-group">
-          <label for="contact-name">Name (Optional)</label>
-          <input type="text" id="contact-name" name="name" placeholder="Your name">
-        </div>
-        
-        <div class="form-group">
-          <label for="contact-email">Email (Optional)</label>
-          <input type="email" id="contact-email" name="email" placeholder="your.email@example.com">
-          <small style="color: #94a3b8; font-size: 0.9rem;">Only needed if you want a response</small>
-        </div>
-        
-        <div class="form-group">
-          <label for="contact-subject">Subject</label>
-          <input type="text" id="contact-subject" name="subject" placeholder="Brief description of your inquiry" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="contact-message">Message</label>
-          <textarea id="contact-message" name="message" placeholder="Please provide details about your inquiry, including any error messages or steps to reproduce issues..." required></textarea>
-        </div>
-        
-        <div class="form-submit">
-          <button type="submit" class="submit-button">Send Message</button>
-        </div>
-      </form>
-      
-      <div class="response-time">
-        <h4>⏱️ Response Time</h4>
-        <p>We typically respond to inquiries within <strong>24-48 hours</strong> during business days. For urgent technical issues, please include "URGENT" in your subject line.</p>
-      </div>
-      
-      <section class="social-links">
-        <a href="https://www.linkedin.com/in/brian-yabut/" target="_blank" rel="noopener" class="social-link">
-          <span>💼</span>
-          <span>Connect on LinkedIn</span>
-        </a>
-        <a href="https://yabutech.vercel.app/" target="_blank" rel="noopener" class="social-link">
-          <span>🌐</span>
-          <span>Visit Our Portfolio</span>
-        </a>
-        <a href="https://customodoro.vercel.app/" target="_blank" rel="noopener" class="social-link">
-          <span>⏰</span>
-          <span>Try Customodoro</span>
-        </a>
-      </section>
-    </main>
-    
-    <div class="back-to-home">
-      <a href="/">🌊 Generate QR Codes Now</a>
-    </div>
-  </div>
-  
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const form = document.getElementById('contact-form');
-      const submitButton = form.querySelector('.submit-button');
-      
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData);
-        
-        // Disable submit button
-        submitButton.disabled = true;
-        submitButton.textContent = 'Sending...';
-        
-        // Create mailto link with form data
-        const subject = encodeURIComponent(`[Ukiyo QR] ${data.type ? `[${data.type.toUpperCase()}] ` : ''}${data.subject}`);
-        const body = encodeURIComponent(
-          `Type: ${data.type || 'Not specified'}\n` +
-          `Name: ${data.name || 'Not provided'}\n` +
-          `Email: ${data.email || 'Not provided'}\n\n` +
-          `Message:\n${data.message}\n\n` +
-          `---\n` +
-          `Sent from Ukiyo QR Contact Form\n` +
-          `Timestamp: ${new Date().toISOString()}`
-        );
-        
-        const mailtoLink = `mailto:brianyabutech@gmail.com?subject=${subject}&body=${body}`;
-        
-        // Open email client
-        window.location.href = mailtoLink;
-        
-        // Show success message
-        setTimeout(() => {
-          alert('Email client opened! If it didn\'t open automatically, please copy the information and send it to brianyabutech@gmail.com');
-          
-          // Reset form
-          form.reset();
-          submitButton.disabled = false;
-          submitButton.textContent = 'Send Message';
-        }, 1000);
-      });
-      
-      // Auto-populate subject based on inquiry type
-      const typeSelect = document.getElementById('contact-type');
-      const subjectInput = document.getElementById('contact-subject');
-      
-      typeSelect.addEventListener('change', function() {
-        const type = this.value;
-        const suggestions = {
-          'support': 'Need help with QR code generation',
-          'bug': 'Found a bug in the application',
-          'feature': 'Feature request or suggestion',
-          'feedback': 'Feedback about Ukiyo QR',
-          'business': 'Business inquiry or partnership',
-          'other': 'General inquiry'
-        };
-        
-        if (type && suggestions[type] && !subjectInput.value) {
-          subjectInput.placeholder = suggestions[type];
+  <head>
+    <meta charset="UTF-8" />
+    <title>Contact Us | Ukiyo QR - Get Support & Feedback</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Contact Ukiyo QR for support, feedback, or questions. Get help with QR code generation, report issues, or suggest improvements to our service."
+    />
+    <meta
+      name="keywords"
+      content="contact Ukiyo QR, QR code support, customer service, feedback, help, technical support"
+    />
+    <meta name="author" content="YabuTech" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph tags -->
+    <meta property="og:title" content="Contact Us | Ukiyo QR" />
+    <meta
+      property="og:description"
+      content="Get support, provide feedback, or ask questions about our QR code generator service."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ukiyo.onrender.com/contact" />
+
+    <!-- Contact structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "name": "Contact Ukiyo QR",
+        "description": "Contact page for Ukiyo QR code generator support and feedback",
+        "url": "https://ukiyo.onrender.com/contact",
+        "mainEntity": {
+          "@type": "Organization",
+          "name": "YabuTech",
+          "email": "brianyabutech@gmail.com",
+          "url": "https://ukiyo.onrender.com",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "email": "brianyabutech@gmail.com",
+            "availableLanguage": "English"
+          }
         }
+      }
+    </script>
+
+    <!-- Fonts and styles -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    /></noscript>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{{ url_for('static', filename='img/favicon.png') }}"
+    />
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        background-color: #1e222c;
+        color: #ffffff;
+        line-height: 1.7;
+      }
+
+      .contact-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+        background: rgba(30, 34, 44, 0.95);
+        border-radius: 1rem;
+        backdrop-filter: blur(10px);
+        min-height: 90vh;
+      }
+
+      .breadcrumb {
+        margin-bottom: 2rem;
+        font-size: 0.9rem;
+      }
+
+      .breadcrumb a {
+        color: #38bdf8;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .breadcrumb a:hover {
+        text-decoration: underline;
+      }
+
+      .contact-header {
+        margin-bottom: 3rem;
+        text-align: center;
+        padding-bottom: 2rem;
+        border-bottom: 2px solid #38bdf8;
+      }
+
+      .contact-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .contact-subtitle {
+        color: #94a3b8;
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+      }
+
+      .contact-methods {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .contact-method {
+        background: rgba(56, 189, 248, 0.1);
+        border: 1px solid rgba(56, 189, 248, 0.3);
+        border-radius: 12px;
+        padding: 2rem;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .contact-method:hover {
+        transform: translateY(-2px);
+        border-color: rgba(56, 189, 248, 0.5);
+        box-shadow: 0 8px 32px rgba(56, 189, 248, 0.1);
+      }
+
+      .contact-method .icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        display: block;
+      }
+
+      .contact-method h3 {
+        color: #38bdf8;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .contact-method p {
+        color: #e2e8f0;
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-method a {
+        background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+        color: white;
+        text-decoration: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 500;
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
+
+      .contact-method a:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 16px rgba(56, 189, 248, 0.3);
+      }
+
+      .contact-form {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(56, 189, 248, 0.2);
+        border-radius: 12px;
+        padding: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .form-title {
+        color: #38bdf8;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group label {
+        display: block;
+        color: #e2e8f0;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 1rem;
+        border: 1px solid rgba(56, 189, 248, 0.3);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.05);
+        color: white;
+        font-size: 1rem;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease;
+      }
+
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: #38bdf8;
+        box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.1);
+      }
+
+      .form-group textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      .form-group input::placeholder,
+      .form-group textarea::placeholder {
+        color: #94a3b8;
+      }
+
+      .form-submit {
+        text-align: center;
+      }
+
+      .submit-button {
+        background: linear-gradient(135deg, #10b981, #059669);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .submit-button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+      }
+
+      .submit-button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      .response-time {
+        background: rgba(251, 191, 36, 0.1);
+        border: 1px solid rgba(251, 191, 36, 0.3);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        text-align: center;
+      }
+
+      .response-time h4 {
+        color: #fbbf24;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .faq-link {
+        background: rgba(16, 185, 129, 0.1);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        border-radius: 12px;
+        padding: 2rem;
+        text-align: center;
+        margin: 2rem 0;
+      }
+
+      .faq-link h4 {
+        color: #10b981;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .faq-link p {
+        color: #e2e8f0;
+        margin-bottom: 1.5rem;
+      }
+
+      .faq-link a {
+        background: linear-gradient(135deg, #10b981, #059669);
+        color: white;
+        text-decoration: none;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
+
+      .faq-link a:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin: 3rem 0;
+        padding: 2rem 0;
+        border-top: 1px solid rgba(56, 189, 248, 0.2);
+      }
+
+      .social-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #38bdf8;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .social-link:hover {
+        color: #0ea5e9;
+        transform: translateY(-1px);
+      }
+
+      .back-to-home {
+        text-align: center;
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(56, 189, 248, 0.2);
+      }
+
+      .back-to-home a {
+        background: linear-gradient(135deg, #10b981, #059669);
+        color: white;
+        text-decoration: none;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
+
+      .back-to-home a:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+      }
+
+      @media (max-width: 768px) {
+        .contact-title {
+          font-size: 2rem;
+        }
+
+        .contact-container {
+          padding: 1rem;
+          margin: 1rem;
+        }
+
+        .contact-methods {
+          grid-template-columns: 1fr;
+        }
+
+        .social-links {
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contact-container">
+      <nav class="breadcrumb">
+        <a href="/">← Back to QR Generator</a>
+      </nav>
+
+      <header class="contact-header">
+        <h1 class="contact-title">Contact Us</h1>
+        <p class="contact-subtitle">
+          Get support, provide feedback, or ask questions about Ukiyo QR
+        </p>
+      </header>
+
+      <main>
+        <section class="contact-methods">
+          <div class="contact-method">
+            <span class="icon">📧</span>
+            <h3>Email Support</h3>
+            <p>
+              Send us an email for technical support, bug reports, or general
+              inquiries. We respond within 48 hours.
+            </p>
+            <a href="mailto:brianyabutech@gmail.com?subject=Ukiyo QR Support"
+              >Send Email</a
+            >
+          </div>
+
+          <div class="contact-method">
+            <span class="icon">💬</span>
+            <h3>Quick Feedback</h3>
+            <p>
+              Have a suggestion or feature request? Use our contact form below
+              for quick feedback and ideas.
+            </p>
+            <a href="#contact-form">Send Feedback</a>
+          </div>
+        </section>
+
+        <div class="faq-link">
+          <h4>🤔 Check Our FAQ First</h4>
+          <p>
+            Many common questions are already answered in our comprehensive FAQ
+            section. You might find your answer instantly!
+          </p>
+          <a href="/faq">Browse FAQ</a>
+        </div>
+
+        <form class="contact-form" id="contact-form">
+          <h3 class="form-title">Send Us a Message</h3>
+
+          <div class="form-group">
+            <label for="contact-type">Type of Inquiry</label>
+            <select id="contact-type" name="type" required>
+              <option value="">Select inquiry type...</option>
+              <option value="support">Technical Support</option>
+              <option value="bug">Bug Report</option>
+              <option value="feature">Feature Request</option>
+              <option value="feedback">General Feedback</option>
+              <option value="business">Business Inquiry</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-name">Name (Optional)</label>
+            <input
+              type="text"
+              id="contact-name"
+              name="name"
+              placeholder="Your name"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="contact-email">Email (Optional)</label>
+            <input
+              type="email"
+              id="contact-email"
+              name="email"
+              placeholder="your.email@example.com"
+            />
+            <small style="color: #94a3b8; font-size: 0.9rem"
+              >Only needed if you want a response</small
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="contact-subject">Subject</label>
+            <input
+              type="text"
+              id="contact-subject"
+              name="subject"
+              placeholder="Brief description of your inquiry"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="contact-message">Message</label>
+            <textarea
+              id="contact-message"
+              name="message"
+              placeholder="Please provide details about your inquiry, including any error messages or steps to reproduce issues..."
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit" class="submit-button">Send Message</button>
+          </div>
+        </form>
+
+        <div class="response-time">
+          <h4>⏱️ Response Time</h4>
+          <p>
+            We typically respond to inquiries within
+            <strong>24-48 hours</strong> during business days. For urgent
+            technical issues, please include "URGENT" in your subject line.
+          </p>
+        </div>
+
+        <section class="social-links">
+          <a
+            href="https://www.linkedin.com/in/brian-yabut/"
+            target="_blank"
+            rel="noopener"
+            class="social-link"
+          >
+            <span>💼</span>
+            <span>Connect on LinkedIn</span>
+          </a>
+          <a
+            href="https://yabutech.vercel.app/"
+            target="_blank"
+            rel="noopener"
+            class="social-link"
+          >
+            <span>🌐</span>
+            <span>Visit Our Portfolio</span>
+          </a>
+          <a
+            href="https://customodoro.vercel.app/"
+            target="_blank"
+            rel="noopener"
+            class="social-link"
+          >
+            <span>⏰</span>
+            <span>Try Customodoro</span>
+          </a>
+        </section>
+      </main>
+
+      <div class="back-to-home">
+        <a href="/">🌊 Generate QR Codes Now</a>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("contact-form");
+        const submitButton = form.querySelector(".submit-button");
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Get form data
+          const formData = new FormData(form);
+          const data = Object.fromEntries(formData);
+
+          // Disable submit button
+          submitButton.disabled = true;
+          submitButton.textContent = "Sending...";
+
+          // Create mailto link with form data
+          const subject = encodeURIComponent(
+            `[Ukiyo QR] ${data.type ? `[${data.type.toUpperCase()}] ` : ""}${data.subject}`,
+          );
+          const body = encodeURIComponent(
+            `Type: ${data.type || "Not specified"}\n` +
+              `Name: ${data.name || "Not provided"}\n` +
+              `Email: ${data.email || "Not provided"}\n\n` +
+              `Message:\n${data.message}\n\n` +
+              `---\n` +
+              `Sent from Ukiyo QR Contact Form\n` +
+              `Timestamp: ${new Date().toISOString()}`,
+          );
+
+          const mailtoLink = `mailto:brianyabutech@gmail.com?subject=${subject}&body=${body}`;
+
+          // Open email client
+          window.location.href = mailtoLink;
+
+          // Show success message
+          setTimeout(() => {
+            alert(
+              "Email client opened! If it didn't open automatically, please copy the information and send it to brianyabutech@gmail.com",
+            );
+
+            // Reset form
+            form.reset();
+            submitButton.disabled = false;
+            submitButton.textContent = "Send Message";
+          }, 1000);
+        });
+
+        // Auto-populate subject based on inquiry type
+        const typeSelect = document.getElementById("contact-type");
+        const subjectInput = document.getElementById("contact-subject");
+
+        typeSelect.addEventListener("change", function () {
+          const type = this.value;
+          const suggestions = {
+            support: "Need help with QR code generation",
+            bug: "Found a bug in the application",
+            feature: "Feature request or suggestion",
+            feedback: "Feedback about Ukiyo QR",
+            business: "Business inquiry or partnership",
+            other: "General inquiry",
+          };
+
+          if (type && suggestions[type] && !subjectInput.value) {
+            subjectInput.placeholder = suggestions[type];
+          }
+        });
       });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>

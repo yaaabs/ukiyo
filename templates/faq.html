@@ -1,716 +1,919 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Frequently Asked Questions | Ukiyo QR - QR Code Generator FAQ</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Find answers to common questions about Ukiyo QR code generator. Learn about QR code creation, formats, security, and best practices.">
-  <meta name="keywords" content="QR code FAQ, QR code questions, QR generator help, QR code formats, QR code security, how to use QR codes">
-  <meta name="author" content="YabuTech">
-  <meta name="robots" content="index, follow">
-  
-  <!-- Open Graph tags -->
-  <meta property="og:title" content="Frequently Asked Questions | Ukiyo QR">
-  <meta property="og:description" content="Find answers to common questions about our QR code generator and QR code best practices.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ukiyo.onrender.com/faq">
-  
-  <!-- FAQ Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
+  <head>
+    <meta charset="UTF-8" />
+    <title>Frequently Asked Questions | Ukiyo QR - QR Code Generator FAQ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Find answers to common questions about Ukiyo QR code generator. Learn about QR code creation, formats, security, and best practices."
+    />
+    <meta
+      name="keywords"
+      content="QR code FAQ, QR code questions, QR generator help, QR code formats, QR code security, how to use QR codes"
+    />
+    <meta name="author" content="YabuTech" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph tags -->
+    <meta property="og:title" content="Frequently Asked Questions | Ukiyo QR" />
+    <meta
+      property="og:description"
+      content="Find answers to common questions about our QR code generator and QR code best practices."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ukiyo.onrender.com/faq" />
+
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
       {
-        "@type": "Question",
-        "name": "Is Ukiyo QR free to use?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, Ukiyo QR is completely free to use. There are no hidden fees, subscriptions, or limitations on the number of QR codes you can generate."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you store my QR code data?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No, we don't store your QR code data. All information is processed temporarily and deleted immediately after generation. Your privacy is our priority."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What types of QR codes can I create?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "You can create QR codes for URLs, text, contact information (vCard), WiFi passwords, SMS messages, email addresses, and more. Our generator supports all standard QR code formats."
-        }
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is Ukiyo QR free to use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, Ukiyo QR is completely free to use. There are no hidden fees, subscriptions, or limitations on the number of QR codes you can generate."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you store my QR code data?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No, we don't store your QR code data. All information is processed temporarily and deleted immediately after generation. Your privacy is our priority."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What types of QR codes can I create?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can create QR codes for URLs, text, contact information (vCard), WiFi passwords, SMS messages, email addresses, and more. Our generator supports all standard QR code formats."
+            }
+          }
+        ]
       }
-    ]
-  }
-  </script>
-  
-  <!-- Fonts and styles -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"></noscript>
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon.png') }}">
-  
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: #1e222c;
-      color: #ffffff;
-      line-height: 1.7;
-    }
-    
-    .faq-container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
-      background: rgba(30,34,44,0.95);
-      border-radius: 1rem;
-      backdrop-filter: blur(10px);
-      min-height: 90vh;
-    }
-    
-    .breadcrumb {
-      margin-bottom: 2rem;
-      font-size: 0.9rem;
-    }
-    
-    .breadcrumb a {
-      color: #38bdf8;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    
-    .breadcrumb a:hover {
-      text-decoration: underline;
-    }
-    
-    .faq-header {
-      margin-bottom: 3rem;
-      text-align: center;
-      padding-bottom: 2rem;
-      border-bottom: 2px solid #38bdf8;
-    }
-    
-    .faq-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-    
-    .faq-subtitle {
-      color: #94a3b8;
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-    }
-    
-    .faq-search {
-      max-width: 400px;
-      margin: 2rem auto 0;
-      position: relative;
-    }
-    
-    .faq-search input {
-      width: 100%;
-      padding: 1rem 1.5rem;
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      border-radius: 8px;
-      background: rgba(255,255,255,0.05);
-      color: white;
-      font-size: 1rem;
-      box-sizing: border-box;
-    }
-    
-    .faq-search input::placeholder {
-      color: #94a3b8;
-    }
-    
-    .faq-search input:focus {
-      outline: none;
-      border-color: #38bdf8;
-      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.1);
-    }
-    
-    .faq-categories {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin: 3rem 0;
-    }
-    
-    .category-button {
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      color: #38bdf8;
-      padding: 1rem;
-      border-radius: 8px;
-      text-decoration: none;
-      text-align: center;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-    
-    .category-button:hover,
-    .category-button.active {
-      background: rgba(56, 189, 248, 0.2);
-      transform: translateY(-1px);
-    }
-    
-    .faq-content {
-      margin-top: 3rem;
-    }
-    
-    .faq-section {
-      margin-bottom: 3rem;
-    }
-    
-    .section-title {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #38bdf8;
-      margin-bottom: 2rem;
-      border-left: 4px solid #38bdf8;
-      padding-left: 1rem;
-    }
-    
-    .faq-item {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(56, 189, 248, 0.2);
-      border-radius: 12px;
-      margin-bottom: 1rem;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-    
-    .faq-item:hover {
-      border-color: rgba(56, 189, 248, 0.4);
-    }
-    
-    .faq-question {
-      padding: 1.5rem 2rem;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-weight: 600;
-      color: #ffffff;
-      user-select: none;
-    }
-    
-    .faq-question:hover {
-      background: rgba(56, 189, 248, 0.05);
-    }
-    
-    .faq-toggle {
-      font-size: 1.2rem;
-      color: #38bdf8;
-      transition: transform 0.3s ease;
-    }
-    
-    .faq-item.active .faq-toggle {
-      transform: rotate(45deg);
-    }
-    
-    .faq-answer {
-      padding: 0 2rem 1.5rem;
-      color: #e2e8f0;
-      line-height: 1.7;
-      display: none;
-    }
-    
-    .faq-item.active .faq-answer {
-      display: block;
-      animation: fadeIn 0.3s ease;
-    }
-    
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .faq-answer p {
-      margin-bottom: 1rem;
-    }
-    
-    .faq-answer ul, .faq-answer ol {
-      margin-bottom: 1rem;
-      padding-left: 2rem;
-    }
-    
-    .faq-answer li {
-      margin-bottom: 0.5rem;
-    }
-    
-    .faq-answer a {
-      color: #38bdf8;
-      text-decoration: none;
-    }
-    
-    .faq-answer a:hover {
-      text-decoration: underline;
-    }
-    
-    .highlight-box {
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin: 1.5rem 0;
-    }
-    
-    .highlight-box h4 {
-      color: #10b981;
-      margin-top: 0;
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
-    
-    .contact-section {
-      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-      border-radius: 12px;
-      padding: 2rem;
-      text-align: center;
-      margin: 3rem 0;
-    }
-    
-    .contact-section h3 {
-      color: white;
-      margin-bottom: 1rem;
-    }
-    
-    .contact-section p {
-      color: rgba(255,255,255,0.9);
-      margin-bottom: 1.5rem;
-    }
-    
-    .contact-button {
-      background: white;
-      color: #0ea5e9;
-      text-decoration: none;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      font-weight: 600;
-      display: inline-block;
-      transition: all 0.3s ease;
-    }
-    
-    .contact-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-    }
-    
-    .back-to-home {
-      text-align: center;
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(56, 189, 248, 0.2);
-    }
-    
-    .back-to-home a {
-      background: linear-gradient(135deg, #10b981, #059669);
-      color: white;
-      text-decoration: none;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      font-weight: 600;
-      display: inline-block;
-      transition: all 0.3s ease;
-    }
-    
-    .back-to-home a:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
-    }
-    
-    @media (max-width: 768px) {
-      .faq-title {
-        font-size: 2rem;
+    </script>
+
+    <!-- Fonts and styles -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    /></noscript>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{{ url_for('static', filename='img/favicon.png') }}"
+    />
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        background-color: #1e222c;
+        color: #ffffff;
+        line-height: 1.7;
       }
-      
+
       .faq-container {
-        padding: 1rem;
-        margin: 1rem;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+        background: rgba(30, 34, 44, 0.95);
+        border-radius: 1rem;
+        backdrop-filter: blur(10px);
+        min-height: 90vh;
       }
-      
-      .faq-question {
+
+      .breadcrumb {
+        margin-bottom: 2rem;
+        font-size: 0.9rem;
+      }
+
+      .breadcrumb a {
+        color: #38bdf8;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .breadcrumb a:hover {
+        text-decoration: underline;
+      }
+
+      .faq-header {
+        margin-bottom: 3rem;
+        text-align: center;
+        padding-bottom: 2rem;
+        border-bottom: 2px solid #38bdf8;
+      }
+
+      .faq-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .faq-subtitle {
+        color: #94a3b8;
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+      }
+
+      .faq-search {
+        max-width: 400px;
+        margin: 2rem auto 0;
+        position: relative;
+      }
+
+      .faq-search input {
+        width: 100%;
         padding: 1rem 1.5rem;
+        border: 1px solid rgba(56, 189, 248, 0.3);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.05);
+        color: white;
+        font-size: 1rem;
+        box-sizing: border-box;
       }
-      
-      .faq-answer {
-        padding: 0 1.5rem 1rem;
+
+      .faq-search input::placeholder {
+        color: #94a3b8;
       }
-      
+
+      .faq-search input:focus {
+        outline: none;
+        border-color: #38bdf8;
+        box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.1);
+      }
+
       .faq-categories {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin: 3rem 0;
       }
-    }
-  </style>
-</head>
-<body>
-  <div class="faq-container">
-    <nav class="breadcrumb">
-      <a href="/">← Back to QR Generator</a>
-    </nav>
-    
-    <header class="faq-header">
-      <h1 class="faq-title">Frequently Asked Questions</h1>
-      <p class="faq-subtitle">Find answers to common questions about Ukiyo QR and QR codes</p>
-      
-      <div class="faq-search">
-        <input type="text" id="faq-search" placeholder="Search FAQ..." />
-      </div>
-    </header>
-    
-    <nav class="faq-categories">
-      <button class="category-button active" data-category="all">All Questions</button>
-      <button class="category-button" data-category="general">General</button>
-      <button class="category-button" data-category="technical">Technical</button>
-      <button class="category-button" data-category="security">Security</button>
-      <button class="category-button" data-category="business">Business</button>
-    </nav>
-    
-    <main class="faq-content">
-      <!-- General Questions -->
-      <section class="faq-section" data-category="general">
-        <h2 class="section-title">General Questions</h2>
-        
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Is Ukiyo QR free to use?</span>
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>Yes, Ukiyo QR is completely free to use. There are no hidden fees, subscriptions, or limitations on the number of QR codes you can generate. We believe in providing accessible tools for everyone.</p>
-            <p>Our service is supported by optional, non-intrusive advertising that doesn't interfere with your QR code generation experience.</p>
-          </div>
+
+      .category-button {
+        background: rgba(56, 189, 248, 0.1);
+        border: 1px solid rgba(56, 189, 248, 0.3);
+        color: #38bdf8;
+        padding: 1rem;
+        border-radius: 8px;
+        text-decoration: none;
+        text-align: center;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .category-button:hover,
+      .category-button.active {
+        background: rgba(56, 189, 248, 0.2);
+        transform: translateY(-1px);
+      }
+
+      .faq-content {
+        margin-top: 3rem;
+      }
+
+      .faq-section {
+        margin-bottom: 3rem;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #38bdf8;
+        margin-bottom: 2rem;
+        border-left: 4px solid #38bdf8;
+        padding-left: 1rem;
+      }
+
+      .faq-item {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(56, 189, 248, 0.2);
+        border-radius: 12px;
+        margin-bottom: 1rem;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .faq-item:hover {
+        border-color: rgba(56, 189, 248, 0.4);
+      }
+
+      .faq-question {
+        padding: 1.5rem 2rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 600;
+        color: #ffffff;
+        user-select: none;
+      }
+
+      .faq-question:hover {
+        background: rgba(56, 189, 248, 0.05);
+      }
+
+      .faq-toggle {
+        font-size: 1.2rem;
+        color: #38bdf8;
+        transition: transform 0.3s ease;
+      }
+
+      .faq-item.active .faq-toggle {
+        transform: rotate(45deg);
+      }
+
+      .faq-answer {
+        padding: 0 2rem 1.5rem;
+        color: #e2e8f0;
+        line-height: 1.7;
+        display: none;
+      }
+
+      .faq-item.active .faq-answer {
+        display: block;
+        animation: fadeIn 0.3s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .faq-answer p {
+        margin-bottom: 1rem;
+      }
+
+      .faq-answer ul,
+      .faq-answer ol {
+        margin-bottom: 1rem;
+        padding-left: 2rem;
+      }
+
+      .faq-answer li {
+        margin-bottom: 0.5rem;
+      }
+
+      .faq-answer a {
+        color: #38bdf8;
+        text-decoration: none;
+      }
+
+      .faq-answer a:hover {
+        text-decoration: underline;
+      }
+
+      .highlight-box {
+        background: rgba(16, 185, 129, 0.1);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .highlight-box h4 {
+        color: #10b981;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .contact-section {
+        background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+        border-radius: 12px;
+        padding: 2rem;
+        text-align: center;
+        margin: 3rem 0;
+      }
+
+      .contact-section h3 {
+        color: white;
+        margin-bottom: 1rem;
+      }
+
+      .contact-section p {
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-button {
+        background: white;
+        color: #0ea5e9;
+        text-decoration: none;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
+
+      .contact-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      }
+
+      .back-to-home {
+        text-align: center;
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(56, 189, 248, 0.2);
+      }
+
+      .back-to-home a {
+        background: linear-gradient(135deg, #10b981, #059669);
+        color: white;
+        text-decoration: none;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
+
+      .back-to-home a:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+      }
+
+      @media (max-width: 768px) {
+        .faq-title {
+          font-size: 2rem;
+        }
+
+        .faq-container {
+          padding: 1rem;
+          margin: 1rem;
+        }
+
+        .faq-question {
+          padding: 1rem 1.5rem;
+        }
+
+        .faq-answer {
+          padding: 0 1.5rem 1rem;
+        }
+
+        .faq-categories {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="faq-container">
+      <nav class="breadcrumb">
+        <a href="/">← Back to QR Generator</a>
+      </nav>
+
+      <header class="faq-header">
+        <h1 class="faq-title">Frequently Asked Questions</h1>
+        <p class="faq-subtitle">
+          Find answers to common questions about Ukiyo QR and QR codes
+        </p>
+
+        <div class="faq-search">
+          <input type="text" id="faq-search" placeholder="Search FAQ..." />
         </div>
-        
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Do I need to create an account to use Ukiyo QR?</span>
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>No account creation is required. You can start generating QR codes immediately without providing any personal information. This approach protects your privacy and makes our service instantly accessible.</p>
-          </div>
-        </div>
-        
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>What does "Ukiyo" mean?</span>
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>"Ukiyo" (浮世) is a beautiful Japanese concept meaning "floating world" or "living in the moment." It represents finding beauty in life's fleeting nature and inspired the famous ukiyo-e art movement.</p>
-            <p>Our app features Hokusai's "The Great Wave off Kanagawa," a masterpiece of ukiyo-e art, reflecting our philosophy of creating beautiful, momentary connections through QR codes.</p>
-          </div>
-        </div>
-        
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>What types of QR codes can I create?</span>
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>You can create QR codes for:</p>
-            <ul>
-              <li><strong>URLs and websites</strong> - Direct links to any web page</li>
-              <li><strong>Plain text</strong> - Any text content up to 2,953 characters</li>
-              <li><strong>Contact information</strong> - vCard format for easy contact saving</li>
-              <li><strong>WiFi passwords</strong> - Automatic network connection</li>
-              <li><strong>SMS messages</strong> - Pre-filled text messages</li>
-              <li><strong>Email addresses</strong> - Pre-composed emails</li>
-              <li><strong>Phone numbers</strong> - Direct calling links</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-      
-      <!-- Technical Questions -->
-      <section class="faq-section" data-category="technical">
-        <h2 class="section-title">Technical Questions</h2>
-        
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>What image format are the QR codes generated in?</span>
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>QR codes are generated as high-quality PNG images with transparent backgrounds. PNG format ensures:</p>
-            <ul>
-              <li>Crisp, clear images at any size</li>
-              <li>Lossless compression for perfect scanning</li>
-              <li>Transparent backgrounds for easy integration</li>
-              <li>Wide compatibility across all devices and platforms</li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>What's the maximum amount of data I can encode?</span>
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>QR code capacity depends on the data type and error correction level:</p>
-            <ul>
-              <li><strong>Numeric data:</strong> Up to 7,089 characters</li>
-              <li><strong>Alphanumeric data:</strong> Up to 4,296 characters</li>
-              <li><strong>Binary data:</strong> Up to 2,953 bytes</li>
-              <li><strong>Kanji characters:</strong> Up to 1,817 characters</li>
-            </ul>
-            <p>However, larger QR codes become more complex and harder to scan. We recommend keeping content concise for optimal scanning performance.</p>
-          </div>
-        </div>
-        
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Do QR codes work on all smartphones?</span>
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>Yes, QR codes work on virtually all modern smartphones:</p>
-            <ul>
-              <li><strong>iPhone:</strong> Built-in camera app (iOS 11+) or Control Center</li>
-              <li><strong>Android:</strong> Google Lens, camera app, or dedicated QR apps</li>
-              <li><strong>Older devices:</strong> Download free QR scanner apps</li>
-            </ul>
-            <p>Our QR codes use standard formatting that ensures maximum compatibility across all devices and scanning applications.</p>
-          </div>
-        </div>
-        
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Why won't my QR code scan properly?</span>
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>Common scanning issues and solutions:</p>
-            <ul>
-              <li><strong>Size:</strong> QR code should be at least 1 inch (2.5cm) for close scanning</li>
-              <li><strong>Lighting:</strong> Ensure adequate lighting without glare or shadows</li>
-              <li><strong>Distance:</strong> Hold device 4-6 inches away from the code</li>
-              <li><strong>Quality:</strong> Avoid blurry, damaged, or low-resolution codes</li>
-              <li><strong>Contrast:</strong> Ensure dark code on light background</li>
-              <li><strong>App:</strong> Try different QR scanner apps if one doesn't work</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-      
-      <!-- Security Questions -->
-      <section class="faq-section" data-category="security">
-        <h2 class="section-title">Security & Privacy</h2>
-        
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Do you store my QR code data?</span>
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>No, we don't store your QR code data. Here's how we protect your privacy:</p>
-            <ul>
-              <li><strong>Temporary processing:</strong> Data is processed only during generation</li>
-              <li><strong>Immediate deletion:</strong> All input data is deleted after QR creation</li>
-              <li><strong>No databases:</strong> We don't maintain user data databases</li>
-              <li><strong>Local processing:</strong> When possible, generation happens in your browser</li>
-            </ul>
-            <div class="highlight-box">
-              <h4>🛡️ Privacy Guarantee</h4>
-              <p>Your privacy is our priority. We can't access your QR code content because we don't store it anywhere.</p>
+      </header>
+
+      <nav class="faq-categories">
+        <button class="category-button active" data-category="all">
+          All Questions
+        </button>
+        <button class="category-button" data-category="general">General</button>
+        <button class="category-button" data-category="technical">
+          Technical
+        </button>
+        <button class="category-button" data-category="security">
+          Security
+        </button>
+        <button class="category-button" data-category="business">
+          Business
+        </button>
+      </nav>
+
+      <main class="faq-content">
+        <!-- General Questions -->
+        <section class="faq-section" data-category="general">
+          <h2 class="section-title">General Questions</h2>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Is Ukiyo QR free to use?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Yes, Ukiyo QR is completely free to use. There are no hidden
+                fees, subscriptions, or limitations on the number of QR codes
+                you can generate. We believe in providing accessible tools for
+                everyone.
+              </p>
+              <p>
+                Our service is supported by optional, non-intrusive advertising
+                that doesn't interfere with your QR code generation experience.
+              </p>
             </div>
           </div>
-        </div>
-        
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Are QR codes secure?</span>
-            <span class="faq-toggle">+</span>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Do I need to create an account to use Ukiyo QR?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                No account creation is required. You can start generating QR
+                codes immediately without providing any personal information.
+                This approach protects your privacy and makes our service
+                instantly accessible.
+              </p>
+            </div>
           </div>
-          <div class="faq-answer">
-            <p>QR codes themselves are secure, but users should be cautious about:</p>
-            <ul>
-              <li><strong>Source verification:</strong> Only scan codes from trusted sources</li>
-              <li><strong>URL preview:</strong> Check destination URLs before visiting</li>
-              <li><strong>Suspicious content:</strong> Be wary of unexpected downloads or login requests</li>
-              <li><strong>Physical tampering:</strong> Verify codes haven't been replaced or altered</li>
-            </ul>
-            <p>Our generator creates standard, safe QR codes. Security depends on the content you encode and where you use the codes.</p>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>What does "Ukiyo" mean?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                "Ukiyo" (浮世) is a beautiful Japanese concept meaning "floating
+                world" or "living in the moment." It represents finding beauty
+                in life's fleeting nature and inspired the famous ukiyo-e art
+                movement.
+              </p>
+              <p>
+                Our app features Hokusai's "The Great Wave off Kanagawa," a
+                masterpiece of ukiyo-e art, reflecting our philosophy of
+                creating beautiful, momentary connections through QR codes.
+              </p>
+            </div>
           </div>
-        </div>
-        
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Can QR codes contain viruses?</span>
-            <span class="faq-toggle">+</span>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>What types of QR codes can I create?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>You can create QR codes for:</p>
+              <ul>
+                <li>
+                  <strong>URLs and websites</strong> - Direct links to any web
+                  page
+                </li>
+                <li>
+                  <strong>Plain text</strong> - Any text content up to 2,953
+                  characters
+                </li>
+                <li>
+                  <strong>Contact information</strong> - vCard format for easy
+                  contact saving
+                </li>
+                <li>
+                  <strong>WiFi passwords</strong> - Automatic network connection
+                </li>
+                <li>
+                  <strong>SMS messages</strong> - Pre-filled text messages
+                </li>
+                <li><strong>Email addresses</strong> - Pre-composed emails</li>
+                <li><strong>Phone numbers</strong> - Direct calling links</li>
+              </ul>
+            </div>
           </div>
-          <div class="faq-answer">
-            <p>QR codes themselves cannot contain viruses - they're just encoded text. However, they can link to malicious websites or downloads. Safety tips:</p>
-            <ul>
-              <li>Always preview URLs before visiting</li>
-              <li>Don't download files from unknown QR codes</li>
-              <li>Use reputable QR scanner apps with security features</li>
-              <li>Keep your device's security software updated</li>
-            </ul>
+        </section>
+
+        <!-- Technical Questions -->
+        <section class="faq-section" data-category="technical">
+          <h2 class="section-title">Technical Questions</h2>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>What image format are the QR codes generated in?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                QR codes are generated as high-quality PNG images with
+                transparent backgrounds. PNG format ensures:
+              </p>
+              <ul>
+                <li>Crisp, clear images at any size</li>
+                <li>Lossless compression for perfect scanning</li>
+                <li>Transparent backgrounds for easy integration</li>
+                <li>Wide compatibility across all devices and platforms</li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </section>
-      
-      <!-- Business Questions -->
-      <section class="faq-section" data-category="business">
-        <h2 class="section-title">Business Use</h2>
-        
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Can I use Ukiyo QR for commercial purposes?</span>
-            <span class="faq-toggle">+</span>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>What's the maximum amount of data I can encode?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                QR code capacity depends on the data type and error correction
+                level:
+              </p>
+              <ul>
+                <li><strong>Numeric data:</strong> Up to 7,089 characters</li>
+                <li>
+                  <strong>Alphanumeric data:</strong> Up to 4,296 characters
+                </li>
+                <li><strong>Binary data:</strong> Up to 2,953 bytes</li>
+                <li>
+                  <strong>Kanji characters:</strong> Up to 1,817 characters
+                </li>
+              </ul>
+              <p>
+                However, larger QR codes become more complex and harder to scan.
+                We recommend keeping content concise for optimal scanning
+                performance.
+              </p>
+            </div>
           </div>
-          <div class="faq-answer">
-            <p>Yes, you can use Ukiyo QR for any commercial purpose including:</p>
-            <ul>
-              <li>Marketing campaigns and promotional materials</li>
-              <li>Business cards and networking</li>
-              <li>Product packaging and information</li>
-              <li>Restaurant menus and ordering systems</li>
-              <li>Event management and ticketing</li>
-              <li>Customer feedback and surveys</li>
-            </ul>
-            <p>There are no restrictions on commercial use, and no attribution is required (though appreciated).</p>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Do QR codes work on all smartphones?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>Yes, QR codes work on virtually all modern smartphones:</p>
+              <ul>
+                <li>
+                  <strong>iPhone:</strong> Built-in camera app (iOS 11+) or
+                  Control Center
+                </li>
+                <li>
+                  <strong>Android:</strong> Google Lens, camera app, or
+                  dedicated QR apps
+                </li>
+                <li>
+                  <strong>Older devices:</strong> Download free QR scanner apps
+                </li>
+              </ul>
+              <p>
+                Our QR codes use standard formatting that ensures maximum
+                compatibility across all devices and scanning applications.
+              </p>
+            </div>
           </div>
-        </div>
-        
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>What's the best size for printed QR codes?</span>
-            <span class="faq-toggle">+</span>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Why won't my QR code scan properly?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>Common scanning issues and solutions:</p>
+              <ul>
+                <li>
+                  <strong>Size:</strong> QR code should be at least 1 inch
+                  (2.5cm) for close scanning
+                </li>
+                <li>
+                  <strong>Lighting:</strong> Ensure adequate lighting without
+                  glare or shadows
+                </li>
+                <li>
+                  <strong>Distance:</strong> Hold device 4-6 inches away from
+                  the code
+                </li>
+                <li>
+                  <strong>Quality:</strong> Avoid blurry, damaged, or
+                  low-resolution codes
+                </li>
+                <li>
+                  <strong>Contrast:</strong> Ensure dark code on light
+                  background
+                </li>
+                <li>
+                  <strong>App:</strong> Try different QR scanner apps if one
+                  doesn't work
+                </li>
+              </ul>
+            </div>
           </div>
-          <div class="faq-answer">
-            <p>Recommended QR code sizes for different applications:</p>
-            <ul>
-              <li><strong>Business cards:</strong> 0.8 - 1 inch (2-2.5cm)</li>
-              <li><strong>Flyers and brochures:</strong> 1 - 1.5 inches (2.5-4cm)</li>
-              <li><strong>Posters and signs:</strong> 2 - 4 inches (5-10cm)</li>
-              <li><strong>Billboards:</strong> 6+ inches (15+ cm)</li>
-            </ul>
-            <p>Rule of thumb: QR code should be readable from the expected scanning distance. Test before mass printing!</p>
+        </section>
+
+        <!-- Security Questions -->
+        <section class="faq-section" data-category="security">
+          <h2 class="section-title">Security & Privacy</h2>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Do you store my QR code data?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                No, we don't store your QR code data. Here's how we protect your
+                privacy:
+              </p>
+              <ul>
+                <li>
+                  <strong>Temporary processing:</strong> Data is processed only
+                  during generation
+                </li>
+                <li>
+                  <strong>Immediate deletion:</strong> All input data is deleted
+                  after QR creation
+                </li>
+                <li>
+                  <strong>No databases:</strong> We don't maintain user data
+                  databases
+                </li>
+                <li>
+                  <strong>Local processing:</strong> When possible, generation
+                  happens in your browser
+                </li>
+              </ul>
+              <div class="highlight-box">
+                <h4>🛡️ Privacy Guarantee</h4>
+                <p>
+                  Your privacy is our priority. We can't access your QR code
+                  content because we don't store it anywhere.
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
-        
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Do QR codes expire?</span>
-            <span class="faq-toggle">+</span>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Are QR codes secure?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                QR codes themselves are secure, but users should be cautious
+                about:
+              </p>
+              <ul>
+                <li>
+                  <strong>Source verification:</strong> Only scan codes from
+                  trusted sources
+                </li>
+                <li>
+                  <strong>URL preview:</strong> Check destination URLs before
+                  visiting
+                </li>
+                <li>
+                  <strong>Suspicious content:</strong> Be wary of unexpected
+                  downloads or login requests
+                </li>
+                <li>
+                  <strong>Physical tampering:</strong> Verify codes haven't been
+                  replaced or altered
+                </li>
+              </ul>
+              <p>
+                Our generator creates standard, safe QR codes. Security depends
+                on the content you encode and where you use the codes.
+              </p>
+            </div>
           </div>
-          <div class="faq-answer">
-            <p>QR codes generated by Ukiyo QR never expire. They are static codes that will work indefinitely as long as:</p>
-            <ul>
-              <li>The destination website remains accessible</li>
-              <li>The QR code image remains readable</li>
-              <li>The encoded information stays relevant</li>
-            </ul>
-            <p>However, if you link to a website that goes offline or changes URL, the QR code will no longer work as intended.</p>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Can QR codes contain viruses?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                QR codes themselves cannot contain viruses - they're just
+                encoded text. However, they can link to malicious websites or
+                downloads. Safety tips:
+              </p>
+              <ul>
+                <li>Always preview URLs before visiting</li>
+                <li>Don't download files from unknown QR codes</li>
+                <li>Use reputable QR scanner apps with security features</li>
+                <li>Keep your device's security software updated</li>
+              </ul>
+            </div>
           </div>
-        </div>
-        
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Can I track QR code scans?</span>
-            <span class="faq-toggle">+</span>
+        </section>
+
+        <!-- Business Questions -->
+        <section class="faq-section" data-category="business">
+          <h2 class="section-title">Business Use</h2>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Can I use Ukiyo QR for commercial purposes?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Yes, you can use Ukiyo QR for any commercial purpose including:
+              </p>
+              <ul>
+                <li>Marketing campaigns and promotional materials</li>
+                <li>Business cards and networking</li>
+                <li>Product packaging and information</li>
+                <li>Restaurant menus and ordering systems</li>
+                <li>Event management and ticketing</li>
+                <li>Customer feedback and surveys</li>
+              </ul>
+              <p>
+                There are no restrictions on commercial use, and no attribution
+                is required (though appreciated).
+              </p>
+            </div>
           </div>
-          <div class="faq-answer">
-            <p>Our static QR codes don't include tracking capabilities, which protects user privacy. For analytics, you can:</p>
-            <ul>
-              <li>Use URL shorteners with analytics (bit.ly, tinyurl.com)</li>
-              <li>Add UTM parameters to track in Google Analytics</li>
-              <li>Create dedicated landing pages for QR campaigns</li>
-              <li>Use dynamic QR code services (though these may compromise privacy)</li>
-            </ul>
-            <p>We prioritize privacy over tracking, but these methods let you gather insights while respecting user privacy.</p>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>What's the best size for printed QR codes?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>Recommended QR code sizes for different applications:</p>
+              <ul>
+                <li><strong>Business cards:</strong> 0.8 - 1 inch (2-2.5cm)</li>
+                <li>
+                  <strong>Flyers and brochures:</strong> 1 - 1.5 inches
+                  (2.5-4cm)
+                </li>
+                <li>
+                  <strong>Posters and signs:</strong> 2 - 4 inches (5-10cm)
+                </li>
+                <li><strong>Billboards:</strong> 6+ inches (15+ cm)</li>
+              </ul>
+              <p>
+                Rule of thumb: QR code should be readable from the expected
+                scanning distance. Test before mass printing!
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
-    </main>
-    
-    <div class="contact-section">
-      <h3>Still Have Questions?</h3>
-      <p>Can't find the answer you're looking for? We're here to help with any questions about QR codes or our service.</p>
-      <a href="/contact" class="contact-button">Contact Support</a>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Do QR codes expire?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                QR codes generated by Ukiyo QR never expire. They are static
+                codes that will work indefinitely as long as:
+              </p>
+              <ul>
+                <li>The destination website remains accessible</li>
+                <li>The QR code image remains readable</li>
+                <li>The encoded information stays relevant</li>
+              </ul>
+              <p>
+                However, if you link to a website that goes offline or changes
+                URL, the QR code will no longer work as intended.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Can I track QR code scans?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Our static QR codes don't include tracking capabilities, which
+                protects user privacy. For analytics, you can:
+              </p>
+              <ul>
+                <li>Use URL shorteners with analytics (bit.ly, tinyurl.com)</li>
+                <li>Add UTM parameters to track in Google Analytics</li>
+                <li>Create dedicated landing pages for QR campaigns</li>
+                <li>
+                  Use dynamic QR code services (though these may compromise
+                  privacy)
+                </li>
+              </ul>
+              <p>
+                We prioritize privacy over tracking, but these methods let you
+                gather insights while respecting user privacy.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <div class="contact-section">
+        <h3>Still Have Questions?</h3>
+        <p>
+          Can't find the answer you're looking for? We're here to help with any
+          questions about QR codes or our service.
+        </p>
+        <a href="/contact" class="contact-button">Contact Support</a>
+      </div>
+
+      <div class="back-to-home">
+        <a href="/">🌊 Generate QR Codes Now</a>
+      </div>
     </div>
-    
-    <div class="back-to-home">
-      <a href="/">🌊 Generate QR Codes Now</a>
-    </div>
-  </div>
-  
-  <script>
-    // FAQ functionality
-    document.addEventListener('DOMContentLoaded', function() {
-      // Toggle FAQ items
-      const faqItems = document.querySelectorAll('.faq-item');
-      faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        question.addEventListener('click', () => {
-          item.classList.toggle('active');
+
+    <script>
+      // FAQ functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        // Toggle FAQ items
+        const faqItems = document.querySelectorAll(".faq-item");
+        faqItems.forEach((item) => {
+          const question = item.querySelector(".faq-question");
+          question.addEventListener("click", () => {
+            item.classList.toggle("active");
+          });
         });
-      });
-      
-      // Category filtering
-      const categoryButtons = document.querySelectorAll('.category-button');
-      const faqSections = document.querySelectorAll('.faq-section');
-      
-      categoryButtons.forEach(button => {
-        button.addEventListener('click', () => {
-          const category = button.dataset.category;
-          
-          // Update active button
-          categoryButtons.forEach(btn => btn.classList.remove('active'));
-          button.classList.add('active');
-          
-          // Show/hide sections
-          faqSections.forEach(section => {
-            if (category === 'all' || section.dataset.category === category) {
-              section.style.display = 'block';
+
+        // Category filtering
+        const categoryButtons = document.querySelectorAll(".category-button");
+        const faqSections = document.querySelectorAll(".faq-section");
+
+        categoryButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const category = button.dataset.category;
+
+            // Update active button
+            categoryButtons.forEach((btn) => btn.classList.remove("active"));
+            button.classList.add("active");
+
+            // Show/hide sections
+            faqSections.forEach((section) => {
+              if (category === "all" || section.dataset.category === category) {
+                section.style.display = "block";
+              } else {
+                section.style.display = "none";
+              }
+            });
+          });
+        });
+
+        // Search functionality
+        const searchInput = document.getElementById("faq-search");
+        searchInput.addEventListener("input", function () {
+          const searchTerm = this.value.toLowerCase();
+
+          faqItems.forEach((item) => {
+            const question = item
+              .querySelector(".faq-question span")
+              .textContent.toLowerCase();
+            const answer = item
+              .querySelector(".faq-answer")
+              .textContent.toLowerCase();
+
+            if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+              item.style.display = "block";
             } else {
-              section.style.display = 'none';
+              item.style.display = "none";
             }
           });
-        });
-      });
-      
-      // Search functionality
-      const searchInput = document.getElementById('faq-search');
-      searchInput.addEventListener('input', function() {
-        const searchTerm = this.value.toLowerCase();
-        
-        faqItems.forEach(item => {
-          const question = item.querySelector('.faq-question span').textContent.toLowerCase();
-          const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
-          
-          if (question.includes(searchTerm) || answer.includes(searchTerm)) {
-            item.style.display = 'block';
-          } else {
-            item.style.display = 'none';
+
+          // Show all sections when searching
+          if (searchTerm) {
+            faqSections.forEach((section) => {
+              section.style.display = "block";
+            });
           }
         });
-        
-        // Show all sections when searching
-        if (searchTerm) {
-          faqSections.forEach(section => {
-            section.style.display = 'block';
-          });
-        }
       });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>

@@ -33,23 +33,27 @@ A beautiful, high-performance QR code generator web application with a Japanese 
 ### Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/yaaabs/ukiyo.git
    cd ukiyo
    ```
 
 2. Create and activate a virtual environment:
+
    ```bash
    python -m venv venv
    source venv/bin/activate  # On Windows: .\venv\Scripts\activate
    ```
 
 3. Install dependencies:
+
    ```bash
    pip install -r requirements.txt
    ```
 
 4. Run the development server:
+
    ```bash
    python app.py
    ```

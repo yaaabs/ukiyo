@@ -1,520 +1,627 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Terms of Service | Ukiyo QR - Service Terms and Conditions</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Terms of Service for Ukiyo QR code generator. Learn about acceptable use, service limitations, and user responsibilities.">
-  <meta name="keywords" content="terms of service, terms and conditions, user agreement, service terms, QR code generator terms">
-  <meta name="author" content="YabuTech">
-  <meta name="robots" content="index, follow">
-  
-  <!-- Open Graph tags -->
-  <meta property="og:title" content="Terms of Service | Ukiyo QR">
-  <meta property="og:description" content="Terms of Service and user agreement for Ukiyo QR code generator service.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ukiyo.onrender.com/terms-of-service">
-  
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Terms of Service",
-    "description": "Terms of Service for Ukiyo QR code generator",
-    "url": "https://ukiyo.onrender.com/terms-of-service",
-    "publisher": {
-      "@type": "Organization",
-      "name": "YabuTech",
-      "url": "https://ukiyo.onrender.com"
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://ukiyo.onrender.com/terms-of-service"
-    }
-  }
-  </script>
-  
-  <!-- Fonts and styles -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"></noscript>
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon.png') }}">
-  
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: #1e222c;
-      color: #ffffff;
-      line-height: 1.7;
-    }
-    
-    .terms-container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
-      background: rgba(30,34,44,0.95);
-      border-radius: 1rem;
-      backdrop-filter: blur(10px);
-      min-height: 90vh;
-    }
-    
-    .breadcrumb {
-      margin-bottom: 2rem;
-      font-size: 0.9rem;
-    }
-    
-    .breadcrumb a {
-      color: #38bdf8;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    
-    .breadcrumb a:hover {
-      text-decoration: underline;
-    }
-    
-    .terms-header {
-      margin-bottom: 3rem;
-      text-align: center;
-      padding-bottom: 2rem;
-      border-bottom: 2px solid #f97316;
-    }
-    
-    .terms-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #f97316, #ea580c);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-    
-    .terms-subtitle {
-      color: #94a3b8;
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-    }
-    
-    .last-updated {
-      color: #64748b;
-      font-size: 0.9rem;
-      font-style: italic;
-    }
-    
-    .terms-content {
-      font-size: 1.1rem;
-      line-height: 1.8;
-    }
-    
-    .terms-content h2 {
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: #f97316;
-      margin: 2.5rem 0 1.5rem 0;
-      border-left: 4px solid #f97316;
-      padding-left: 1rem;
-    }
-    
-    .terms-content h3 {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #38bdf8;
-      margin: 2rem 0 1rem 0;
-    }
-    
-    .terms-content p {
-      margin-bottom: 1.5rem;
-      color: #e2e8f0;
-    }
-    
-    .terms-content ul, .terms-content ol {
-      margin-bottom: 1.5rem;
-      padding-left: 2rem;
-    }
-    
-    .terms-content li {
-      margin-bottom: 0.5rem;
-      color: #e2e8f0;
-    }
-    
-    .highlight-section {
-      background: rgba(239, 115, 22, 0.1);
-      border: 1px solid rgba(239, 115, 22, 0.3);
-      border-radius: 12px;
-      padding: 2rem;
-      margin: 2rem 0;
-    }
-    
-    .highlight-section h4 {
-      color: #f97316;
-      margin-top: 0;
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
-    
-    .acceptable-use {
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      border-radius: 12px;
-      padding: 2rem;
-      margin: 2rem 0;
-    }
-    
-    .acceptable-use h4 {
-      color: #10b981;
-      margin-top: 0;
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
-    
-    .prohibited-use {
-      background: rgba(239, 68, 68, 0.1);
-      border: 1px solid rgba(239, 68, 68, 0.3);
-      border-radius: 12px;
-      padding: 2rem;
-      margin: 2rem 0;
-    }
-    
-    .prohibited-use h4 {
-      color: #ef4444;
-      margin-top: 0;
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
-    
-    .contact-section {
-      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-      border-radius: 12px;
-      padding: 2rem;
-      text-align: center;
-      margin: 3rem 0;
-    }
-    
-    .contact-section h3 {
-      color: white;
-      margin-bottom: 1rem;
-    }
-    
-    .contact-section p {
-      color: rgba(255,255,255,0.9);
-      margin-bottom: 1.5rem;
-    }
-    
-    .contact-button {
-      background: white;
-      color: #0ea5e9;
-      text-decoration: none;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      font-weight: 600;
-      display: inline-block;
-      transition: all 0.3s ease;
-    }
-    
-    .contact-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-    }
-    
-    .back-to-home {
-      text-align: center;
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(239, 115, 22, 0.2);
-    }
-    
-    .back-to-home a {
-      background: linear-gradient(135deg, #10b981, #059669);
-      color: white;
-      text-decoration: none;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      font-weight: 600;
-      display: inline-block;
-      transition: all 0.3s ease;
-    }
-    
-    .back-to-home a:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
-    }
-    
-    @media (max-width: 768px) {
-      .terms-title {
-        font-size: 2rem;
+  <head>
+    <meta charset="UTF-8" />
+    <title>Terms of Service | Ukiyo QR - Service Terms and Conditions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Terms of Service for Ukiyo QR code generator. Learn about acceptable use, service limitations, and user responsibilities."
+    />
+    <meta
+      name="keywords"
+      content="terms of service, terms and conditions, user agreement, service terms, QR code generator terms"
+    />
+    <meta name="author" content="YabuTech" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph tags -->
+    <meta property="og:title" content="Terms of Service | Ukiyo QR" />
+    <meta
+      property="og:description"
+      content="Terms of Service and user agreement for Ukiyo QR code generator service."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://ukiyo.onrender.com/terms-of-service"
+    />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Terms of Service",
+        "description": "Terms of Service for Ukiyo QR code generator",
+        "url": "https://ukiyo.onrender.com/terms-of-service",
+        "publisher": {
+          "@type": "Organization",
+          "name": "YabuTech",
+          "url": "https://ukiyo.onrender.com"
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://ukiyo.onrender.com/terms-of-service"
+        }
       }
-      
+    </script>
+
+    <!-- Fonts and styles -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    /></noscript>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{{ url_for('static', filename='img/favicon.png') }}"
+    />
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        background-color: #1e222c;
+        color: #ffffff;
+        line-height: 1.7;
+      }
+
       .terms-container {
-        padding: 1rem;
-        margin: 1rem;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+        background: rgba(30, 34, 44, 0.95);
+        border-radius: 1rem;
+        backdrop-filter: blur(10px);
+        min-height: 90vh;
       }
-    }
-  </style>
-</head>
-<body>
-  <div class="terms-container">
-    <nav class="breadcrumb">
-      <a href="/">← Back to QR Generator</a>
-    </nav>
-    
-    <header class="terms-header">
-      <h1 class="terms-title">Terms of Service</h1>
-      <p class="terms-subtitle">Service terms and conditions for using Ukiyo QR</p>
-      <p class="last-updated">Last updated: January 15, 2025</p>
-    </header>
-    
-    <main class="terms-content">
-      <div class="highlight-section">
-        <h4>📋 Agreement Overview</h4>
-        <p>By using Ukiyo QR, you agree to these terms of service. Our service is provided free of charge with the goal of making QR code generation accessible to everyone while maintaining high standards of quality and security.</p>
-      </div>
-      
-      <h2>1. Acceptance of Terms</h2>
-      
-      <p>By accessing and using Ukiyo QR ("the Service"), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.</p>
-      
-      <h3>Scope of Agreement</h3>
-      <ul>
-        <li>These terms apply to all users of the Service</li>
-        <li>Terms are effective immediately upon first use</li>
-        <li>Continued use constitutes acceptance of any updates</li>
-        <li>Terms apply to all features and functionality</li>
-      </ul>
-      
-      <h2>2. Description of Service</h2>
-      
-      <p>Ukiyo QR provides a free web-based QR code generation service that allows users to:</p>
-      
-      <ul>
-        <li>Generate QR codes for various data types (URLs, text, contact info, etc.)</li>
-        <li>Download generated QR codes as PNG images</li>
-        <li>Access educational content about QR codes</li>
-        <li>Use the service without registration or personal data collection</li>
-      </ul>
-      
-      <h3>Service Characteristics</h3>
-      <ul>
-        <li><strong>Free Access:</strong> No fees or subscriptions required</li>
-        <li><strong>No Registration:</strong> Immediate access without account creation</li>
-        <li><strong>Privacy-Focused:</strong> Minimal data collection and processing</li>
-        <li><strong>Open Access:</strong> Available to users worldwide</li>
-      </ul>
-      
-      <h2>3. Acceptable Use Policy</h2>
-      
-      <div class="acceptable-use">
-        <h4>✅ Acceptable Uses</h4>
-        <p>You may use Ukiyo QR for:</p>
+
+      .breadcrumb {
+        margin-bottom: 2rem;
+        font-size: 0.9rem;
+      }
+
+      .breadcrumb a {
+        color: #38bdf8;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .breadcrumb a:hover {
+        text-decoration: underline;
+      }
+
+      .terms-header {
+        margin-bottom: 3rem;
+        text-align: center;
+        padding-bottom: 2rem;
+        border-bottom: 2px solid #f97316;
+      }
+
+      .terms-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #f97316, #ea580c);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .terms-subtitle {
+        color: #94a3b8;
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+      }
+
+      .last-updated {
+        color: #64748b;
+        font-size: 0.9rem;
+        font-style: italic;
+      }
+
+      .terms-content {
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+
+      .terms-content h2 {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #f97316;
+        margin: 2.5rem 0 1.5rem 0;
+        border-left: 4px solid #f97316;
+        padding-left: 1rem;
+      }
+
+      .terms-content h3 {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #38bdf8;
+        margin: 2rem 0 1rem 0;
+      }
+
+      .terms-content p {
+        margin-bottom: 1.5rem;
+        color: #e2e8f0;
+      }
+
+      .terms-content ul,
+      .terms-content ol {
+        margin-bottom: 1.5rem;
+        padding-left: 2rem;
+      }
+
+      .terms-content li {
+        margin-bottom: 0.5rem;
+        color: #e2e8f0;
+      }
+
+      .highlight-section {
+        background: rgba(239, 115, 22, 0.1);
+        border: 1px solid rgba(239, 115, 22, 0.3);
+        border-radius: 12px;
+        padding: 2rem;
+        margin: 2rem 0;
+      }
+
+      .highlight-section h4 {
+        color: #f97316;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .acceptable-use {
+        background: rgba(16, 185, 129, 0.1);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        border-radius: 12px;
+        padding: 2rem;
+        margin: 2rem 0;
+      }
+
+      .acceptable-use h4 {
+        color: #10b981;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .prohibited-use {
+        background: rgba(239, 68, 68, 0.1);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        border-radius: 12px;
+        padding: 2rem;
+        margin: 2rem 0;
+      }
+
+      .prohibited-use h4 {
+        color: #ef4444;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .contact-section {
+        background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+        border-radius: 12px;
+        padding: 2rem;
+        text-align: center;
+        margin: 3rem 0;
+      }
+
+      .contact-section h3 {
+        color: white;
+        margin-bottom: 1rem;
+      }
+
+      .contact-section p {
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-button {
+        background: white;
+        color: #0ea5e9;
+        text-decoration: none;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
+
+      .contact-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      }
+
+      .back-to-home {
+        text-align: center;
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(239, 115, 22, 0.2);
+      }
+
+      .back-to-home a {
+        background: linear-gradient(135deg, #10b981, #059669);
+        color: white;
+        text-decoration: none;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
+
+      .back-to-home a:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+      }
+
+      @media (max-width: 768px) {
+        .terms-title {
+          font-size: 2rem;
+        }
+
+        .terms-container {
+          padding: 1rem;
+          margin: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="terms-container">
+      <nav class="breadcrumb">
+        <a href="/">← Back to QR Generator</a>
+      </nav>
+
+      <header class="terms-header">
+        <h1 class="terms-title">Terms of Service</h1>
+        <p class="terms-subtitle">
+          Service terms and conditions for using Ukiyo QR
+        </p>
+        <p class="last-updated">Last updated: January 15, 2025</p>
+      </header>
+
+      <main class="terms-content">
+        <div class="highlight-section">
+          <h4>📋 Agreement Overview</h4>
+          <p>
+            By using Ukiyo QR, you agree to these terms of service. Our service
+            is provided free of charge with the goal of making QR code
+            generation accessible to everyone while maintaining high standards
+            of quality and security.
+          </p>
+        </div>
+
+        <h2>1. Acceptance of Terms</h2>
+
+        <p>
+          By accessing and using Ukiyo QR ("the Service"), you accept and agree
+          to be bound by the terms and provision of this agreement. If you do
+          not agree to abide by the above, please do not use this service.
+        </p>
+
+        <h3>Scope of Agreement</h3>
         <ul>
-          <li>Personal, educational, and commercial projects</li>
-          <li>Marketing campaigns and promotional materials</li>
-          <li>Business cards and professional networking</li>
-          <li>Educational and research purposes</li>
-          <li>Non-profit and charitable activities</li>
-          <li>Creative and artistic projects</li>
+          <li>These terms apply to all users of the Service</li>
+          <li>Terms are effective immediately upon first use</li>
+          <li>Continued use constitutes acceptance of any updates</li>
+          <li>Terms apply to all features and functionality</li>
         </ul>
-      </div>
-      
-      <div class="prohibited-use">
-        <h4>❌ Prohibited Uses</h4>
-        <p>You may NOT use Ukiyo QR for:</p>
+
+        <h2>2. Description of Service</h2>
+
+        <p>
+          Ukiyo QR provides a free web-based QR code generation service that
+          allows users to:
+        </p>
+
         <ul>
-          <li>Illegal activities or content that violates applicable laws</li>
-          <li>Malicious purposes including phishing, malware distribution, or fraud</li>
-          <li>Harassment, abuse, or harmful content targeting individuals or groups</li>
-          <li>Spam, unsolicited communications, or deceptive practices</li>
-          <li>Copyright infringement or intellectual property violations</li>
-          <li>Adult content, hate speech, or discriminatory material</li>
-          <li>Activities that could harm or compromise our service or users</li>
-          <li>Automated abuse or attempts to overwhelm our systems</li>
+          <li>
+            Generate QR codes for various data types (URLs, text, contact info,
+            etc.)
+          </li>
+          <li>Download generated QR codes as PNG images</li>
+          <li>Access educational content about QR codes</li>
+          <li>
+            Use the service without registration or personal data collection
+          </li>
         </ul>
+
+        <h3>Service Characteristics</h3>
+        <ul>
+          <li>
+            <strong>Free Access:</strong> No fees or subscriptions required
+          </li>
+          <li>
+            <strong>No Registration:</strong> Immediate access without account
+            creation
+          </li>
+          <li>
+            <strong>Privacy-Focused:</strong> Minimal data collection and
+            processing
+          </li>
+          <li><strong>Open Access:</strong> Available to users worldwide</li>
+        </ul>
+
+        <h2>3. Acceptable Use Policy</h2>
+
+        <div class="acceptable-use">
+          <h4>✅ Acceptable Uses</h4>
+          <p>You may use Ukiyo QR for:</p>
+          <ul>
+            <li>Personal, educational, and commercial projects</li>
+            <li>Marketing campaigns and promotional materials</li>
+            <li>Business cards and professional networking</li>
+            <li>Educational and research purposes</li>
+            <li>Non-profit and charitable activities</li>
+            <li>Creative and artistic projects</li>
+          </ul>
+        </div>
+
+        <div class="prohibited-use">
+          <h4>❌ Prohibited Uses</h4>
+          <p>You may NOT use Ukiyo QR for:</p>
+          <ul>
+            <li>Illegal activities or content that violates applicable laws</li>
+            <li>
+              Malicious purposes including phishing, malware distribution, or
+              fraud
+            </li>
+            <li>
+              Harassment, abuse, or harmful content targeting individuals or
+              groups
+            </li>
+            <li>Spam, unsolicited communications, or deceptive practices</li>
+            <li>Copyright infringement or intellectual property violations</li>
+            <li>Adult content, hate speech, or discriminatory material</li>
+            <li>
+              Activities that could harm or compromise our service or users
+            </li>
+            <li>Automated abuse or attempts to overwhelm our systems</li>
+          </ul>
+        </div>
+
+        <h2>4. User Responsibilities</h2>
+
+        <h3>Content Responsibility</h3>
+        <p>You are solely responsible for:</p>
+        <ul>
+          <li>The content you encode in QR codes</li>
+          <li>Ensuring content legality in your jurisdiction</li>
+          <li>Respecting intellectual property rights</li>
+          <li>Accuracy of information provided</li>
+          <li>Compliance with applicable laws and regulations</li>
+        </ul>
+
+        <h3>Security Practices</h3>
+        <p>Users should:</p>
+        <ul>
+          <li>Verify QR code content before distribution</li>
+          <li>Use secure, trusted URLs in QR codes</li>
+          <li>Implement appropriate security measures for business use</li>
+          <li>Report security vulnerabilities responsibly</li>
+        </ul>
+
+        <h2>5. Service Availability and Limitations</h2>
+
+        <h3>Service Availability</h3>
+        <p>We strive to provide reliable service but cannot guarantee:</p>
+        <ul>
+          <li>100% uptime or uninterrupted access</li>
+          <li>Specific performance levels or response times</li>
+          <li>Compatibility with all devices or browsers</li>
+          <li>Permanent availability of generated QR codes</li>
+        </ul>
+
+        <h3>Usage Limitations</h3>
+        <p>To ensure fair access for all users, we may implement:</p>
+        <ul>
+          <li>Rate limiting on QR code generation</li>
+          <li>Temporary restrictions for excessive usage</li>
+          <li>Content filtering for prohibited material</li>
+          <li>Technical limitations based on system capacity</li>
+        </ul>
+
+        <h2>6. Intellectual Property Rights</h2>
+
+        <h3>Our Intellectual Property</h3>
+        <p>
+          Ukiyo QR and its original content, features, and functionality are
+          owned by YabuTech and are protected by:
+        </p>
+        <ul>
+          <li>Copyright laws and international treaties</li>
+          <li>Trademark and service mark protections</li>
+          <li>Trade secret and proprietary information laws</li>
+        </ul>
+
+        <h3>User-Generated Content</h3>
+        <p>Regarding content you create using our service:</p>
+        <ul>
+          <li>You retain ownership of your original content</li>
+          <li>
+            You grant us limited rights to process content for service provision
+          </li>
+          <li>We don't claim ownership of your QR code content</li>
+          <li>Generated QR codes can be used freely for your purposes</li>
+        </ul>
+
+        <h2>7. Privacy and Data Protection</h2>
+
+        <p>Our approach to privacy and data protection:</p>
+        <ul>
+          <li>We don't store QR code content or personal information</li>
+          <li>Minimal technical data collection for service operation</li>
+          <li>Compliance with applicable privacy laws (GDPR, CCPA, etc.)</li>
+          <li>Transparent privacy practices detailed in our Privacy Policy</li>
+        </ul>
+
+        <p>
+          For complete privacy information, please review our
+          <a href="/privacy-policy" style="color: #38bdf8">Privacy Policy</a>.
+        </p>
+
+        <h2>8. Disclaimers and Limitation of Liability</h2>
+
+        <h3>Service Disclaimers</h3>
+        <p>
+          The service is provided "as is" and "as available" without warranties
+          of any kind, including:
+        </p>
+        <ul>
+          <li>Merchantability or fitness for a particular purpose</li>
+          <li>Non-infringement of third-party rights</li>
+          <li>Accuracy, reliability, or completeness</li>
+          <li>Security or error-free operation</li>
+        </ul>
+
+        <h3>Limitation of Liability</h3>
+        <p>
+          To the maximum extent permitted by law, YabuTech shall not be liable
+          for:
+        </p>
+        <ul>
+          <li>Indirect, incidental, special, or consequential damages</li>
+          <li>Loss of profits, data, or business opportunities</li>
+          <li>Damages resulting from use or inability to use the service</li>
+          <li>Third-party actions or content accessed through QR codes</li>
+        </ul>
+
+        <h2>9. Indemnification</h2>
+
+        <p>
+          You agree to indemnify and hold harmless YabuTech from any claims,
+          damages, or expenses arising from:
+        </p>
+        <ul>
+          <li>Your use of the service</li>
+          <li>Content you encode in QR codes</li>
+          <li>Violation of these terms</li>
+          <li>Infringement of third-party rights</li>
+          <li>Illegal or harmful activities</li>
+        </ul>
+
+        <h2>10. Termination</h2>
+
+        <h3>Termination Rights</h3>
+        <p>We reserve the right to:</p>
+        <ul>
+          <li>Suspend or terminate access for terms violations</li>
+          <li>Discontinue the service with reasonable notice</li>
+          <li>Modify or restrict service features</li>
+          <li>Block access from specific locations or IP addresses</li>
+        </ul>
+
+        <h3>Effect of Termination</h3>
+        <p>Upon termination:</p>
+        <ul>
+          <li>Your right to use the service ceases immediately</li>
+          <li>Previously generated QR codes remain functional</li>
+          <li>Relevant terms provisions survive termination</li>
+        </ul>
+
+        <h2>11. Changes to Terms</h2>
+
+        <p>We may update these terms to reflect:</p>
+        <ul>
+          <li>Changes in legal requirements</li>
+          <li>Service improvements or modifications</li>
+          <li>User feedback and operational needs</li>
+          <li>Industry best practices</li>
+        </ul>
+
+        <h3>Notification of Changes</h3>
+        <p>Material changes will be communicated through:</p>
+        <ul>
+          <li>Updated terms posted on our website</li>
+          <li>Notice on our homepage for 30 days</li>
+          <li>Email notification if contact information is available</li>
+        </ul>
+
+        <h2>12. Governing Law and Jurisdiction</h2>
+
+        <p>
+          These terms are governed by and construed in accordance with
+          applicable laws. Any disputes arising from these terms or service use
+          will be resolved through:
+        </p>
+        <ul>
+          <li>Good faith negotiation as the first step</li>
+          <li>Mediation if direct negotiation fails</li>
+          <li>Binding arbitration for unresolved disputes</li>
+          <li>Appropriate legal jurisdiction as a last resort</li>
+        </ul>
+
+        <h2>13. Severability and Entire Agreement</h2>
+
+        <h3>Severability</h3>
+        <p>
+          If any provision of these terms is found unenforceable, the remaining
+          provisions will continue in full force and effect.
+        </p>
+
+        <h3>Entire Agreement</h3>
+        <p>
+          These terms, together with our Privacy Policy, constitute the entire
+          agreement between you and YabuTech regarding the service.
+        </p>
+
+        <div class="contact-section">
+          <h3>Questions About These Terms?</h3>
+          <p>
+            If you have questions about these terms of service, please contact
+            us for clarification.
+          </p>
+          <a href="/contact" class="contact-button">Contact Us</a>
+        </div>
+
+        <h2>14. Contact Information</h2>
+
+        <p>For questions about these terms or our service:</p>
+
+        <ul>
+          <li><strong>Email:</strong> brianyabutech@gmail.com</li>
+          <li><strong>Service:</strong> Ukiyo QR</li>
+          <li><strong>Provider:</strong> YabuTech</li>
+          <li><strong>Response Time:</strong> Within 48-72 hours</li>
+        </ul>
+
+        <p>
+          <strong
+            >By using Ukiyo QR, you acknowledge that you have read, understood,
+            and agree to be bound by these Terms of Service.</strong
+          >
+        </p>
+      </main>
+
+      <div class="back-to-home">
+        <a href="/">🌊 Generate QR Codes Now</a>
       </div>
-      
-      <h2>4. User Responsibilities</h2>
-      
-      <h3>Content Responsibility</h3>
-      <p>You are solely responsible for:</p>
-      <ul>
-        <li>The content you encode in QR codes</li>
-        <li>Ensuring content legality in your jurisdiction</li>
-        <li>Respecting intellectual property rights</li>
-        <li>Accuracy of information provided</li>
-        <li>Compliance with applicable laws and regulations</li>
-      </ul>
-      
-      <h3>Security Practices</h3>
-      <p>Users should:</p>
-      <ul>
-        <li>Verify QR code content before distribution</li>
-        <li>Use secure, trusted URLs in QR codes</li>
-        <li>Implement appropriate security measures for business use</li>
-        <li>Report security vulnerabilities responsibly</li>
-      </ul>
-      
-      <h2>5. Service Availability and Limitations</h2>
-      
-      <h3>Service Availability</h3>
-      <p>We strive to provide reliable service but cannot guarantee:</p>
-      <ul>
-        <li>100% uptime or uninterrupted access</li>
-        <li>Specific performance levels or response times</li>
-        <li>Compatibility with all devices or browsers</li>
-        <li>Permanent availability of generated QR codes</li>
-      </ul>
-      
-      <h3>Usage Limitations</h3>
-      <p>To ensure fair access for all users, we may implement:</p>
-      <ul>
-        <li>Rate limiting on QR code generation</li>
-        <li>Temporary restrictions for excessive usage</li>
-        <li>Content filtering for prohibited material</li>
-        <li>Technical limitations based on system capacity</li>
-      </ul>
-      
-      <h2>6. Intellectual Property Rights</h2>
-      
-      <h3>Our Intellectual Property</h3>
-      <p>Ukiyo QR and its original content, features, and functionality are owned by YabuTech and are protected by:</p>
-      <ul>
-        <li>Copyright laws and international treaties</li>
-        <li>Trademark and service mark protections</li>
-        <li>Trade secret and proprietary information laws</li>
-      </ul>
-      
-      <h3>User-Generated Content</h3>
-      <p>Regarding content you create using our service:</p>
-      <ul>
-        <li>You retain ownership of your original content</li>
-        <li>You grant us limited rights to process content for service provision</li>
-        <li>We don't claim ownership of your QR code content</li>
-        <li>Generated QR codes can be used freely for your purposes</li>
-      </ul>
-      
-      <h2>7. Privacy and Data Protection</h2>
-      
-      <p>Our approach to privacy and data protection:</p>
-      <ul>
-        <li>We don't store QR code content or personal information</li>
-        <li>Minimal technical data collection for service operation</li>
-        <li>Compliance with applicable privacy laws (GDPR, CCPA, etc.)</li>
-        <li>Transparent privacy practices detailed in our Privacy Policy</li>
-      </ul>
-      
-      <p>For complete privacy information, please review our <a href="/privacy-policy" style="color: #38bdf8;">Privacy Policy</a>.</p>
-      
-      <h2>8. Disclaimers and Limitation of Liability</h2>
-      
-      <h3>Service Disclaimers</h3>
-      <p>The service is provided "as is" and "as available" without warranties of any kind, including:</p>
-      <ul>
-        <li>Merchantability or fitness for a particular purpose</li>
-        <li>Non-infringement of third-party rights</li>
-        <li>Accuracy, reliability, or completeness</li>
-        <li>Security or error-free operation</li>
-      </ul>
-      
-      <h3>Limitation of Liability</h3>
-      <p>To the maximum extent permitted by law, YabuTech shall not be liable for:</p>
-      <ul>
-        <li>Indirect, incidental, special, or consequential damages</li>
-        <li>Loss of profits, data, or business opportunities</li>
-        <li>Damages resulting from use or inability to use the service</li>
-        <li>Third-party actions or content accessed through QR codes</li>
-      </ul>
-      
-      <h2>9. Indemnification</h2>
-      
-      <p>You agree to indemnify and hold harmless YabuTech from any claims, damages, or expenses arising from:</p>
-      <ul>
-        <li>Your use of the service</li>
-        <li>Content you encode in QR codes</li>
-        <li>Violation of these terms</li>
-        <li>Infringement of third-party rights</li>
-        <li>Illegal or harmful activities</li>
-      </ul>
-      
-      <h2>10. Termination</h2>
-      
-      <h3>Termination Rights</h3>
-      <p>We reserve the right to:</p>
-      <ul>
-        <li>Suspend or terminate access for terms violations</li>
-        <li>Discontinue the service with reasonable notice</li>
-        <li>Modify or restrict service features</li>
-        <li>Block access from specific locations or IP addresses</li>
-      </ul>
-      
-      <h3>Effect of Termination</h3>
-      <p>Upon termination:</p>
-      <ul>
-        <li>Your right to use the service ceases immediately</li>
-        <li>Previously generated QR codes remain functional</li>
-        <li>Relevant terms provisions survive termination</li>
-      </ul>
-      
-      <h2>11. Changes to Terms</h2>
-      
-      <p>We may update these terms to reflect:</p>
-      <ul>
-        <li>Changes in legal requirements</li>
-        <li>Service improvements or modifications</li>
-        <li>User feedback and operational needs</li>
-        <li>Industry best practices</li>
-      </ul>
-      
-      <h3>Notification of Changes</h3>
-      <p>Material changes will be communicated through:</p>
-      <ul>
-        <li>Updated terms posted on our website</li>
-        <li>Notice on our homepage for 30 days</li>
-        <li>Email notification if contact information is available</li>
-      </ul>
-      
-      <h2>12. Governing Law and Jurisdiction</h2>
-      
-      <p>These terms are governed by and construed in accordance with applicable laws. Any disputes arising from these terms or service use will be resolved through:</p>
-      <ul>
-        <li>Good faith negotiation as the first step</li>
-        <li>Mediation if direct negotiation fails</li>
-        <li>Binding arbitration for unresolved disputes</li>
-        <li>Appropriate legal jurisdiction as a last resort</li>
-      </ul>
-      
-      <h2>13. Severability and Entire Agreement</h2>
-      
-      <h3>Severability</h3>
-      <p>If any provision of these terms is found unenforceable, the remaining provisions will continue in full force and effect.</p>
-      
-      <h3>Entire Agreement</h3>
-      <p>These terms, together with our Privacy Policy, constitute the entire agreement between you and YabuTech regarding the service.</p>
-      
-      <div class="contact-section">
-        <h3>Questions About These Terms?</h3>
-        <p>If you have questions about these terms of service, please contact us for clarification.</p>
-        <a href="/contact" class="contact-button">Contact Us</a>
-      </div>
-      
-      <h2>14. Contact Information</h2>
-      
-      <p>For questions about these terms or our service:</p>
-      
-      <ul>
-        <li><strong>Email:</strong> brianyabutech@gmail.com</li>
-        <li><strong>Service:</strong> Ukiyo QR</li>
-        <li><strong>Provider:</strong> YabuTech</li>
-        <li><strong>Response Time:</strong> Within 48-72 hours</li>
-      </ul>
-      
-      <p><strong>By using Ukiyo QR, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.</strong></p>
-    </main>
-    
-    <div class="back-to-home">
-      <a href="/">🌊 Generate QR Codes Now</a>
     </div>
-  </div>
-</body>
+  </body>
 </html>

@@ -1,94 +1,189 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>{% block title %}Ukiyo QR{% endblock %}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="{% block description %}Generate QR codes instantly with Ukiyo QR - a free, privacy-focused QR code generator. Create QR codes for URLs, text, contact info, WiFi passwords, and more. No registration required.{% endblock %}">
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}">
-  
-  <!-- Preload critical CSS -->
-  <link rel="preload" href="{{ url_for('static', filename='css/critical.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="{{ url_for('static', filename='css/critical.css') }}"></noscript>
-  
-  <!-- Preload non-critical CSS -->
-  <link rel="preload" href="{{ url_for('static', filename='css/styles.min.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="{{ url_for('static', filename='css/styles.min.css') }}"></noscript>
-  
-  <!-- Preconnect to external resources -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Structured Data -->
-  {% block structured_data %}{% endblock %}
-  
-  <!-- Additional head content -->
-  {% block extra_head %}{% endblock %}
-</head>
-<body>
-  <div class="container" data-ad-ignore="true">
-    {% block content %}{% endblock %}
-    
-    <!-- Footer Section -->
-    <footer class="footer">
-      <div class="footer-content">
-        <div class="footer-brand">
-          © 2025 <strong>Ukiyo QR</strong>
-          <span class="footer-version">v1.3.0</span>
-          • Handcrafted by <strong><em><a href="https://yabutech.vercel.app/" target="_blank" rel="noopener" style="color:#ffd93d;">YabuTech</a></em></strong>
-          <div class="app-promo" style="margin-top: 12px; display: flex; align-items: center;">
-            <span style="color: #fff; font-size: 0.9em; margin-right: 10px; line-height: 1;">Try our other app:</span>
-            <a href="https://customodoro.vercel.app/" target="_blank" rel="noopener" class="app-badge" style="display: inline-flex; align-items: center; background: #2d3436; color: #fff; text-decoration: none; padding: 6px 12px; border-radius: 20px; font-size: 0.85em; transition: all 0.3s ease; border: 1px solid #4a4a4a; transform: translateY(1px);">
-              <img src="{{ url_for('static', filename='img/customodoro-icon.png') }}" alt="Customodoro" style="width: 24px; height: 24px; border-radius: 50%; object-fit: cover; margin-right: 8px;">
-              <span>Customodoro Timer</span>
-              <span style="margin-left: 6px; font-size: 0.8em; opacity: 0.8;">→</span>
-            </a>
-          </div>
-        </div>
-        <nav class="footer-links">
-          <a href="/blog">Blog</a>
-          <span class="footer-divider">•</span>
-          <a href="/about">About</a>
-          <span class="footer-divider">•</span>
-          <a href="/faq">FAQ</a>
-          <span class="footer-divider">•</span>
-          <a href="/contact">Contact</a>
-          <span class="footer-divider">•</span>
-          <a href="/privacy-policy">Privacy Policy</a>
-          <span class="footer-divider">•</span>
-          <a href="/terms-of-service">Terms of Service</a>
-        </nav>
-      </div>
-    </footer>
-  </div>
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Ukiyo QR{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="{% block description %}Generate QR codes instantly with Ukiyo QR - a free, privacy-focused QR code generator. Create QR codes for URLs, text, contact info, WiFi passwords, and more. No registration required.{% endblock %}"
+    />
 
-  <!-- Scripts -->
-  <script src="{{ url_for('static', filename='js/app.min.js') }}" defer></script>
-  {% block extra_scripts %}{% endblock %}
-  
-  <!-- Load non-critical CSS -->
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.min.css') }}" media="print" onload="this.media='all'">
-  
-  <!-- Service Worker Registration -->
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js')
-          .then(registration => {
-            console.log('ServiceWorker registration successful');
-          })
-          .catch(err => {
-            console.log('ServiceWorker registration failed: ', err);
-          });
-      });
-    }
-  </script>
-  
-  {% block body_end %}{% endblock %}
-</body>
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="{{ url_for('static', filename='img/favicon.png') }}"
+    />
+
+    <!-- Preload critical CSS -->
+    <link
+      rel="preload"
+      href="{{ url_for('static', filename='css/critical.css') }}"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/critical.css') }}"
+    /></noscript>
+
+    <!-- Preload non-critical CSS -->
+    <link
+      rel="preload"
+      href="{{ url_for('static', filename='css/styles.min.css') }}"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/styles.min.css') }}"
+    /></noscript>
+
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Structured Data -->
+    {% block structured_data %}{% endblock %}
+
+    <!-- Additional head content -->
+    {% block extra_head %}{% endblock %}
+  </head>
+  <body>
+    <div class="container" data-ad-ignore="true">
+      {% block content %}{% endblock %}
+
+      <!-- Footer Section -->
+      <footer class="footer">
+        <div class="footer-content">
+          <div class="footer-brand">
+            © 2025 <strong>Ukiyo QR</strong>
+            <span class="footer-version">v1.3.0</span>
+            • Handcrafted by
+            <strong
+              ><em
+                ><a
+                  href="https://yabutech.vercel.app/"
+                  target="_blank"
+                  rel="noopener"
+                  style="color: #ffd93d"
+                  >YabuTech</a
+                ></em
+              ></strong
+            >
+            <div
+              class="app-promo"
+              style="margin-top: 12px; display: flex; align-items: center"
+            >
+              <span
+                style="
+                  color: #fff;
+                  font-size: 0.9em;
+                  margin-right: 10px;
+                  line-height: 1;
+                "
+                >Try our other app:</span
+              >
+              <a
+                href="https://customodoro.vercel.app/"
+                target="_blank"
+                rel="noopener"
+                class="app-badge"
+                style="
+                  display: inline-flex;
+                  align-items: center;
+                  background: #2d3436;
+                  color: #fff;
+                  text-decoration: none;
+                  padding: 6px 12px;
+                  border-radius: 20px;
+                  font-size: 0.85em;
+                  transition: all 0.3s ease;
+                  border: 1px solid #4a4a4a;
+                  transform: translateY(1px);
+                "
+              >
+                <img
+                  src="{{ url_for('static', filename='img/customodoro-icon.png') }}"
+                  alt="Customodoro"
+                  style="
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    margin-right: 8px;
+                  "
+                />
+                <span>Customodoro Timer</span>
+                <span style="margin-left: 6px; font-size: 0.8em; opacity: 0.8"
+                  >→</span
+                >
+              </a>
+            </div>
+          </div>
+          <nav class="footer-links">
+            <a href="/blog">Blog</a>
+            <span class="footer-divider">•</span>
+            <a href="/about">About</a>
+            <span class="footer-divider">•</span>
+            <a href="/faq">FAQ</a>
+            <span class="footer-divider">•</span>
+            <a href="/contact">Contact</a>
+            <span class="footer-divider">•</span>
+            <a href="/privacy-policy">Privacy Policy</a>
+            <span class="footer-divider">•</span>
+            <a href="/terms-of-service">Terms of Service</a>
+          </nav>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script
+      src="{{ url_for('static', filename='js/app.min.js') }}"
+      defer
+    ></script>
+    {% block extra_scripts %}{% endblock %}
+
+    <!-- Load non-critical CSS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.min.css') }}"
+      media="print"
+      onload="this.media = 'all'"
+    />
+
+    <!-- Service Worker Registration -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("/service-worker.js")
+            .then((registration) => {
+              console.log("ServiceWorker registration successful");
+            })
+            .catch((err) => {
+              console.log("ServiceWorker registration failed: ", err);
+            });
+        });
+      }
+    </script>
+
+    {% block body_end %}{% endblock %}
+  </body>
 </html>

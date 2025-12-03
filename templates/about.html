@@ -1,741 +1,907 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>About Ukiyo QR | Free QR Code Generator with Privacy Focus</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Learn about Ukiyo QR - a free, privacy-focused QR code generator inspired by Japanese art. Discover our mission, features, and commitment to user privacy.">
-  <meta name="keywords" content="about Ukiyo QR, QR code generator, privacy-focused, Japanese art, Hokusai, The Great Wave, YabuTech">
-  <meta name="author" content="YabuTech">
-  <meta name="robots" content="index, follow">
-  
-  <!-- Open Graph tags -->
-  <meta property="og:title" content="About Ukiyo QR | Free QR Code Generator">
-  <meta property="og:description" content="Discover the story behind Ukiyo QR - a privacy-focused QR code generator inspired by Japanese art and philosophy.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ukiyo.onrender.com/about">
-  
-  <!-- About page structured data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "AboutPage",
-    "name": "About Ukiyo QR",
-    "description": "Learn about Ukiyo QR - a free, privacy-focused QR code generator",
-    "url": "https://ukiyo.onrender.com/about",
-    "mainEntity": {
-      "@type": "WebApplication",
-      "name": "Ukiyo QR",
-      "applicationCategory": "UtilitiesApplication",
-      "operatingSystem": "Web Browser",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "creator": {
-        "@type": "Organization",
-        "name": "YabuTech",
-        "url": "https://yabutech.vercel.app"
+  <head>
+    <meta charset="UTF-8" />
+    <title>About Ukiyo QR | Free QR Code Generator with Privacy Focus</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Learn about Ukiyo QR - a free, privacy-focused QR code generator inspired by Japanese art. Discover our mission, features, and commitment to user privacy."
+    />
+    <meta
+      name="keywords"
+      content="about Ukiyo QR, QR code generator, privacy-focused, Japanese art, Hokusai, The Great Wave, YabuTech"
+    />
+    <meta name="author" content="YabuTech" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph tags -->
+    <meta
+      property="og:title"
+      content="About Ukiyo QR | Free QR Code Generator"
+    />
+    <meta
+      property="og:description"
+      content="Discover the story behind Ukiyo QR - a privacy-focused QR code generator inspired by Japanese art and philosophy."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ukiyo.onrender.com/about" />
+
+    <!-- About page structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "About Ukiyo QR",
+        "description": "Learn about Ukiyo QR - a free, privacy-focused QR code generator",
+        "url": "https://ukiyo.onrender.com/about",
+        "mainEntity": {
+          "@type": "WebApplication",
+          "name": "Ukiyo QR",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Web Browser",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "creator": {
+            "@type": "Organization",
+            "name": "YabuTech",
+            "url": "https://yabutech.vercel.app"
+          }
+        }
       }
-    }
-  }
-  </script>
-  
-  <!-- Fonts and styles -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"></noscript>
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon.png') }}">
-  
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: #1e222c;
-      color: #ffffff;
-      line-height: 1.7;
-    }
-    
-    .about-container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
-      background: rgba(30,34,44,0.95);
-      border-radius: 1rem;
-      backdrop-filter: blur(10px);
-      min-height: 90vh;
-    }
-    
-    .breadcrumb {
-      margin-bottom: 2rem;
-      font-size: 0.9rem;
-    }
-    
-    .breadcrumb a {
-      color: #38bdf8;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    
-    .breadcrumb a:hover {
-      text-decoration: underline;
-    }
-    
-    .about-header {
-      margin-bottom: 3rem;
-      text-align: center;
-      padding-bottom: 2rem;
-      border-bottom: 2px solid #38bdf8;
-    }
-    
-    .about-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-    
-    .about-subtitle {
-      color: #94a3b8;
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-    }
-    
-    .version-info {
-      color: #64748b;
-      font-size: 0.9rem;
-      font-style: italic;
-    }
-    
-    .about-content {
-      font-size: 1.1rem;
-      line-height: 1.8;
-    }
-    
-    .about-content h2 {
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: #38bdf8;
-      margin: 2.5rem 0 1.5rem 0;
-      border-left: 4px solid #38bdf8;
-      padding-left: 1rem;
-    }
-    
-    .about-content h3 {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #0ea5e9;
-      margin: 2rem 0 1rem 0;
-    }
-    
-    .about-content p {
-      margin-bottom: 1.5rem;
-      color: #e2e8f0;
-    }
-    
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin: 2rem 0;
-    }
-    
-    .feature-card {
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      border-radius: 12px;
-      padding: 2rem;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-    
-    .feature-card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(56, 189, 248, 0.5);
-      box-shadow: 0 8px 32px rgba(56, 189, 248, 0.1);
-    }
-    
-    .feature-card .icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      display: block;
-    }
-    
-    .feature-card h4 {
-      color: #38bdf8;
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
-    
-    .feature-card p {
-      color: #e2e8f0;
-      font-size: 1rem;
-      margin-bottom: 0;
-    }
-    
-    .philosophy-section {
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      border-radius: 12px;
-      padding: 2rem;
-      margin: 3rem 0;
-    }
-    
-    .philosophy-section h3 {
-      color: #10b981;
-      margin-top: 0;
-      margin-bottom: 1.5rem;
-      font-weight: 600;
-    }
-    
-    .philosophy-section p {
-      color: #e2e8f0;
-      margin-bottom: 1rem;
-    }
-    
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 2rem;
-      margin: 3rem 0;
-      text-align: center;
-    }
-    
-    .stat-item {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(56, 189, 248, 0.2);
-      border-radius: 12px;
-      padding: 2rem 1rem;
-    }
-    
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #38bdf8;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-    
-    .stat-label {
-      color: #94a3b8;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    
-    .team-section {
-      background: rgba(251, 191, 36, 0.1);
-      border: 1px solid rgba(251, 191, 36, 0.3);
-      border-radius: 12px;
-      padding: 2rem;
-      margin: 3rem 0;
-      text-align: center;
-    }
-    
-    .team-section h3 {
-      color: #fbbf24;
-      margin-top: 0;
-      margin-bottom: 1.5rem;
-      font-weight: 600;
-    }
-    
-    .team-member {
-      margin-bottom: 2rem;
-    }
-    
-    .team-member h4 {
-      color: #ffffff;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-    
-    .team-member .role {
-      color: #fbbf24;
-      font-size: 1rem;
-      margin-bottom: 1rem;
-    }
-    
-    .team-member p {
-      color: #e2e8f0;
-      margin-bottom: 1rem;
-    }
-    
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    
-    .social-link {
-      color: #38bdf8;
-      text-decoration: none;
-      font-weight: 500;
-      padding: 0.5rem 1rem;
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      border-radius: 6px;
-      transition: all 0.3s ease;
-    }
-    
-    .social-link:hover {
-      background: rgba(56, 189, 248, 0.1);
-      transform: translateY(-1px);
-    }
-    
-    /* Our Apps Section */
-    .our-apps {
-      margin: 4rem 0 3rem;
-      padding: 2rem 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .app-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    
-    .app-card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 12px;
-      padding: 1.5rem;
-      display: flex;
-      gap: 1.2rem;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    
-    .app-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-      background: rgba(255, 255, 255, 0.05);
-    }
-    
-    .app-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.05);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    
-    .app-icon-img {
-      width: 28px;
-      height: 28px;
-      object-fit: contain;
-    }
-    
-    .app-details {
-      flex: 1;
-    }
-    
-    .app-details h3 {
-      margin: 0 0 0.5rem;
-      color: #38bdf8;
-      font-size: 1.2rem;
-    }
-    
-    .app-details p {
-      margin: 0 0 1rem;
-      font-size: 0.95rem;
-      color: rgba(255, 255, 255, 0.8);
-      line-height: 1.5;
-    }
-    
-    .app-button {
-      display: inline-block;
-      background: rgba(56, 189, 248, 0.1);
-      color: #38bdf8;
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: all 0.2s ease;
-      border: 1px solid rgba(56, 189, 248, 0.2);
-    }
-    
-    .app-button:hover {
-      background: rgba(56, 189, 248, 0.2);
-      transform: translateY(-1px);
-    }
-    
-    @media (max-width: 640px) {
-      .app-cards {
-        grid-template-columns: 1fr;
+    </script>
+
+    <!-- Fonts and styles -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    /></noscript>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{{ url_for('static', filename='img/favicon.png') }}"
+    />
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        background-color: #1e222c;
+        color: #ffffff;
+        line-height: 1.7;
       }
-      
-      .app-card {
-        flex-direction: column;
+
+      .about-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+        background: rgba(30, 34, 44, 0.95);
+        border-radius: 1rem;
+        backdrop-filter: blur(10px);
+        min-height: 90vh;
+      }
+
+      .breadcrumb {
+        margin-bottom: 2rem;
+        font-size: 0.9rem;
+      }
+
+      .breadcrumb a {
+        color: #38bdf8;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .breadcrumb a:hover {
+        text-decoration: underline;
+      }
+
+      .about-header {
+        margin-bottom: 3rem;
         text-align: center;
-        align-items: center;
+        padding-bottom: 2rem;
+        border-bottom: 2px solid #38bdf8;
       }
-      
-      .app-icon {
+
+      .about-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .about-subtitle {
+        color: #94a3b8;
+        font-size: 1.2rem;
         margin-bottom: 1rem;
       }
-    }
-    
-    .technology-stack {
-      background: rgba(139, 92, 246, 0.1);
-      border: 1px solid rgba(139, 92, 246, 0.3);
-      border-radius: 12px;
-      padding: 2rem;
-      margin: 3rem 0;
-    }
-    
-    .technology-stack h3 {
-      color: #8b5cf6;
-      margin-top: 0;
-      margin-bottom: 1.5rem;
-      font-weight: 600;
-    }
-    
-    .tech-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    
-    .tech-item {
-      background: rgba(139, 92, 246, 0.1);
-      border: 1px solid rgba(139, 92, 246, 0.2);
-      border-radius: 8px;
-      padding: 1rem;
-      text-align: center;
-    }
-    
-    .tech-item .tech-name {
-      color: #8b5cf6;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-    
-    .tech-item .tech-purpose {
-      color: #94a3b8;
-      font-size: 0.9rem;
-    }
-    
-    .cta-section {
-      background: linear-gradient(135deg, #10b981, #059669);
-      border-radius: 12px;
-      padding: 2rem;
-      text-align: center;
-      margin: 3rem 0;
-    }
-    
-    .cta-section h3 {
-      color: white;
-      margin-bottom: 1rem;
-    }
-    
-    .cta-section p {
-      color: rgba(255,255,255,0.9);
-      margin-bottom: 1.5rem;
-    }
-    
-    .cta-button {
-      background: white;
-      color: #059669;
-      text-decoration: none;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      font-weight: 600;
-      display: inline-block;
-      transition: all 0.3s ease;
-      margin: 0 0.5rem;
-    }
-    
-    .cta-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-    }
-    
-    .back-to-home {
-      text-align: center;
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(56, 189, 248, 0.2);
-    }
-    
-    .back-to-home a {
-      background: linear-gradient(135deg, #10b981, #059669);
-      color: white;
-      text-decoration: none;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      font-weight: 600;
-      display: inline-block;
-      transition: all 0.3s ease;
-    }
-    
-    .back-to-home a:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
-    }
-    
-    @media (max-width: 768px) {
-      .about-title {
-        font-size: 2rem;
+
+      .version-info {
+        color: #64748b;
+        font-size: 0.9rem;
+        font-style: italic;
       }
-      
-      .about-container {
-        padding: 1rem;
-        margin: 1rem;
+
+      .about-content {
+        font-size: 1.1rem;
+        line-height: 1.8;
       }
-      
+
+      .about-content h2 {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #38bdf8;
+        margin: 2.5rem 0 1.5rem 0;
+        border-left: 4px solid #38bdf8;
+        padding-left: 1rem;
+      }
+
+      .about-content h3 {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #0ea5e9;
+        margin: 2rem 0 1rem 0;
+      }
+
+      .about-content p {
+        margin-bottom: 1.5rem;
+        color: #e2e8f0;
+      }
+
       .feature-grid {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
       }
-      
+
+      .feature-card {
+        background: rgba(56, 189, 248, 0.1);
+        border: 1px solid rgba(56, 189, 248, 0.3);
+        border-radius: 12px;
+        padding: 2rem;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-2px);
+        border-color: rgba(56, 189, 248, 0.5);
+        box-shadow: 0 8px 32px rgba(56, 189, 248, 0.1);
+      }
+
+      .feature-card .icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        display: block;
+      }
+
+      .feature-card h4 {
+        color: #38bdf8;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .feature-card p {
+        color: #e2e8f0;
+        font-size: 1rem;
+        margin-bottom: 0;
+      }
+
+      .philosophy-section {
+        background: rgba(16, 185, 129, 0.1);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        border-radius: 12px;
+        padding: 2rem;
+        margin: 3rem 0;
+      }
+
+      .philosophy-section h3 {
+        color: #10b981;
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+      }
+
+      .philosophy-section p {
+        color: #e2e8f0;
+        margin-bottom: 1rem;
+      }
+
       .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+        text-align: center;
       }
-      
+
+      .stat-item {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(56, 189, 248, 0.2);
+        border-radius: 12px;
+        padding: 2rem 1rem;
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #38bdf8;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-label {
+        color: #94a3b8;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .team-section {
+        background: rgba(251, 191, 36, 0.1);
+        border: 1px solid rgba(251, 191, 36, 0.3);
+        border-radius: 12px;
+        padding: 2rem;
+        margin: 3rem 0;
+        text-align: center;
+      }
+
+      .team-section h3 {
+        color: #fbbf24;
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+      }
+
+      .team-member {
+        margin-bottom: 2rem;
+      }
+
+      .team-member h4 {
+        color: #ffffff;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+
+      .team-member .role {
+        color: #fbbf24;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .team-member p {
+        color: #e2e8f0;
+        margin-bottom: 1rem;
+      }
+
       .social-links {
-        flex-direction: column;
-        align-items: center;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1rem;
       }
-    }
-  </style>
-</head>
-<body>
-  <div class="about-container">
-    <nav class="breadcrumb">
-      <a href="/">← Back to QR Generator</a>
-    </nav>
-    
-    <header class="about-header">
-      <h1 class="about-title">About Ukiyo QR</h1>
-      <p class="about-subtitle">A free, privacy-focused QR code generator inspired by Japanese art and philosophy</p>
-      <p class="version-info">Version 1.3.0 • Built with ❤️ by YabuTech</p>
-    </header>
-    
-    <main class="about-content">
-      <h2>🌊 Our Story</h2>
-      
-      <p>Ukiyo QR was born from a simple belief: QR code generation should be free, private, and beautiful. In a world where digital tools often compromise user privacy for profit, we chose a different path.</p>
-      
-      <p>Inspired by the Japanese concept of "ukiyo" (浮世) - meaning "floating world" or "living in the moment" - our tool embodies the philosophy of finding beauty in transient connections. Just as Hokusai's "The Great Wave off Kanagawa" captures a moment of natural power and beauty, QR codes create momentary bridges between the physical and digital worlds.</p>
-      
-      <div class="philosophy-section">
-        <h3>🎌 The Ukiyo Philosophy</h3>
-        <p>Ukiyo-e, the "pictures of the floating world," was a Japanese art movement that celebrated the beauty of everyday life and fleeting moments. This philosophy guides everything we do:</p>
+
+      .social-link {
+        color: #38bdf8;
+        text-decoration: none;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        border: 1px solid rgba(56, 189, 248, 0.3);
+        border-radius: 6px;
+        transition: all 0.3s ease;
+      }
+
+      .social-link:hover {
+        background: rgba(56, 189, 248, 0.1);
+        transform: translateY(-1px);
+      }
+
+      /* Our Apps Section */
+      .our-apps {
+        margin: 4rem 0 3rem;
+        padding: 2rem 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .app-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .app-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 1.5rem;
+        display: flex;
+        gap: 1.2rem;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .app-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .app-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.05);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .app-icon-img {
+        width: 28px;
+        height: 28px;
+        object-fit: contain;
+      }
+
+      .app-details {
+        flex: 1;
+      }
+
+      .app-details h3 {
+        margin: 0 0 0.5rem;
+        color: #38bdf8;
+        font-size: 1.2rem;
+      }
+
+      .app-details p {
+        margin: 0 0 1rem;
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.5;
+      }
+
+      .app-button {
+        display: inline-block;
+        background: rgba(56, 189, 248, 0.1);
+        color: #38bdf8;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        border: 1px solid rgba(56, 189, 248, 0.2);
+      }
+
+      .app-button:hover {
+        background: rgba(56, 189, 248, 0.2);
+        transform: translateY(-1px);
+      }
+
+      @media (max-width: 640px) {
+        .app-cards {
+          grid-template-columns: 1fr;
+        }
+
+        .app-card {
+          flex-direction: column;
+          text-align: center;
+          align-items: center;
+        }
+
+        .app-icon {
+          margin-bottom: 1rem;
+        }
+      }
+
+      .technology-stack {
+        background: rgba(139, 92, 246, 0.1);
+        border: 1px solid rgba(139, 92, 246, 0.3);
+        border-radius: 12px;
+        padding: 2rem;
+        margin: 3rem 0;
+      }
+
+      .technology-stack h3 {
+        color: #8b5cf6;
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+      }
+
+      .tech-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .tech-item {
+        background: rgba(139, 92, 246, 0.1);
+        border: 1px solid rgba(139, 92, 246, 0.2);
+        border-radius: 8px;
+        padding: 1rem;
+        text-align: center;
+      }
+
+      .tech-item .tech-name {
+        color: #8b5cf6;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .tech-item .tech-purpose {
+        color: #94a3b8;
+        font-size: 0.9rem;
+      }
+
+      .cta-section {
+        background: linear-gradient(135deg, #10b981, #059669);
+        border-radius: 12px;
+        padding: 2rem;
+        text-align: center;
+        margin: 3rem 0;
+      }
+
+      .cta-section h3 {
+        color: white;
+        margin-bottom: 1rem;
+      }
+
+      .cta-section p {
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 1.5rem;
+      }
+
+      .cta-button {
+        background: white;
+        color: #059669;
+        text-decoration: none;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        display: inline-block;
+        transition: all 0.3s ease;
+        margin: 0 0.5rem;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      }
+
+      .back-to-home {
+        text-align: center;
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(56, 189, 248, 0.2);
+      }
+
+      .back-to-home a {
+        background: linear-gradient(135deg, #10b981, #059669);
+        color: white;
+        text-decoration: none;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
+
+      .back-to-home a:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+      }
+
+      @media (max-width: 768px) {
+        .about-title {
+          font-size: 2rem;
+        }
+
+        .about-container {
+          padding: 1rem;
+          margin: 1rem;
+        }
+
+        .feature-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .social-links {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="about-container">
+      <nav class="breadcrumb">
+        <a href="/">← Back to QR Generator</a>
+      </nav>
+
+      <header class="about-header">
+        <h1 class="about-title">About Ukiyo QR</h1>
+        <p class="about-subtitle">
+          A free, privacy-focused QR code generator inspired by Japanese art and
+          philosophy
+        </p>
+        <p class="version-info">Version 1.3.0 • Built with ❤️ by YabuTech</p>
+      </header>
+
+      <main class="about-content">
+        <h2>🌊 Our Story</h2>
+
+        <p>
+          Ukiyo QR was born from a simple belief: QR code generation should be
+          free, private, and beautiful. In a world where digital tools often
+          compromise user privacy for profit, we chose a different path.
+        </p>
+
+        <p>
+          Inspired by the Japanese concept of "ukiyo" (浮世) - meaning "floating
+          world" or "living in the moment" - our tool embodies the philosophy of
+          finding beauty in transient connections. Just as Hokusai's "The Great
+          Wave off Kanagawa" captures a moment of natural power and beauty, QR
+          codes create momentary bridges between the physical and digital
+          worlds.
+        </p>
+
+        <div class="philosophy-section">
+          <h3>🎌 The Ukiyo Philosophy</h3>
+          <p>
+            Ukiyo-e, the "pictures of the floating world," was a Japanese art
+            movement that celebrated the beauty of everyday life and fleeting
+            moments. This philosophy guides everything we do:
+          </p>
+          <ul>
+            <li>
+              <strong>Simplicity:</strong> Clean, intuitive design that gets out
+              of your way
+            </li>
+            <li>
+              <strong>Beauty:</strong> Aesthetic experiences that bring joy to
+              mundane tasks
+            </li>
+            <li>
+              <strong>Transience:</strong> Respecting the temporary nature of
+              digital interactions
+            </li>
+            <li>
+              <strong>Accessibility:</strong> Making powerful tools available to
+              everyone
+            </li>
+          </ul>
+        </div>
+
+        <h2>✨ Key Features</h2>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <span class="icon">🔒</span>
+            <h4>Privacy First</h4>
+            <p>
+              No data storage, no tracking, no registration required. Your
+              information stays private.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <span class="icon">⚡</span>
+            <h4>Lightning Fast</h4>
+            <p>
+              Instant QR code generation with optimized performance and minimal
+              loading times.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <span class="icon">🎨</span>
+            <h4>Beautiful Design</h4>
+            <p>
+              Inspired by Japanese art with a modern, clean interface that's a
+              joy to use.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <span class="icon">📱</span>
+            <h4>Mobile Optimized</h4>
+            <p>
+              Perfect experience across all devices - desktop, tablet, and
+              mobile.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <span class="icon">🌍</span>
+            <h4>Universal Access</h4>
+            <p>
+              Free for everyone, everywhere. No limits, no subscriptions, no
+              hidden costs.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <span class="icon">🛡️</span>
+            <h4>Secure & Reliable</h4>
+            <p>
+              Built with security best practices and reliable infrastructure.
+            </p>
+          </div>
+        </div>
+
+        <h2>📊 By the Numbers</h2>
+
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Free Forever</span>
+          </div>
+
+          <div class="stat-item">
+            <span class="stat-number">0</span>
+            <span class="stat-label">Data Stored</span>
+          </div>
+
+          <div class="stat-item">
+            <span class="stat-number">∞</span>
+            <span class="stat-label">QR Codes</span>
+          </div>
+
+          <div class="stat-item">
+            <span class="stat-number">24/7</span>
+            <span class="stat-label">Available</span>
+          </div>
+        </div>
+
+        <h2>👨‍💻 Meet the Team</h2>
+
+        <div class="team-section">
+          <h3>The People Behind Ukiyo QR</h3>
+
+          <div class="team-member">
+            <h4>Brian Yabut</h4>
+            <div class="role">Founder & Developer</div>
+            <p>
+              Passionate about creating beautiful, privacy-focused tools that
+              make technology more accessible. Brian combines technical
+              expertise with design sensibility to build applications that users
+              actually enjoy using.
+            </p>
+
+            <div class="social-links">
+              <a
+                href="https://www.linkedin.com/in/brian-yabut/"
+                target="_blank"
+                rel="noopener"
+                class="social-link"
+                >LinkedIn</a
+              >
+              <a
+                href="https://yabutech.vercel.app/"
+                target="_blank"
+                rel="noopener"
+                class="social-link"
+                >Portfolio</a
+              >
+              <a href="mailto:brianyabutech@gmail.com" class="social-link"
+                >Email</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <h2>🔧 Technology Stack</h2>
+
+        <div class="technology-stack">
+          <h3>Built with Modern Technologies</h3>
+          <p>
+            Ukiyo QR is built using cutting-edge technologies that prioritize
+            performance, security, and user experience:
+          </p>
+
+          <div class="tech-list">
+            <div class="tech-item">
+              <div class="tech-name">Python Flask</div>
+              <div class="tech-purpose">Backend Framework</div>
+            </div>
+
+            <div class="tech-item">
+              <div class="tech-name">HTML5 & CSS3</div>
+              <div class="tech-purpose">Modern Frontend</div>
+            </div>
+
+            <div class="tech-item">
+              <div class="tech-name">JavaScript ES6+</div>
+              <div class="tech-purpose">Interactive Features</div>
+            </div>
+
+            <div class="tech-item">
+              <div class="tech-name">QRCode Library</div>
+              <div class="tech-purpose">QR Generation</div>
+            </div>
+
+            <div class="tech-item">
+              <div class="tech-name">Service Workers</div>
+              <div class="tech-purpose">Performance</div>
+            </div>
+
+            <div class="tech-item">
+              <div class="tech-name">Progressive Web App</div>
+              <div class="tech-purpose">App-like Experience</div>
+            </div>
+          </div>
+        </div>
+
+        <h2>🚀 Our Mission</h2>
+
+        <p>
+          We believe that powerful tools should be accessible to everyone,
+          regardless of technical expertise or financial resources. Our mission
+          is to:
+        </p>
+
         <ul>
-          <li><strong>Simplicity:</strong> Clean, intuitive design that gets out of your way</li>
-          <li><strong>Beauty:</strong> Aesthetic experiences that bring joy to mundane tasks</li>
-          <li><strong>Transience:</strong> Respecting the temporary nature of digital interactions</li>
-          <li><strong>Accessibility:</strong> Making powerful tools available to everyone</li>
+          <li>
+            <strong>Democratize Technology:</strong> Make QR code generation
+            free and accessible worldwide
+          </li>
+          <li>
+            <strong>Protect Privacy:</strong> Prove that useful services don't
+            require data collection
+          </li>
+          <li>
+            <strong>Inspire Beauty:</strong> Show that functional tools can also
+            be aesthetically pleasing
+          </li>
+          <li>
+            <strong>Foster Connection:</strong> Help people bridge physical and
+            digital worlds seamlessly
+          </li>
         </ul>
-      </div>
-      
-      <h2>✨ Key Features</h2>
-      
-      <div class="feature-grid">
-        <div class="feature-card">
-          <span class="icon">🔒</span>
-          <h4>Privacy First</h4>
-          <p>No data storage, no tracking, no registration required. Your information stays private.</p>
+
+        <h2>🌟 What's Next</h2>
+
+        <p>
+          We're constantly improving Ukiyo QR based on user feedback and
+          emerging technologies. Upcoming features include:
+        </p>
+
+        <ul>
+          <li>Enhanced QR code customization options</li>
+          <li>Additional data format support</li>
+          <li>Improved accessibility features</li>
+          <li>Performance optimizations</li>
+          <li>Educational content expansion</li>
+        </ul>
+
+        <div class="cta-section">
+          <h3>Join Our Journey</h3>
+          <p>
+            Experience the beauty of simple, private QR code generation. No
+            signup required, no data collected, just pure functionality.
+          </p>
+          <a href="/" class="cta-button">Try Ukiyo QR</a>
+          <a href="/contact" class="cta-button">Send Feedback</a>
         </div>
-        
-        <div class="feature-card">
-          <span class="icon">⚡</span>
-          <h4>Lightning Fast</h4>
-          <p>Instant QR code generation with optimized performance and minimal loading times.</p>
-        </div>
-        
-        <div class="feature-card">
-          <span class="icon">🎨</span>
-          <h4>Beautiful Design</h4>
-          <p>Inspired by Japanese art with a modern, clean interface that's a joy to use.</p>
-        </div>
-        
-        <div class="feature-card">
-          <span class="icon">📱</span>
-          <h4>Mobile Optimized</h4>
-          <p>Perfect experience across all devices - desktop, tablet, and mobile.</p>
-        </div>
-        
-        <div class="feature-card">
-          <span class="icon">🌍</span>
-          <h4>Universal Access</h4>
-          <p>Free for everyone, everywhere. No limits, no subscriptions, no hidden costs.</p>
-        </div>
-        
-        <div class="feature-card">
-          <span class="icon">🛡️</span>
-          <h4>Secure & Reliable</h4>
-          <p>Built with security best practices and reliable infrastructure.</p>
-        </div>
-      </div>
-      
-      <h2>📊 By the Numbers</h2>
-      
-      <div class="stats-grid">
-        <div class="stat-item">
-          <span class="stat-number">100%</span>
-          <span class="stat-label">Free Forever</span>
-        </div>
-        
-        <div class="stat-item">
-          <span class="stat-number">0</span>
-          <span class="stat-label">Data Stored</span>
-        </div>
-        
-        <div class="stat-item">
-          <span class="stat-number">∞</span>
-          <span class="stat-label">QR Codes</span>
-        </div>
-        
-        <div class="stat-item">
-          <span class="stat-number">24/7</span>
-          <span class="stat-label">Available</span>
-        </div>
-      </div>
-      
-      <h2>👨‍💻 Meet the Team</h2>
-      
-      <div class="team-section">
-        <h3>The People Behind Ukiyo QR</h3>
-        
-        <div class="team-member">
-          <h4>Brian Yabut</h4>
-          <div class="role">Founder & Developer</div>
-          <p>Passionate about creating beautiful, privacy-focused tools that make technology more accessible. Brian combines technical expertise with design sensibility to build applications that users actually enjoy using.</p>
-          
-          <div class="social-links">
-            <a href="https://www.linkedin.com/in/brian-yabut/" target="_blank" rel="noopener" class="social-link">LinkedIn</a>
-            <a href="https://yabutech.vercel.app/" target="_blank" rel="noopener" class="social-link">Portfolio</a>
-            <a href="mailto:brianyabutech@gmail.com" class="social-link">Email</a>
-          </div>
-        </div>
-      </div>
-      
-      <h2>🔧 Technology Stack</h2>
-      
-      <div class="technology-stack">
-        <h3>Built with Modern Technologies</h3>
-        <p>Ukiyo QR is built using cutting-edge technologies that prioritize performance, security, and user experience:</p>
-        
-        <div class="tech-list">
-          <div class="tech-item">
-            <div class="tech-name">Python Flask</div>
-            <div class="tech-purpose">Backend Framework</div>
-          </div>
-          
-          <div class="tech-item">
-            <div class="tech-name">HTML5 & CSS3</div>
-            <div class="tech-purpose">Modern Frontend</div>
-          </div>
-          
-          <div class="tech-item">
-            <div class="tech-name">JavaScript ES6+</div>
-            <div class="tech-purpose">Interactive Features</div>
-          </div>
-          
-          <div class="tech-item">
-            <div class="tech-name">QRCode Library</div>
-            <div class="tech-purpose">QR Generation</div>
-          </div>
-          
-          <div class="tech-item">
-            <div class="tech-name">Service Workers</div>
-            <div class="tech-purpose">Performance</div>
-          </div>
-          
-          <div class="tech-item">
-            <div class="tech-name">Progressive Web App</div>
-            <div class="tech-purpose">App-like Experience</div>
-          </div>
-        </div>
-      </div>
-      
-      <h2>🚀 Our Mission</h2>
-      
-      <p>We believe that powerful tools should be accessible to everyone, regardless of technical expertise or financial resources. Our mission is to:</p>
-      
-      <ul>
-        <li><strong>Democratize Technology:</strong> Make QR code generation free and accessible worldwide</li>
-        <li><strong>Protect Privacy:</strong> Prove that useful services don't require data collection</li>
-        <li><strong>Inspire Beauty:</strong> Show that functional tools can also be aesthetically pleasing</li>
-        <li><strong>Foster Connection:</strong> Help people bridge physical and digital worlds seamlessly</li>
-      </ul>
-      
-      <h2>🌟 What's Next</h2>
-      
-      <p>We're constantly improving Ukiyo QR based on user feedback and emerging technologies. Upcoming features include:</p>
-      
-      <ul>
-        <li>Enhanced QR code customization options</li>
-        <li>Additional data format support</li>
-        <li>Improved accessibility features</li>
-        <li>Performance optimizations</li>
-        <li>Educational content expansion</li>
-      </ul>
-      
-      <div class="cta-section">
-        <h3>Join Our Journey</h3>
-        <p>Experience the beauty of simple, private QR code generation. No signup required, no data collected, just pure functionality.</p>
-        <a href="/" class="cta-button">Try Ukiyo QR</a>
-        <a href="/contact" class="cta-button">Send Feedback</a>
-      </div>
-      
-      <h2>🙏 Acknowledgments</h2>
-      
-      <p>Ukiyo QR wouldn't be possible without:</p>
-      
-      <ul>
-        <li><strong>Hokusai:</strong> For the timeless beauty of "The Great Wave off Kanagawa"</li>
-        <li><strong>Open Source Community:</strong> For the libraries and tools that power our service</li>
-        <li><strong>Our Users:</strong> For trusting us with their QR code generation needs</li>
-        <li><strong>Privacy Advocates:</strong> For inspiring us to build better, more respectful technology</li>
-      </ul>
-      
-      <p>Thank you for being part of the Ukiyo QR community. Together, we're creating a more beautiful, private, and accessible digital world.</p>
-      
-      <section class="our-apps">
-        <h2>✨ Our Apps</h2>
-        <p>Explore our collection of thoughtfully designed productivity tools:</p>
-        
-        <div class="app-cards">
-          <div class="app-card">
-            <div class="app-icon">
-              <img src="{{ url_for('static', filename='img/favicon.png') }}" alt="Ukiyo QR" class="app-icon-img">
+
+        <h2>🙏 Acknowledgments</h2>
+
+        <p>Ukiyo QR wouldn't be possible without:</p>
+
+        <ul>
+          <li>
+            <strong>Hokusai:</strong> For the timeless beauty of "The Great Wave
+            off Kanagawa"
+          </li>
+          <li>
+            <strong>Open Source Community:</strong> For the libraries and tools
+            that power our service
+          </li>
+          <li>
+            <strong>Our Users:</strong> For trusting us with their QR code
+            generation needs
+          </li>
+          <li>
+            <strong>Privacy Advocates:</strong> For inspiring us to build
+            better, more respectful technology
+          </li>
+        </ul>
+
+        <p>
+          Thank you for being part of the Ukiyo QR community. Together, we're
+          creating a more beautiful, private, and accessible digital world.
+        </p>
+
+        <section class="our-apps">
+          <h2>✨ Our Apps</h2>
+          <p>
+            Explore our collection of thoughtfully designed productivity tools:
+          </p>
+
+          <div class="app-cards">
+            <div class="app-card">
+              <div class="app-icon">
+                <img
+                  src="{{ url_for('static', filename='img/favicon.png') }}"
+                  alt="Ukiyo QR"
+                  class="app-icon-img"
+                />
+              </div>
+              <div class="app-details">
+                <h3>Ukiyo QR</h3>
+                <p>
+                  Free, privacy-focused QR code generator with a beautiful
+                  Japanese art theme.
+                </p>
+                <a href="/" class="app-button">Use Ukiyo QR</a>
+              </div>
             </div>
-            <div class="app-details">
-              <h3>Ukiyo QR</h3>
-              <p>Free, privacy-focused QR code generator with a beautiful Japanese art theme.</p>
-              <a href="/" class="app-button">Use Ukiyo QR</a>
+
+            <div class="app-card">
+              <div class="app-icon">
+                <img
+                  src="{{ url_for('static', filename='img/customodoro-icon.png') }}"
+                  alt="Customodoro Timer"
+                  class="app-icon-img"
+                />
+              </div>
+              <div class="app-details">
+                <h3>Customodoro Timer</h3>
+                <p>
+                  Customizable Pomodoro timer with task tracking and
+                  productivity analytics.
+                </p>
+                <a
+                  href="https://customodoro.vercel.app/"
+                  target="_blank"
+                  rel="noopener"
+                  class="app-button"
+                  >Try Customodoro</a
+                >
+              </div>
             </div>
           </div>
-          
-          <div class="app-card">
-            <div class="app-icon">
-              <img src="{{ url_for('static', filename='img/customodoro-icon.png') }}" alt="Customodoro Timer" class="app-icon-img">
-            </div>
-            <div class="app-details">
-              <h3>Customodoro Timer</h3>
-              <p>Customizable Pomodoro timer with task tracking and productivity analytics.</p>
-              <a href="https://customodoro.vercel.app/" target="_blank" rel="noopener" class="app-button">Try Customodoro</a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-    
-    <div class="back-to-home">
-      <a href="/">🌊 Generate QR Codes Now</a>
+        </section>
+      </main>
+
+      <div class="back-to-home">
+        <a href="/">🌊 Generate QR Codes Now</a>
+      </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>

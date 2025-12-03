@@ -1,532 +1,681 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>QR Code Security: Best Practices and Risk Prevention | Ukiyo QR Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Comprehensive guide to QR code security threats, best practices, and risk prevention strategies. Learn to protect users from malicious QR codes and phishing attacks.">
-  <meta name="keywords" content="QR code security, malicious QR codes, QR code phishing, QR code safety, secure QR codes, QR code best practices, cybersecurity">
-  <meta name="author" content="YabuTech">
-  <meta name="robots" content="index, follow">
-  
-  <!-- Open Graph tags -->
-  <meta property="og:title" content="QR Code Security: Best Practices and Risk Prevention">
-  <meta property="og:description" content="Protect your users and business from QR code security threats with comprehensive best practices.">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://ukiyo.onrender.com/blog/qr-code-security-best-practices">
-  
-  <!-- Article structured data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "QR Code Security: Best Practices and Risk Prevention",
-    "description": "Comprehensive guide to QR code security threats and prevention strategies",
-    "author": {
-      "@type": "Organization",
-      "name": "YabuTech"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Ukiyo QR",
-      "url": "https://ukiyo.onrender.com"
-    },
-    "datePublished": "2025-01-15",
-    "dateModified": "2025-01-15",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://ukiyo.onrender.com/blog/qr-code-security-best-practices"
-    }
-  }
-  </script>
-  
-  <!-- Fonts and styles -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"></noscript>
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon.png') }}">
-  
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: #1e222c;
-      color: #ffffff;
-      line-height: 1.7;
-    }
-    
-    .article-container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
-      background: rgba(30,34,44,0.95);
-      border-radius: 1rem;
-      backdrop-filter: blur(10px);
-      min-height: 90vh;
-    }
-    
-    .breadcrumb {
-      margin-bottom: 2rem;
-      font-size: 0.9rem;
-    }
-    
-    .breadcrumb a {
-      color: #38bdf8;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    
-    .breadcrumb a:hover {
-      text-decoration: underline;
-    }
-    
-    .article-header {
-      margin-bottom: 3rem;
-      text-align: center;
-      padding-bottom: 2rem;
-      border-bottom: 2px solid #ef4444;
-    }
-    
-    .article-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #ef4444, #dc2626);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-    
-    .article-meta {
-      color: #94a3b8;
-      font-size: 1rem;
-      margin-bottom: 1rem;
-    }
-    
-    .article-content {
-      font-size: 1.1rem;
-      line-height: 1.8;
-    }
-    
-    .article-content h2 {
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: #ef4444;
-      margin: 2.5rem 0 1.5rem 0;
-      border-left: 4px solid #ef4444;
-      padding-left: 1rem;
-    }
-    
-    .article-content h3 {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #f97316;
-      margin: 2rem 0 1rem 0;
-    }
-    
-    .article-content p {
-      margin-bottom: 1.5rem;
-      color: #e2e8f0;
-    }
-    
-    .threat-card {
-      background: rgba(239, 68, 68, 0.1);
-      border: 1px solid rgba(239, 68, 68, 0.3);
-      border-radius: 12px;
-      padding: 2rem;
-      margin: 2rem 0;
-    }
-    
-    .threat-card h4 {
-      color: #ef4444;
-      margin-top: 0;
-      margin-bottom: 1rem;
-      font-weight: 600;
-      font-size: 1.3rem;
-    }
-    
-    .threat-card .threat-description {
-      color: #e2e8f0;
-      margin-bottom: 1rem;
-    }
-    
-    .threat-card .prevention {
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      border-radius: 8px;
-      padding: 1rem;
-      margin-top: 1rem;
-    }
-    
-    .threat-card .prevention h5 {
-      color: #10b981;
-      margin: 0 0 0.5rem 0;
-      font-weight: 600;
-    }
-    
-    .security-checklist {
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      border-radius: 12px;
-      padding: 2rem;
-      margin: 2rem 0;
-    }
-    
-    .security-checklist h4 {
-      color: #10b981;
-      margin-top: 0;
-      margin-bottom: 1.5rem;
-      font-weight: 600;
-    }
-    
-    .checklist-item {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 1rem;
-      padding: 0.5rem 0;
-    }
-    
-    .checklist-item .check {
-      color: #10b981;
-      font-weight: bold;
-      margin-right: 1rem;
-      font-size: 1.2rem;
-    }
-    
-    .warning-box {
-      background: rgba(251, 191, 36, 0.1);
-      border: 1px solid rgba(251, 191, 36, 0.3);
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin: 2rem 0;
-    }
-    
-    .warning-box h4 {
-      color: #fbbf24;
-      margin-top: 0;
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
-    
-    .code-example {
-      background: rgba(15, 23, 42, 0.8);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin: 1.5rem 0;
-      font-family: 'Courier New', monospace;
-      font-size: 0.9rem;
-      overflow-x: auto;
-    }
-    
-    .code-example code {
-      color: #38bdf8;
-    }
-    
-    .cta-section {
-      background: linear-gradient(135deg, #10b981, #059669);
-      border-radius: 12px;
-      padding: 2rem;
-      text-align: center;
-      margin: 3rem 0;
-    }
-    
-    .cta-section h3 {
-      color: white;
-      margin-bottom: 1rem;
-    }
-    
-    .cta-section p {
-      color: rgba(255,255,255,0.9);
-      margin-bottom: 1.5rem;
-    }
-    
-    .cta-button {
-      background: white;
-      color: #059669;
-      text-decoration: none;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      font-weight: 600;
-      display: inline-block;
-      transition: all 0.3s ease;
-    }
-    
-    .cta-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-    }
-    
-    .navigation-links {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(239, 68, 68, 0.2);
-    }
-    
-    .nav-link {
-      background: rgba(239, 68, 68, 0.1);
-      border: 1px solid rgba(239, 68, 68, 0.3);
-      color: #ef4444;
-      text-decoration: none;
-      padding: 1rem 1.5rem;
-      border-radius: 8px;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-    
-    .nav-link:hover {
-      background: rgba(239, 68, 68, 0.2);
-      transform: translateY(-1px);
-    }
-    
-    @media (max-width: 768px) {
-      .article-title {
-        font-size: 2rem;
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      QR Code Security: Best Practices and Risk Prevention | Ukiyo QR Blog
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Comprehensive guide to QR code security threats, best practices, and risk prevention strategies. Learn to protect users from malicious QR codes and phishing attacks."
+    />
+    <meta
+      name="keywords"
+      content="QR code security, malicious QR codes, QR code phishing, QR code safety, secure QR codes, QR code best practices, cybersecurity"
+    />
+    <meta name="author" content="YabuTech" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph tags -->
+    <meta
+      property="og:title"
+      content="QR Code Security: Best Practices and Risk Prevention"
+    />
+    <meta
+      property="og:description"
+      content="Protect your users and business from QR code security threats with comprehensive best practices."
+    />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:url"
+      content="https://ukiyo.onrender.com/blog/qr-code-security-best-practices"
+    />
+
+    <!-- Article structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "QR Code Security: Best Practices and Risk Prevention",
+        "description": "Comprehensive guide to QR code security threats and prevention strategies",
+        "author": {
+          "@type": "Organization",
+          "name": "YabuTech"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Ukiyo QR",
+          "url": "https://ukiyo.onrender.com"
+        },
+        "datePublished": "2025-01-15",
+        "dateModified": "2025-01-15",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://ukiyo.onrender.com/blog/qr-code-security-best-practices"
+        }
       }
-      
+    </script>
+
+    <!-- Fonts and styles -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    /></noscript>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{{ url_for('static', filename='img/favicon.png') }}"
+    />
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        background-color: #1e222c;
+        color: #ffffff;
+        line-height: 1.7;
+      }
+
       .article-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+        background: rgba(30, 34, 44, 0.95);
+        border-radius: 1rem;
+        backdrop-filter: blur(10px);
+        min-height: 90vh;
+      }
+
+      .breadcrumb {
+        margin-bottom: 2rem;
+        font-size: 0.9rem;
+      }
+
+      .breadcrumb a {
+        color: #38bdf8;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .breadcrumb a:hover {
+        text-decoration: underline;
+      }
+
+      .article-header {
+        margin-bottom: 3rem;
+        text-align: center;
+        padding-bottom: 2rem;
+        border-bottom: 2px solid #ef4444;
+      }
+
+      .article-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #ef4444, #dc2626);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .article-meta {
+        color: #94a3b8;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .article-content {
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+
+      .article-content h2 {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #ef4444;
+        margin: 2.5rem 0 1.5rem 0;
+        border-left: 4px solid #ef4444;
+        padding-left: 1rem;
+      }
+
+      .article-content h3 {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #f97316;
+        margin: 2rem 0 1rem 0;
+      }
+
+      .article-content p {
+        margin-bottom: 1.5rem;
+        color: #e2e8f0;
+      }
+
+      .threat-card {
+        background: rgba(239, 68, 68, 0.1);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        border-radius: 12px;
+        padding: 2rem;
+        margin: 2rem 0;
+      }
+
+      .threat-card h4 {
+        color: #ef4444;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-weight: 600;
+        font-size: 1.3rem;
+      }
+
+      .threat-card .threat-description {
+        color: #e2e8f0;
+        margin-bottom: 1rem;
+      }
+
+      .threat-card .prevention {
+        background: rgba(16, 185, 129, 0.1);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        border-radius: 8px;
         padding: 1rem;
-        margin: 1rem;
+        margin-top: 1rem;
       }
-      
+
+      .threat-card .prevention h5 {
+        color: #10b981;
+        margin: 0 0 0.5rem 0;
+        font-weight: 600;
+      }
+
+      .security-checklist {
+        background: rgba(16, 185, 129, 0.1);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        border-radius: 12px;
+        padding: 2rem;
+        margin: 2rem 0;
+      }
+
+      .security-checklist h4 {
+        color: #10b981;
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+      }
+
+      .checklist-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+        padding: 0.5rem 0;
+      }
+
+      .checklist-item .check {
+        color: #10b981;
+        font-weight: bold;
+        margin-right: 1rem;
+        font-size: 1.2rem;
+      }
+
+      .warning-box {
+        background: rgba(251, 191, 36, 0.1);
+        border: 1px solid rgba(251, 191, 36, 0.3);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .warning-box h4 {
+        color: #fbbf24;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .code-example {
+        background: rgba(15, 23, 42, 0.8);
+        border: 1px solid rgba(56, 189, 248, 0.3);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        font-family: "Courier New", monospace;
+        font-size: 0.9rem;
+        overflow-x: auto;
+      }
+
+      .code-example code {
+        color: #38bdf8;
+      }
+
+      .cta-section {
+        background: linear-gradient(135deg, #10b981, #059669);
+        border-radius: 12px;
+        padding: 2rem;
+        text-align: center;
+        margin: 3rem 0;
+      }
+
+      .cta-section h3 {
+        color: white;
+        margin-bottom: 1rem;
+      }
+
+      .cta-section p {
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 1.5rem;
+      }
+
+      .cta-button {
+        background: white;
+        color: #059669;
+        text-decoration: none;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      }
+
       .navigation-links {
-        flex-direction: column;
-        gap: 1rem;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(239, 68, 68, 0.2);
       }
-    }
-  </style>
-</head>
-<body>
-  <div class="article-container">
-    <nav class="breadcrumb">
-      <a href="/">Home</a> / <a href="/blog">Blog</a> / QR Code Security Best Practices
-    </nav>
-    
-    <header class="article-header">
-      <h1 class="article-title">QR Code Security: Best Practices and Risk Prevention</h1>
-      <div class="article-meta">
-        🛡️ Security Guide • 6 min read • Updated January 2025
-      </div>
-    </header>
-    
-    <main class="article-content">
-      <p>As QR codes become ubiquitous in business and daily life, security concerns have grown significantly. Cybercriminals exploit QR codes for phishing attacks, malware distribution, and data theft. Understanding these threats and implementing proper security measures is essential for protecting users and maintaining trust.</p>
-      
-      <div class="warning-box">
-        <h4>⚠️ Critical Security Alert</h4>
-        <p>QR code attacks increased by 587% in 2024, with financial services and retail being primary targets. Organizations using QR codes must implement comprehensive security strategies to protect users and business reputation.</p>
-      </div>
-      
-      <h2>🎯 Common QR Code Security Threats</h2>
-      
-      <div class="threat-card">
-        <h4>🎣 QRishing (QR Code Phishing)</h4>
-        <p class="threat-description">Malicious QR codes that redirect users to fake websites designed to steal credentials, personal information, or financial data. These attacks often mimic legitimate services like banking, shopping, or social media platforms.</p>
-        <div class="prevention">
-          <h5>Prevention Strategies:</h5>
-          <ul>
-            <li>Always preview URLs before visiting</li>
-            <li>Verify domain authenticity</li>
-            <li>Use QR code scanners with URL preview</li>
-            <li>Educate users about suspicious redirects</li>
-          </ul>
+
+      .nav-link {
+        background: rgba(239, 68, 68, 0.1);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        color: #ef4444;
+        text-decoration: none;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link:hover {
+        background: rgba(239, 68, 68, 0.2);
+        transform: translateY(-1px);
+      }
+
+      @media (max-width: 768px) {
+        .article-title {
+          font-size: 2rem;
+        }
+
+        .article-container {
+          padding: 1rem;
+          margin: 1rem;
+        }
+
+        .navigation-links {
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="article-container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> / <a href="/blog">Blog</a> / QR Code Security Best
+        Practices
+      </nav>
+
+      <header class="article-header">
+        <h1 class="article-title">
+          QR Code Security: Best Practices and Risk Prevention
+        </h1>
+        <div class="article-meta">
+          🛡️ Security Guide • 6 min read • Updated January 2025
         </div>
-      </div>
-      
-      <div class="threat-card">
-        <h4>🦠 Malware Distribution</h4>
-        <p class="threat-description">QR codes linking to malicious downloads, including trojans, spyware, and ransomware. These attacks target mobile devices and can compromise entire networks through infected smartphones.</p>
-        <div class="prevention">
-          <h5>Prevention Strategies:</h5>
-          <ul>
-            <li>Implement mobile device management (MDM)</li>
-            <li>Use enterprise-grade antivirus solutions</li>
-            <li>Restrict app installations from unknown sources</li>
-            <li>Regular security awareness training</li>
-          </ul>
+      </header>
+
+      <main class="article-content">
+        <p>
+          As QR codes become ubiquitous in business and daily life, security
+          concerns have grown significantly. Cybercriminals exploit QR codes for
+          phishing attacks, malware distribution, and data theft. Understanding
+          these threats and implementing proper security measures is essential
+          for protecting users and maintaining trust.
+        </p>
+
+        <div class="warning-box">
+          <h4>⚠️ Critical Security Alert</h4>
+          <p>
+            QR code attacks increased by 587% in 2024, with financial services
+            and retail being primary targets. Organizations using QR codes must
+            implement comprehensive security strategies to protect users and
+            business reputation.
+          </p>
         </div>
-      </div>
-      
-      <div class="threat-card">
-        <h4>🔄 QR Code Replacement</h4>
-        <p class="threat-description">Physical replacement of legitimate QR codes with malicious ones, commonly seen in restaurants, parking meters, and public spaces. Attackers overlay fake codes on legitimate ones.</p>
-        <div class="prevention">
-          <h5>Prevention Strategies:</h5>
-          <ul>
-            <li>Use tamper-evident materials for QR codes</li>
-            <li>Regular inspection of physical QR codes</li>
-            <li>Implement QR code authentication systems</li>
-            <li>Use digital displays instead of printed codes</li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="threat-card">
-        <h4>📱 Session Hijacking</h4>
-        <p class="threat-description">QR codes that initiate unauthorized actions like sending SMS messages, making phone calls, or accessing sensitive applications without user consent.</p>
-        <div class="prevention">
-          <h5>Prevention Strategies:</h5>
-          <ul>
-            <li>Implement user confirmation for all actions</li>
-            <li>Use secure QR code formats</li>
-            <li>Limit QR code permissions and scope</li>
-            <li>Monitor unusual activity patterns</li>
-          </ul>
-        </div>
-      </div>
-      
-      <h2>🔒 Security Best Practices for Organizations</h2>
-      
-      <div class="security-checklist">
-        <h4>✅ QR Code Security Checklist</h4>
-        
-        <div class="checklist-item">
-          <span class="check">✓</span>
-          <div>
-            <strong>URL Validation:</strong> Implement automatic URL scanning and validation before QR code generation. Check for malicious domains and suspicious patterns.
+
+        <h2>🎯 Common QR Code Security Threats</h2>
+
+        <div class="threat-card">
+          <h4>🎣 QRishing (QR Code Phishing)</h4>
+          <p class="threat-description">
+            Malicious QR codes that redirect users to fake websites designed to
+            steal credentials, personal information, or financial data. These
+            attacks often mimic legitimate services like banking, shopping, or
+            social media platforms.
+          </p>
+          <div class="prevention">
+            <h5>Prevention Strategies:</h5>
+            <ul>
+              <li>Always preview URLs before visiting</li>
+              <li>Verify domain authenticity</li>
+              <li>Use QR code scanners with URL preview</li>
+              <li>Educate users about suspicious redirects</li>
+            </ul>
           </div>
         </div>
-        
-        <div class="checklist-item">
-          <span class="check">✓</span>
-          <div>
-            <strong>HTTPS Enforcement:</strong> Only generate QR codes for HTTPS URLs to ensure encrypted data transmission and prevent man-in-the-middle attacks.
+
+        <div class="threat-card">
+          <h4>🦠 Malware Distribution</h4>
+          <p class="threat-description">
+            QR codes linking to malicious downloads, including trojans, spyware,
+            and ransomware. These attacks target mobile devices and can
+            compromise entire networks through infected smartphones.
+          </p>
+          <div class="prevention">
+            <h5>Prevention Strategies:</h5>
+            <ul>
+              <li>Implement mobile device management (MDM)</li>
+              <li>Use enterprise-grade antivirus solutions</li>
+              <li>Restrict app installations from unknown sources</li>
+              <li>Regular security awareness training</li>
+            </ul>
           </div>
         </div>
-        
-        <div class="checklist-item">
-          <span class="check">✓</span>
-          <div>
-            <strong>Domain Whitelisting:</strong> Maintain approved domain lists for QR code generation and block known malicious or suspicious domains.
+
+        <div class="threat-card">
+          <h4>🔄 QR Code Replacement</h4>
+          <p class="threat-description">
+            Physical replacement of legitimate QR codes with malicious ones,
+            commonly seen in restaurants, parking meters, and public spaces.
+            Attackers overlay fake codes on legitimate ones.
+          </p>
+          <div class="prevention">
+            <h5>Prevention Strategies:</h5>
+            <ul>
+              <li>Use tamper-evident materials for QR codes</li>
+              <li>Regular inspection of physical QR codes</li>
+              <li>Implement QR code authentication systems</li>
+              <li>Use digital displays instead of printed codes</li>
+            </ul>
           </div>
         </div>
-        
-        <div class="checklist-item">
-          <span class="check">✓</span>
-          <div>
-            <strong>User Education:</strong> Provide clear guidelines on QR code safety, including how to identify suspicious codes and safe scanning practices.
+
+        <div class="threat-card">
+          <h4>📱 Session Hijacking</h4>
+          <p class="threat-description">
+            QR codes that initiate unauthorized actions like sending SMS
+            messages, making phone calls, or accessing sensitive applications
+            without user consent.
+          </p>
+          <div class="prevention">
+            <h5>Prevention Strategies:</h5>
+            <ul>
+              <li>Implement user confirmation for all actions</li>
+              <li>Use secure QR code formats</li>
+              <li>Limit QR code permissions and scope</li>
+              <li>Monitor unusual activity patterns</li>
+            </ul>
           </div>
         </div>
-        
-        <div class="checklist-item">
-          <span class="check">✓</span>
-          <div>
-            <strong>Regular Audits:</strong> Conduct periodic security assessments of QR code implementations and update security measures accordingly.
+
+        <h2>🔒 Security Best Practices for Organizations</h2>
+
+        <div class="security-checklist">
+          <h4>✅ QR Code Security Checklist</h4>
+
+          <div class="checklist-item">
+            <span class="check">✓</span>
+            <div>
+              <strong>URL Validation:</strong> Implement automatic URL scanning
+              and validation before QR code generation. Check for malicious
+              domains and suspicious patterns.
+            </div>
+          </div>
+
+          <div class="checklist-item">
+            <span class="check">✓</span>
+            <div>
+              <strong>HTTPS Enforcement:</strong> Only generate QR codes for
+              HTTPS URLs to ensure encrypted data transmission and prevent
+              man-in-the-middle attacks.
+            </div>
+          </div>
+
+          <div class="checklist-item">
+            <span class="check">✓</span>
+            <div>
+              <strong>Domain Whitelisting:</strong> Maintain approved domain
+              lists for QR code generation and block known malicious or
+              suspicious domains.
+            </div>
+          </div>
+
+          <div class="checklist-item">
+            <span class="check">✓</span>
+            <div>
+              <strong>User Education:</strong> Provide clear guidelines on QR
+              code safety, including how to identify suspicious codes and safe
+              scanning practices.
+            </div>
+          </div>
+
+          <div class="checklist-item">
+            <span class="check">✓</span>
+            <div>
+              <strong>Regular Audits:</strong> Conduct periodic security
+              assessments of QR code implementations and update security
+              measures accordingly.
+            </div>
           </div>
         </div>
-      </div>
-      
-      <h2>🛡️ Technical Security Implementations</h2>
-      
-      <h3>Secure QR Code Generation</h3>
-      <p>Implement server-side validation and sanitization for all QR code content:</p>
-      
-      <div class="code-example">
-        <code>
-# Example: URL validation before QR generation<br>
-import re<br>
-from urllib.parse import urlparse<br><br>
-def validate_url(url):<br>
-&nbsp;&nbsp;&nbsp;&nbsp;# Check for HTTPS<br>
-&nbsp;&nbsp;&nbsp;&nbsp;if not url.startswith('https://'):<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return False<br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;# Validate domain against whitelist<br>
-&nbsp;&nbsp;&nbsp;&nbsp;parsed = urlparse(url)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;if parsed.netloc not in APPROVED_DOMAINS:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return False<br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;return True
-        </code>
-      </div>
-      
-      <h3>Content Security Policy (CSP)</h3>
-      <p>Implement strict CSP headers to prevent malicious script execution:</p>
-      
-      <div class="code-example">
-        <code>
-Content-Security-Policy: default-src 'self';<br>
-script-src 'self' 'unsafe-inline';<br>
-style-src 'self' 'unsafe-inline';<br>
-img-src 'self' data:;<br>
-connect-src 'self';<br>
-frame-ancestors 'none';
-        </code>
-      </div>
-      
-      <h3>Rate Limiting and Monitoring</h3>
-      <p>Implement rate limiting to prevent abuse and monitor for suspicious patterns:</p>
-      
-      <ul>
-        <li>Limit QR code generation per IP address</li>
-        <li>Monitor for bulk generation attempts</li>
-        <li>Log all QR code generation activities</li>
-        <li>Implement automated threat detection</li>
-      </ul>
-      
-      <h2>👥 User Education and Awareness</h2>
-      
-      <h3>Safe QR Code Scanning Practices</h3>
-      
-      <ul>
-        <li><strong>Preview Before Action:</strong> Always check the URL or action before proceeding</li>
-        <li><strong>Verify Source:</strong> Only scan QR codes from trusted sources</li>
-        <li><strong>Check Context:</strong> Be suspicious of QR codes in unexpected locations</li>
-        <li><strong>Use Secure Apps:</strong> Use QR scanners with built-in security features</li>
-        <li><strong>Keep Software Updated:</strong> Maintain current security patches on devices</li>
-      </ul>
-      
-      <h3>Red Flags to Watch For</h3>
-      
-      <ul>
-        <li>QR codes placed over existing codes</li>
-        <li>Unusual or suspicious URLs</li>
-        <li>Requests for sensitive information</li>
-        <li>Unexpected app download prompts</li>
-        <li>QR codes in unsecured public areas</li>
-      </ul>
-      
-      <div class="warning-box">
-        <h4>🚨 Emergency Response</h4>
-        <p>If you suspect a security breach through QR codes: immediately disconnect affected devices, change passwords, monitor accounts for unauthorized activity, and report incidents to IT security teams.</p>
-      </div>
-      
-      <h2>🔮 Future of QR Code Security</h2>
-      
-      <p>Emerging security technologies for QR codes include:</p>
-      
-      <ul>
-        <li><strong>Blockchain Verification:</strong> Cryptographic proof of QR code authenticity</li>
-        <li><strong>AI-Powered Threat Detection:</strong> Machine learning for malicious pattern recognition</li>
-        <li><strong>Biometric Authentication:</strong> User verification before QR code actions</li>
-        <li><strong>Zero-Trust Architecture:</strong> Comprehensive security validation for all QR interactions</li>
-        <li><strong>Quantum-Resistant Encryption:</strong> Future-proof security measures</li>
-      </ul>
-      
-      <h2>📋 Security Implementation Roadmap</h2>
-      
-      <ol>
-        <li><strong>Assessment Phase:</strong> Audit current QR code usage and identify vulnerabilities</li>
-        <li><strong>Policy Development:</strong> Create comprehensive QR code security policies</li>
-        <li><strong>Technical Implementation:</strong> Deploy security controls and monitoring systems</li>
-        <li><strong>User Training:</strong> Educate staff and users on security best practices</li>
-        <li><strong>Continuous Monitoring:</strong> Implement ongoing security assessment and improvement</li>
-      </ol>
-      
-      <div class="cta-section">
-        <h3>Generate Secure QR Codes</h3>
-        <p>Use our privacy-focused QR generator with built-in security features. No data storage, no tracking, complete privacy protection.</p>
-        <a href="/" class="cta-button">Create Secure QR Codes →</a>
-      </div>
-      
-      <p>QR code security requires a multi-layered approach combining technical controls, user education, and continuous monitoring. By implementing these best practices, organizations can harness the power of QR codes while protecting users from evolving cyber threats.</p>
-    </main>
-    
-    <nav class="navigation-links">
-      <a href="/blog/qr-code-types-explained" class="nav-link">← Previous Article</a>
-      <a href="/blog" class="nav-link">Back to Blog →</a>
-    </nav>
-  </div>
-</body>
+
+        <h2>🛡️ Technical Security Implementations</h2>
+
+        <h3>Secure QR Code Generation</h3>
+        <p>
+          Implement server-side validation and sanitization for all QR code
+          content:
+        </p>
+
+        <div class="code-example">
+          <code>
+            # Example: URL validation before QR generation<br />
+            import re<br />
+            from urllib.parse import urlparse<br /><br />
+            def validate_url(url):<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;# Check for HTTPS<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;if not url.startswith('https://'):<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return False<br /><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;# Validate domain against whitelist<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;parsed = urlparse(url)<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;if parsed.netloc not in APPROVED_DOMAINS:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return False<br /><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;return True
+          </code>
+        </div>
+
+        <h3>Content Security Policy (CSP)</h3>
+        <p>
+          Implement strict CSP headers to prevent malicious script execution:
+        </p>
+
+        <div class="code-example">
+          <code>
+            Content-Security-Policy: default-src 'self';<br />
+            script-src 'self' 'unsafe-inline';<br />
+            style-src 'self' 'unsafe-inline';<br />
+            img-src 'self' data:;<br />
+            connect-src 'self';<br />
+            frame-ancestors 'none';
+          </code>
+        </div>
+
+        <h3>Rate Limiting and Monitoring</h3>
+        <p>
+          Implement rate limiting to prevent abuse and monitor for suspicious
+          patterns:
+        </p>
+
+        <ul>
+          <li>Limit QR code generation per IP address</li>
+          <li>Monitor for bulk generation attempts</li>
+          <li>Log all QR code generation activities</li>
+          <li>Implement automated threat detection</li>
+        </ul>
+
+        <h2>👥 User Education and Awareness</h2>
+
+        <h3>Safe QR Code Scanning Practices</h3>
+
+        <ul>
+          <li>
+            <strong>Preview Before Action:</strong> Always check the URL or
+            action before proceeding
+          </li>
+          <li>
+            <strong>Verify Source:</strong> Only scan QR codes from trusted
+            sources
+          </li>
+          <li>
+            <strong>Check Context:</strong> Be suspicious of QR codes in
+            unexpected locations
+          </li>
+          <li>
+            <strong>Use Secure Apps:</strong> Use QR scanners with built-in
+            security features
+          </li>
+          <li>
+            <strong>Keep Software Updated:</strong> Maintain current security
+            patches on devices
+          </li>
+        </ul>
+
+        <h3>Red Flags to Watch For</h3>
+
+        <ul>
+          <li>QR codes placed over existing codes</li>
+          <li>Unusual or suspicious URLs</li>
+          <li>Requests for sensitive information</li>
+          <li>Unexpected app download prompts</li>
+          <li>QR codes in unsecured public areas</li>
+        </ul>
+
+        <div class="warning-box">
+          <h4>🚨 Emergency Response</h4>
+          <p>
+            If you suspect a security breach through QR codes: immediately
+            disconnect affected devices, change passwords, monitor accounts for
+            unauthorized activity, and report incidents to IT security teams.
+          </p>
+        </div>
+
+        <h2>🔮 Future of QR Code Security</h2>
+
+        <p>Emerging security technologies for QR codes include:</p>
+
+        <ul>
+          <li>
+            <strong>Blockchain Verification:</strong> Cryptographic proof of QR
+            code authenticity
+          </li>
+          <li>
+            <strong>AI-Powered Threat Detection:</strong> Machine learning for
+            malicious pattern recognition
+          </li>
+          <li>
+            <strong>Biometric Authentication:</strong> User verification before
+            QR code actions
+          </li>
+          <li>
+            <strong>Zero-Trust Architecture:</strong> Comprehensive security
+            validation for all QR interactions
+          </li>
+          <li>
+            <strong>Quantum-Resistant Encryption:</strong> Future-proof security
+            measures
+          </li>
+        </ul>
+
+        <h2>📋 Security Implementation Roadmap</h2>
+
+        <ol>
+          <li>
+            <strong>Assessment Phase:</strong> Audit current QR code usage and
+            identify vulnerabilities
+          </li>
+          <li>
+            <strong>Policy Development:</strong> Create comprehensive QR code
+            security policies
+          </li>
+          <li>
+            <strong>Technical Implementation:</strong> Deploy security controls
+            and monitoring systems
+          </li>
+          <li>
+            <strong>User Training:</strong> Educate staff and users on security
+            best practices
+          </li>
+          <li>
+            <strong>Continuous Monitoring:</strong> Implement ongoing security
+            assessment and improvement
+          </li>
+        </ol>
+
+        <div class="cta-section">
+          <h3>Generate Secure QR Codes</h3>
+          <p>
+            Use our privacy-focused QR generator with built-in security
+            features. No data storage, no tracking, complete privacy protection.
+          </p>
+          <a href="/" class="cta-button">Create Secure QR Codes →</a>
+        </div>
+
+        <p>
+          QR code security requires a multi-layered approach combining technical
+          controls, user education, and continuous monitoring. By implementing
+          these best practices, organizations can harness the power of QR codes
+          while protecting users from evolving cyber threats.
+        </p>
+      </main>
+
+      <nav class="navigation-links">
+        <a href="/blog/qr-code-types-explained" class="nav-link"
+          >← Previous Article</a
+        >
+        <a href="/blog" class="nav-link">Back to Blog →</a>
+      </nav>
+    </div>
+  </body>
 </html>

@@ -1,525 +1,671 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>QR Code Types Explained: Which Format Should You Use? | Ukiyo QR Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Complete guide to QR code types and formats. Learn about URL, vCard, WiFi, SMS, email QR codes and choose the right format for your needs.">
-  <meta name="keywords" content="QR code types, QR code formats, URL QR code, vCard QR code, WiFi QR code, SMS QR code, email QR code, dynamic QR codes">
-  <meta name="author" content="YabuTech">
-  <meta name="robots" content="index, follow">
-  
-  <!-- Open Graph tags -->
-  <meta property="og:title" content="QR Code Types Explained: Which Format Should You Use?">
-  <meta property="og:description" content="Complete guide to QR code types and formats for optimal performance and user experience.">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://ukiyo.onrender.com/blog/qr-code-types-explained">
-  
-  <!-- Article structured data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "QR Code Types Explained: Which Format Should You Use?",
-    "description": "Complete guide to QR code types and formats for optimal performance",
-    "author": {
-      "@type": "Organization",
-      "name": "YabuTech"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Ukiyo QR",
-      "url": "https://ukiyo.onrender.com"
-    },
-    "datePublished": "2025-01-15",
-    "dateModified": "2025-01-15",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://ukiyo.onrender.com/blog/qr-code-types-explained"
-    }
-  }
-  </script>
-  
-  <!-- Fonts and styles -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"></noscript>
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon.png') }}">
-  
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: #1e222c;
-      color: #ffffff;
-      line-height: 1.7;
-    }
-    
-    .article-container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
-      background: rgba(30,34,44,0.95);
-      border-radius: 1rem;
-      backdrop-filter: blur(10px);
-      min-height: 90vh;
-    }
-    
-    .breadcrumb {
-      margin-bottom: 2rem;
-      font-size: 0.9rem;
-    }
-    
-    .breadcrumb a {
-      color: #38bdf8;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    
-    .breadcrumb a:hover {
-      text-decoration: underline;
-    }
-    
-    .article-header {
-      margin-bottom: 3rem;
-      text-align: center;
-      padding-bottom: 2rem;
-      border-bottom: 2px solid #38bdf8;
-    }
-    
-    .article-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-    
-    .article-meta {
-      color: #94a3b8;
-      font-size: 1rem;
-      margin-bottom: 1rem;
-    }
-    
-    .article-content {
-      font-size: 1.1rem;
-      line-height: 1.8;
-    }
-    
-    .article-content h2 {
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: #38bdf8;
-      margin: 2.5rem 0 1.5rem 0;
-      border-left: 4px solid #38bdf8;
-      padding-left: 1rem;
-    }
-    
-    .article-content h3 {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #0ea5e9;
-      margin: 2rem 0 1rem 0;
-    }
-    
-    .article-content p {
-      margin-bottom: 1.5rem;
-      color: #e2e8f0;
-    }
-    
-    .qr-type-card {
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      border-radius: 12px;
-      padding: 2rem;
-      margin: 2rem 0;
-    }
-    
-    .qr-type-card h4 {
-      color: #38bdf8;
-      margin-top: 0;
-      margin-bottom: 1rem;
-      font-weight: 600;
-      font-size: 1.3rem;
-    }
-    
-    .qr-type-card .type-description {
-      color: #e2e8f0;
-      margin-bottom: 1rem;
-    }
-    
-    .qr-type-card .use-cases {
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      border-radius: 8px;
-      padding: 1rem;
-      margin-top: 1rem;
-    }
-    
-    .qr-type-card .use-cases h5 {
-      color: #10b981;
-      margin: 0 0 0.5rem 0;
-      font-weight: 600;
-    }
-    
-    .comparison-table {
-      background: rgba(255,255,255,0.05);
-      border-radius: 12px;
-      padding: 2rem;
-      margin: 2rem 0;
-      overflow-x: auto;
-    }
-    
-    .comparison-table table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    
-    .comparison-table th,
-    .comparison-table td {
-      padding: 1rem;
-      text-align: left;
-      border-bottom: 1px solid rgba(56, 189, 248, 0.2);
-    }
-    
-    .comparison-table th {
-      background: rgba(56, 189, 248, 0.1);
-      color: #38bdf8;
-      font-weight: 600;
-    }
-    
-    .comparison-table td {
-      color: #e2e8f0;
-    }
-    
-    .pro-tip {
-      background: rgba(251, 191, 36, 0.1);
-      border: 1px solid rgba(251, 191, 36, 0.3);
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin: 2rem 0;
-    }
-    
-    .pro-tip h4 {
-      color: #fbbf24;
-      margin-top: 0;
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
-    
-    .cta-section {
-      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-      border-radius: 12px;
-      padding: 2rem;
-      text-align: center;
-      margin: 3rem 0;
-    }
-    
-    .cta-section h3 {
-      color: white;
-      margin-bottom: 1rem;
-    }
-    
-    .cta-section p {
-      color: rgba(255,255,255,0.9);
-      margin-bottom: 1.5rem;
-    }
-    
-    .cta-button {
-      background: white;
-      color: #0ea5e9;
-      text-decoration: none;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      font-weight: 600;
-      display: inline-block;
-      transition: all 0.3s ease;
-    }
-    
-    .cta-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-    }
-    
-    .navigation-links {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(56, 189, 248, 0.2);
-    }
-    
-    .nav-link {
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      color: #38bdf8;
-      text-decoration: none;
-      padding: 1rem 1.5rem;
-      border-radius: 8px;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-    
-    .nav-link:hover {
-      background: rgba(56, 189, 248, 0.2);
-      transform: translateY(-1px);
-    }
-    
-    @media (max-width: 768px) {
-      .article-title {
-        font-size: 2rem;
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      QR Code Types Explained: Which Format Should You Use? | Ukiyo QR Blog
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Complete guide to QR code types and formats. Learn about URL, vCard, WiFi, SMS, email QR codes and choose the right format for your needs."
+    />
+    <meta
+      name="keywords"
+      content="QR code types, QR code formats, URL QR code, vCard QR code, WiFi QR code, SMS QR code, email QR code, dynamic QR codes"
+    />
+    <meta name="author" content="YabuTech" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph tags -->
+    <meta
+      property="og:title"
+      content="QR Code Types Explained: Which Format Should You Use?"
+    />
+    <meta
+      property="og:description"
+      content="Complete guide to QR code types and formats for optimal performance and user experience."
+    />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:url"
+      content="https://ukiyo.onrender.com/blog/qr-code-types-explained"
+    />
+
+    <!-- Article structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "QR Code Types Explained: Which Format Should You Use?",
+        "description": "Complete guide to QR code types and formats for optimal performance",
+        "author": {
+          "@type": "Organization",
+          "name": "YabuTech"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Ukiyo QR",
+          "url": "https://ukiyo.onrender.com"
+        },
+        "datePublished": "2025-01-15",
+        "dateModified": "2025-01-15",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://ukiyo.onrender.com/blog/qr-code-types-explained"
+        }
       }
-      
+    </script>
+
+    <!-- Fonts and styles -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    /></noscript>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{{ url_for('static', filename='img/favicon.png') }}"
+    />
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        background-color: #1e222c;
+        color: #ffffff;
+        line-height: 1.7;
+      }
+
       .article-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+        background: rgba(30, 34, 44, 0.95);
+        border-radius: 1rem;
+        backdrop-filter: blur(10px);
+        min-height: 90vh;
+      }
+
+      .breadcrumb {
+        margin-bottom: 2rem;
+        font-size: 0.9rem;
+      }
+
+      .breadcrumb a {
+        color: #38bdf8;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .breadcrumb a:hover {
+        text-decoration: underline;
+      }
+
+      .article-header {
+        margin-bottom: 3rem;
+        text-align: center;
+        padding-bottom: 2rem;
+        border-bottom: 2px solid #38bdf8;
+      }
+
+      .article-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .article-meta {
+        color: #94a3b8;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .article-content {
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+
+      .article-content h2 {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #38bdf8;
+        margin: 2.5rem 0 1.5rem 0;
+        border-left: 4px solid #38bdf8;
+        padding-left: 1rem;
+      }
+
+      .article-content h3 {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #0ea5e9;
+        margin: 2rem 0 1rem 0;
+      }
+
+      .article-content p {
+        margin-bottom: 1.5rem;
+        color: #e2e8f0;
+      }
+
+      .qr-type-card {
+        background: rgba(56, 189, 248, 0.1);
+        border: 1px solid rgba(56, 189, 248, 0.3);
+        border-radius: 12px;
+        padding: 2rem;
+        margin: 2rem 0;
+      }
+
+      .qr-type-card h4 {
+        color: #38bdf8;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-weight: 600;
+        font-size: 1.3rem;
+      }
+
+      .qr-type-card .type-description {
+        color: #e2e8f0;
+        margin-bottom: 1rem;
+      }
+
+      .qr-type-card .use-cases {
+        background: rgba(16, 185, 129, 0.1);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        border-radius: 8px;
         padding: 1rem;
-        margin: 1rem;
+        margin-top: 1rem;
       }
-      
-      .navigation-links {
-        flex-direction: column;
-        gap: 1rem;
+
+      .qr-type-card .use-cases h5 {
+        color: #10b981;
+        margin: 0 0 0.5rem 0;
+        font-weight: 600;
       }
-      
+
       .comparison-table {
-        padding: 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 2rem;
+        margin: 2rem 0;
+        overflow-x: auto;
       }
-    }
-  </style>
-</head>
-<body>
-  <div class="article-container">
-    <nav class="breadcrumb">
-      <a href="/">Home</a> / <a href="/blog">Blog</a> / QR Code Types Explained
-    </nav>
-    
-    <header class="article-header">
-      <h1 class="article-title">QR Code Types Explained: Which Format Should You Use?</h1>
-      <div class="article-meta">
-        🔍 Technical Guide • 7 min read • Updated January 2025
-      </div>
-    </header>
-    
-    <main class="article-content">
-      <p>Choosing the right QR code format is crucial for optimal user experience and functionality. Different QR code types serve specific purposes, from simple URL sharing to complex data transmission. Understanding these formats helps you select the most effective solution for your needs.</p>
-      
-      <h2>📱 Essential QR Code Types</h2>
-      
-      <div class="qr-type-card">
-        <h4>🌐 URL/Website QR Codes</h4>
-        <p class="type-description">The most common QR code type, encoding web addresses for instant access to websites, landing pages, or online resources.</p>
-        <p><strong>Format:</strong> Direct URL (https://example.com)</p>
-        <p><strong>Capacity:</strong> Up to 2,953 characters</p>
-        <div class="use-cases">
-          <h5>Best Use Cases:</h5>
-          <ul>
-            <li>Marketing campaigns and promotional materials</li>
-            <li>Business cards and networking</li>
-            <li>Product information and manuals</li>
-            <li>Event registration and information</li>
-          </ul>
+
+      .comparison-table table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .comparison-table th,
+      .comparison-table td {
+        padding: 1rem;
+        text-align: left;
+        border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+      }
+
+      .comparison-table th {
+        background: rgba(56, 189, 248, 0.1);
+        color: #38bdf8;
+        font-weight: 600;
+      }
+
+      .comparison-table td {
+        color: #e2e8f0;
+      }
+
+      .pro-tip {
+        background: rgba(251, 191, 36, 0.1);
+        border: 1px solid rgba(251, 191, 36, 0.3);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .pro-tip h4 {
+        color: #fbbf24;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .cta-section {
+        background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+        border-radius: 12px;
+        padding: 2rem;
+        text-align: center;
+        margin: 3rem 0;
+      }
+
+      .cta-section h3 {
+        color: white;
+        margin-bottom: 1rem;
+      }
+
+      .cta-section p {
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 1.5rem;
+      }
+
+      .cta-button {
+        background: white;
+        color: #0ea5e9;
+        text-decoration: none;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      }
+
+      .navigation-links {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(56, 189, 248, 0.2);
+      }
+
+      .nav-link {
+        background: rgba(56, 189, 248, 0.1);
+        border: 1px solid rgba(56, 189, 248, 0.3);
+        color: #38bdf8;
+        text-decoration: none;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link:hover {
+        background: rgba(56, 189, 248, 0.2);
+        transform: translateY(-1px);
+      }
+
+      @media (max-width: 768px) {
+        .article-title {
+          font-size: 2rem;
+        }
+
+        .article-container {
+          padding: 1rem;
+          margin: 1rem;
+        }
+
+        .navigation-links {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .comparison-table {
+          padding: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="article-container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> / <a href="/blog">Blog</a> / QR Code Types
+        Explained
+      </nav>
+
+      <header class="article-header">
+        <h1 class="article-title">
+          QR Code Types Explained: Which Format Should You Use?
+        </h1>
+        <div class="article-meta">
+          🔍 Technical Guide • 7 min read • Updated January 2025
         </div>
-      </div>
-      
-      <div class="qr-type-card">
-        <h4>📞 vCard Contact QR Codes</h4>
-        <p class="type-description">Encodes complete contact information in vCard format, allowing users to instantly save contact details to their phone.</p>
-        <p><strong>Format:</strong> vCard 3.0/4.0 standard</p>
-        <p><strong>Capacity:</strong> Name, phone, email, address, website, organization</p>
-        <div class="use-cases">
-          <h5>Best Use Cases:</h5>
-          <ul>
-            <li>Business cards and professional networking</li>
-            <li>Conference badges and name tags</li>
-            <li>Real estate agent contact sharing</li>
-            <li>Service provider information</li>
-          </ul>
+      </header>
+
+      <main class="article-content">
+        <p>
+          Choosing the right QR code format is crucial for optimal user
+          experience and functionality. Different QR code types serve specific
+          purposes, from simple URL sharing to complex data transmission.
+          Understanding these formats helps you select the most effective
+          solution for your needs.
+        </p>
+
+        <h2>📱 Essential QR Code Types</h2>
+
+        <div class="qr-type-card">
+          <h4>🌐 URL/Website QR Codes</h4>
+          <p class="type-description">
+            The most common QR code type, encoding web addresses for instant
+            access to websites, landing pages, or online resources.
+          </p>
+          <p><strong>Format:</strong> Direct URL (https://example.com)</p>
+          <p><strong>Capacity:</strong> Up to 2,953 characters</p>
+          <div class="use-cases">
+            <h5>Best Use Cases:</h5>
+            <ul>
+              <li>Marketing campaigns and promotional materials</li>
+              <li>Business cards and networking</li>
+              <li>Product information and manuals</li>
+              <li>Event registration and information</li>
+            </ul>
+          </div>
         </div>
-      </div>
-      
-      <div class="qr-type-card">
-        <h4>📶 WiFi Network QR Codes</h4>
-        <p class="type-description">Stores WiFi network credentials, enabling automatic connection without manual password entry.</p>
-        <p><strong>Format:</strong> WIFI:T:WPA;S:NetworkName;P:Password;;</p>
-        <p><strong>Security:</strong> Supports WPA, WPA2, WEP, and open networks</p>
-        <div class="use-cases">
-          <h5>Best Use Cases:</h5>
-          <ul>
-            <li>Guest WiFi access in offices and homes</li>
-            <li>Restaurant and cafe customer WiFi</li>
-            <li>Hotel and accommodation WiFi sharing</li>
-            <li>Event venue internet access</li>
-          </ul>
+
+        <div class="qr-type-card">
+          <h4>📞 vCard Contact QR Codes</h4>
+          <p class="type-description">
+            Encodes complete contact information in vCard format, allowing users
+            to instantly save contact details to their phone.
+          </p>
+          <p><strong>Format:</strong> vCard 3.0/4.0 standard</p>
+          <p>
+            <strong>Capacity:</strong> Name, phone, email, address, website,
+            organization
+          </p>
+          <div class="use-cases">
+            <h5>Best Use Cases:</h5>
+            <ul>
+              <li>Business cards and professional networking</li>
+              <li>Conference badges and name tags</li>
+              <li>Real estate agent contact sharing</li>
+              <li>Service provider information</li>
+            </ul>
+          </div>
         </div>
-      </div>
-      
-      <div class="qr-type-card">
-        <h4>💬 SMS/Text Message QR Codes</h4>
-        <p class="type-description">Pre-fills SMS messages with recipient number and optional message content.</p>
-        <p><strong>Format:</strong> SMS:+1234567890:Message content</p>
-        <p><strong>Functionality:</strong> Opens messaging app with pre-filled information</p>
-        <div class="use-cases">
-          <h5>Best Use Cases:</h5>
-          <ul>
-            <li>Customer support and feedback collection</li>
-            <li>Marketing campaigns with keyword responses</li>
-            <li>Event check-ins and confirmations</li>
-            <li>Emergency contact information</li>
-          </ul>
+
+        <div class="qr-type-card">
+          <h4>📶 WiFi Network QR Codes</h4>
+          <p class="type-description">
+            Stores WiFi network credentials, enabling automatic connection
+            without manual password entry.
+          </p>
+          <p><strong>Format:</strong> WIFI:T:WPA;S:NetworkName;P:Password;;</p>
+          <p>
+            <strong>Security:</strong> Supports WPA, WPA2, WEP, and open
+            networks
+          </p>
+          <div class="use-cases">
+            <h5>Best Use Cases:</h5>
+            <ul>
+              <li>Guest WiFi access in offices and homes</li>
+              <li>Restaurant and cafe customer WiFi</li>
+              <li>Hotel and accommodation WiFi sharing</li>
+              <li>Event venue internet access</li>
+            </ul>
+          </div>
         </div>
-      </div>
-      
-      <div class="qr-type-card">
-        <h4>📧 Email QR Codes</h4>
-        <p class="type-description">Creates pre-composed emails with recipient, subject, and message body.</p>
-        <p><strong>Format:</strong> MAILTO:email@example.com?subject=Subject&body=Message</p>
-        <p><strong>Features:</strong> Supports CC, BCC, and HTML formatting</p>
-        <div class="use-cases">
-          <h5>Best Use Cases:</h5>
-          <ul>
-            <li>Customer inquiry and support requests</li>
-            <li>Feedback and survey collection</li>
-            <li>Newsletter subscriptions</li>
-            <li>Business communication templates</li>
-          </ul>
+
+        <div class="qr-type-card">
+          <h4>💬 SMS/Text Message QR Codes</h4>
+          <p class="type-description">
+            Pre-fills SMS messages with recipient number and optional message
+            content.
+          </p>
+          <p><strong>Format:</strong> SMS:+1234567890:Message content</p>
+          <p>
+            <strong>Functionality:</strong> Opens messaging app with pre-filled
+            information
+          </p>
+          <div class="use-cases">
+            <h5>Best Use Cases:</h5>
+            <ul>
+              <li>Customer support and feedback collection</li>
+              <li>Marketing campaigns with keyword responses</li>
+              <li>Event check-ins and confirmations</li>
+              <li>Emergency contact information</li>
+            </ul>
+          </div>
         </div>
-      </div>
-      
-      <h2>📊 QR Code Format Comparison</h2>
-      
-      <div class="comparison-table">
-        <table>
-          <thead>
-            <tr>
-              <th>QR Code Type</th>
-              <th>Complexity</th>
-              <th>Data Capacity</th>
-              <th>User Action</th>
-              <th>Best For</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>URL/Website</td>
-              <td>Simple</td>
-              <td>High</td>
-              <td>Opens browser</td>
-              <td>Marketing, Information</td>
-            </tr>
-            <tr>
-              <td>vCard Contact</td>
-              <td>Medium</td>
-              <td>Medium</td>
-              <td>Saves contact</td>
-              <td>Networking, Business</td>
-            </tr>
-            <tr>
-              <td>WiFi Network</td>
-              <td>Medium</td>
-              <td>Low</td>
-              <td>Connects to WiFi</td>
-              <td>Guest Access, Events</td>
-            </tr>
-            <tr>
-              <td>SMS/Text</td>
-              <td>Simple</td>
-              <td>Medium</td>
-              <td>Opens messaging</td>
-              <td>Support, Feedback</td>
-            </tr>
-            <tr>
-              <td>Email</td>
-              <td>Medium</td>
-              <td>Medium</td>
-              <td>Composes email</td>
-              <td>Communication, Support</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      
-      <h2>🔄 Static vs. Dynamic QR Codes</h2>
-      
-      <h3>Static QR Codes</h3>
-      <p>Static QR codes contain fixed data that cannot be changed after generation. They're ideal for permanent information like contact details, WiFi passwords, or stable website URLs.</p>
-      
-      <p><strong>Advantages:</strong></p>
-      <ul>
-        <li>No ongoing costs or subscriptions</li>
-        <li>Work indefinitely without external dependencies</li>
-        <li>Faster scanning due to direct data encoding</li>
-        <li>Complete privacy - no tracking possible</li>
-      </ul>
-      
-      <h3>Dynamic QR Codes</h3>
-      <p>Dynamic QR codes redirect to a short URL that can be updated to point to different destinations. They offer flexibility and analytics but require ongoing service.</p>
-      
-      <p><strong>Advantages:</strong></p>
-      <ul>
-        <li>Updateable content without reprinting</li>
-        <li>Detailed analytics and tracking</li>
-        <li>A/B testing capabilities</li>
-        <li>Campaign management features</li>
-      </ul>
-      
-      <div class="pro-tip">
-        <h4>💡 Choosing Between Static and Dynamic</h4>
-        <p>Use static QR codes for permanent information like contact details, WiFi passwords, or stable websites. Choose dynamic QR codes for marketing campaigns, temporary promotions, or when you need detailed analytics.</p>
-      </div>
-      
-      <h2>🎯 Best Practices for QR Code Selection</h2>
-      
-      <h3>Consider Your Audience</h3>
-      <ul>
-        <li><strong>Tech-savvy users:</strong> Can handle complex formats like vCard</li>
-        <li><strong>General public:</strong> Prefer simple URL QR codes</li>
-        <li><strong>Business context:</strong> Professional formats like vCard and email</li>
-        <li><strong>Casual settings:</strong> WiFi and SMS QR codes work well</li>
-      </ul>
-      
-      <h3>Optimize for Context</h3>
-      <ul>
-        <li><strong>Print materials:</strong> Use static QR codes for reliability</li>
-        <li><strong>Digital displays:</strong> Dynamic QR codes for flexibility</li>
-        <li><strong>Business cards:</strong> vCard format for professional networking</li>
-        <li><strong>Public spaces:</strong> WiFi QR codes for convenience</li>
-      </ul>
-      
-      <h3>Technical Considerations</h3>
-      <ul>
-        <li><strong>Data amount:</strong> More data creates denser, harder-to-scan codes</li>
-        <li><strong>Error correction:</strong> Higher levels for damaged environments</li>
-        <li><strong>Size requirements:</strong> Larger codes for distance scanning</li>
-        <li><strong>Device compatibility:</strong> Test across different smartphones</li>
-      </ul>
-      
-      <div class="cta-section">
-        <h3>Ready to Create Your Perfect QR Code?</h3>
-        <p>Generate any type of QR code with our free, privacy-focused tool. No registration required, instant results.</p>
-        <a href="/" class="cta-button">Start Creating QR Codes →</a>
-      </div>
-      
-      <h2>🔮 Emerging QR Code Technologies</h2>
-      
-      <p>The future of QR codes includes exciting developments:</p>
-      
-      <ul>
-        <li><strong>Colored QR Codes:</strong> Brand-aligned designs without functionality loss</li>
-        <li><strong>Logo Integration:</strong> Custom branding within error correction limits</li>
-        <li><strong>Micro QR Codes:</strong> Smaller formats for space-constrained applications</li>
-        <li><strong>Secure QR Codes:</strong> Encrypted data for sensitive information</li>
-        <li><strong>Interactive QR Codes:</strong> Multi-action codes with user choice menus</li>
-      </ul>
-      
-      <p>Understanding QR code types empowers you to choose the right format for every situation, maximizing user experience and achieving your communication goals effectively.</p>
-    </main>
-    
-    <nav class="navigation-links">
-      <a href="/blog/qr-codes-business-guide" class="nav-link">← Previous Article</a>
-      <a href="/blog/qr-code-security-best-practices" class="nav-link">Next Article →</a>
-    </nav>
-  </div>
-</body>
+
+        <div class="qr-type-card">
+          <h4>📧 Email QR Codes</h4>
+          <p class="type-description">
+            Creates pre-composed emails with recipient, subject, and message
+            body.
+          </p>
+          <p>
+            <strong>Format:</strong>
+            MAILTO:email@example.com?subject=Subject&body=Message
+          </p>
+          <p>
+            <strong>Features:</strong> Supports CC, BCC, and HTML formatting
+          </p>
+          <div class="use-cases">
+            <h5>Best Use Cases:</h5>
+            <ul>
+              <li>Customer inquiry and support requests</li>
+              <li>Feedback and survey collection</li>
+              <li>Newsletter subscriptions</li>
+              <li>Business communication templates</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2>📊 QR Code Format Comparison</h2>
+
+        <div class="comparison-table">
+          <table>
+            <thead>
+              <tr>
+                <th>QR Code Type</th>
+                <th>Complexity</th>
+                <th>Data Capacity</th>
+                <th>User Action</th>
+                <th>Best For</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>URL/Website</td>
+                <td>Simple</td>
+                <td>High</td>
+                <td>Opens browser</td>
+                <td>Marketing, Information</td>
+              </tr>
+              <tr>
+                <td>vCard Contact</td>
+                <td>Medium</td>
+                <td>Medium</td>
+                <td>Saves contact</td>
+                <td>Networking, Business</td>
+              </tr>
+              <tr>
+                <td>WiFi Network</td>
+                <td>Medium</td>
+                <td>Low</td>
+                <td>Connects to WiFi</td>
+                <td>Guest Access, Events</td>
+              </tr>
+              <tr>
+                <td>SMS/Text</td>
+                <td>Simple</td>
+                <td>Medium</td>
+                <td>Opens messaging</td>
+                <td>Support, Feedback</td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td>Medium</td>
+                <td>Medium</td>
+                <td>Composes email</td>
+                <td>Communication, Support</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>🔄 Static vs. Dynamic QR Codes</h2>
+
+        <h3>Static QR Codes</h3>
+        <p>
+          Static QR codes contain fixed data that cannot be changed after
+          generation. They're ideal for permanent information like contact
+          details, WiFi passwords, or stable website URLs.
+        </p>
+
+        <p><strong>Advantages:</strong></p>
+        <ul>
+          <li>No ongoing costs or subscriptions</li>
+          <li>Work indefinitely without external dependencies</li>
+          <li>Faster scanning due to direct data encoding</li>
+          <li>Complete privacy - no tracking possible</li>
+        </ul>
+
+        <h3>Dynamic QR Codes</h3>
+        <p>
+          Dynamic QR codes redirect to a short URL that can be updated to point
+          to different destinations. They offer flexibility and analytics but
+          require ongoing service.
+        </p>
+
+        <p><strong>Advantages:</strong></p>
+        <ul>
+          <li>Updateable content without reprinting</li>
+          <li>Detailed analytics and tracking</li>
+          <li>A/B testing capabilities</li>
+          <li>Campaign management features</li>
+        </ul>
+
+        <div class="pro-tip">
+          <h4>💡 Choosing Between Static and Dynamic</h4>
+          <p>
+            Use static QR codes for permanent information like contact details,
+            WiFi passwords, or stable websites. Choose dynamic QR codes for
+            marketing campaigns, temporary promotions, or when you need detailed
+            analytics.
+          </p>
+        </div>
+
+        <h2>🎯 Best Practices for QR Code Selection</h2>
+
+        <h3>Consider Your Audience</h3>
+        <ul>
+          <li>
+            <strong>Tech-savvy users:</strong> Can handle complex formats like
+            vCard
+          </li>
+          <li><strong>General public:</strong> Prefer simple URL QR codes</li>
+          <li>
+            <strong>Business context:</strong> Professional formats like vCard
+            and email
+          </li>
+          <li>
+            <strong>Casual settings:</strong> WiFi and SMS QR codes work well
+          </li>
+        </ul>
+
+        <h3>Optimize for Context</h3>
+        <ul>
+          <li>
+            <strong>Print materials:</strong> Use static QR codes for
+            reliability
+          </li>
+          <li>
+            <strong>Digital displays:</strong> Dynamic QR codes for flexibility
+          </li>
+          <li>
+            <strong>Business cards:</strong> vCard format for professional
+            networking
+          </li>
+          <li><strong>Public spaces:</strong> WiFi QR codes for convenience</li>
+        </ul>
+
+        <h3>Technical Considerations</h3>
+        <ul>
+          <li>
+            <strong>Data amount:</strong> More data creates denser,
+            harder-to-scan codes
+          </li>
+          <li>
+            <strong>Error correction:</strong> Higher levels for damaged
+            environments
+          </li>
+          <li>
+            <strong>Size requirements:</strong> Larger codes for distance
+            scanning
+          </li>
+          <li>
+            <strong>Device compatibility:</strong> Test across different
+            smartphones
+          </li>
+        </ul>
+
+        <div class="cta-section">
+          <h3>Ready to Create Your Perfect QR Code?</h3>
+          <p>
+            Generate any type of QR code with our free, privacy-focused tool. No
+            registration required, instant results.
+          </p>
+          <a href="/" class="cta-button">Start Creating QR Codes →</a>
+        </div>
+
+        <h2>🔮 Emerging QR Code Technologies</h2>
+
+        <p>The future of QR codes includes exciting developments:</p>
+
+        <ul>
+          <li>
+            <strong>Colored QR Codes:</strong> Brand-aligned designs without
+            functionality loss
+          </li>
+          <li>
+            <strong>Logo Integration:</strong> Custom branding within error
+            correction limits
+          </li>
+          <li>
+            <strong>Micro QR Codes:</strong> Smaller formats for
+            space-constrained applications
+          </li>
+          <li>
+            <strong>Secure QR Codes:</strong> Encrypted data for sensitive
+            information
+          </li>
+          <li>
+            <strong>Interactive QR Codes:</strong> Multi-action codes with user
+            choice menus
+          </li>
+        </ul>
+
+        <p>
+          Understanding QR code types empowers you to choose the right format
+          for every situation, maximizing user experience and achieving your
+          communication goals effectively.
+        </p>
+      </main>
+
+      <nav class="navigation-links">
+        <a href="/blog/qr-codes-business-guide" class="nav-link"
+          >← Previous Article</a
+        >
+        <a href="/blog/qr-code-security-best-practices" class="nav-link"
+          >Next Article →</a
+        >
+      </nav>
+    </div>
+  </body>
 </html>
